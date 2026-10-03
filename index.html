@@ -287,46 +287,43 @@ body {
 
 .led-box-card {
   background: #ffffff !important;
-  border: 2px solid #10b981 !important;
-  box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.2), 0 0 12px rgba(16, 185, 129, 0.18) !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid #f1f5f9 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+  transition: all 0.2s ease;
 }
 
 .led-box-card:hover {
-  border-color: #059669 !important;
-  box-shadow: 0 8px 25px -2px rgba(16, 185, 129, 0.32), 0 0 18px rgba(16, 185, 129, 0.25) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07) !important;
   transform: translateY(-2px);
 }
 
 .led-box-red {
   background: #fff1f2 !important;
-  border: 2px solid #f43f5e !important;
-  box-shadow: 0 0 14px rgba(244, 63, 94, 0.22) !important;
+  border: 1px solid #fecdd3 !important;
 }
 
 .led-box-amber {
   background: #fffbeb !important;
-  border: 2px solid #f59e0b !important;
-  box-shadow: 0 0 14px rgba(245, 158, 11, 0.22) !important;
+  border: 1px solid #fde68a !important;
 }
 
 .led-box-green {
   background: #ecfdf5 !important;
-  border: 2px solid #10b981 !important;
-  box-shadow: 0 0 14px rgba(16, 185, 129, 0.22) !important;
+  border: 1px solid #a7f3d0 !important;
 }
 
 .led-floating-assistant {
   background: #ffffff !important;
-  border: 2px solid #10b981 !important;
-  box-shadow: 0 6px 25px rgba(16, 185, 129, 0.32), 0 0 15px rgba(16, 185, 129, 0.22) !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.05) !important;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .led-floating-assistant:hover {
-  border-color: #059669 !important;
-  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.45), 0 0 20px rgba(16, 185, 129, 0.35) !important;
-  transform: translateY(-3px) scale(1.02);
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1) !important;
+  transform: translateY(-2px);
 }
 
 </style>
@@ -662,15 +659,15 @@ body {
 
           <!-- Acciones Derecha -->
           <div class="flex items-center gap-2">
-            <button @click="toggleAssistant" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white hover:bg-emerald-50/50 text-slate-900 border-2 border-emerald-500 hover:border-emerald-600 text-xs font-bold transition shadow-[0_0_12px_rgba(16,185,129,0.25)] cursor-pointer" title="Abrir Asistente GaritaPass">
-              <div class="w-6 h-6 rounded-lg bg-emerald-50 border border-emerald-300 flex items-center justify-center flex-shrink-0 text-emerald-600 shadow-[0_0_6px_rgba(16,185,129,0.2)]">
+            <button @click="toggleAssistant" class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 hover:border-slate-300 text-xs font-bold transition shadow-xs cursor-pointer" title="Abrir Asistente GaritaPass">
+              <div class="w-6 h-6 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0 text-emerald-600">
                 <svg class="w-3.5 h-3.5 text-emerald-600" viewBox="0 0 32 32" fill="none">
                   <path d="M16 3.5L5.5 7.5v8c0 7.2 4.4 12.5 10.5 13.5 6.1-1 10.5-6.3 10.5-13.5v-8L16 3.5z" stroke="currentColor" stroke-width="2.6" fill="rgba(16,185,129,0.15)"/>
                   <path d="M11 16l3.5 3.5 7.5-7.5" stroke="currentColor" stroke-width="2.8"/>
                 </svg>
               </div>
               <div class="flex items-center text-xs font-black tracking-wider leading-none">
-                <span class="text-slate-600 mr-1 text-[10px] font-bold uppercase tracking-wider">ASISTENTE</span>
+                <span class="text-slate-500 mr-1 text-[10px] font-semibold uppercase tracking-wider">ASISTENTE</span>
                 <span class="text-slate-900">GARITA</span><span class="text-emerald-600">PASS</span>
               </div>
             </button>
@@ -771,18 +768,16 @@ body {
               </button>
             </div>
 
-            <!-- Banner Resumen Estilo Infografía LED en Fondo Blanco -->
-            <div id="readiness-card" class="bg-white rounded-3xl border-2 border-emerald-400 p-5 md:p-6 shadow-[0_8px_30px_-5px_rgba(16,185,129,0.2),0_0_16px_rgba(16,185,129,0.18)] relative overflow-hidden" :class="isTourActive && tourStep === 1 ? 'tour-highlight' : ''">
-              <div class="absolute -top-12 -right-12 w-48 h-48 bg-emerald-100/50 rounded-full blur-3xl pointer-events-none"></div>
-              
+            <!-- Banner Resumen Operativo -->
+            <div id="readiness-card" class="bg-white rounded-3xl p-5 md:p-6 shadow-xs relative overflow-hidden" :class="isTourActive && tourStep === 1 ? 'tour-highlight' : ''">
               <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
                 <div class="flex items-center gap-5">
                   
-                  <!-- Circular Readiness Gauge (Estilo Infografía sobre Blanco) -->
+                  <!-- Circular Readiness Gauge -->
                   <div class="relative w-22 h-22 flex-shrink-0 flex items-center justify-center">
                     <svg class="w-full h-full -rotate-90" viewBox="0 0 36 36">
-                      <path class="text-slate-200" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
-                      <path class="text-emerald-500 drop-shadow-[0_0_8px_rgba(16,185,129,0.6)]" stroke-dasharray="100, 100" :stroke-dashoffset="100 - currentStats.readiness" stroke-linecap="round" stroke-width="3.2" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                      <path class="text-slate-100" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                      <path class="text-emerald-500" stroke-dasharray="100, 100" :stroke-dashoffset="100 - currentStats.readiness" stroke-linecap="round" stroke-width="3.2" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
                     </svg>
                     <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
                       <span class="text-2xl font-black font-mono tracking-tight text-slate-900">{{ currentStats.readiness }}%</span>
@@ -791,16 +786,16 @@ body {
                   </div>
 
                   <div>
-                    <!-- Banner Verde ACCESS GRANTED de la Garita -->
+                    <!-- Badge de Estado de Garita -->
                     <div class="flex items-center gap-2 flex-wrap mb-1.5">
-                      <div class="px-3 py-1 rounded-full bg-emerald-50 border-2 border-emerald-500 text-emerald-800 text-xs font-black tracking-wider uppercase flex items-center gap-2 shadow-[0_0_10px_rgba(16,185,129,0.2)]">
+                      <div class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold tracking-wider uppercase flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                         <span>GARITAPASS: ACCESS GRANTED</span>
                       </div>
-                      <span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 text-[10px] font-mono font-bold">
+                      <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 text-[10px] font-mono font-bold">
                         98% COMPLIANCE
                       </span>
-                      <span class="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-mono font-bold">
+                      <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 text-[10px] font-mono font-bold">
                         &lt;20s STREAMLINED ENTRY
                       </span>
                     </div>
@@ -821,11 +816,11 @@ body {
                 </div>
 
                 <div class="flex flex-wrap items-center gap-2.5">
-                  <button @click="openExportModal('complete')" class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 text-xs font-bold border-2 border-slate-200 hover:border-emerald-400 transition flex items-center gap-2 shadow-xs cursor-pointer">
+                  <button @click="openExportModal('complete')" class="px-4 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 text-xs font-bold border border-slate-200 hover:border-slate-300 transition flex items-center gap-2 shadow-xs cursor-pointer">
                     <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
                     <span>Generar Carpeta Foliada</span>
                   </button>
-                  <button @click="openAiUpload()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white font-black text-xs shadow-md shadow-emerald-500/25 transition flex items-center gap-2 cursor-pointer">
+                  <button @click="openAiUpload()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm transition flex items-center gap-2 cursor-pointer">
                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
                     <span>Cargar con IA (OCR)</span>
                   </button>
@@ -833,142 +828,142 @@ body {
               </div>
             </div>
 
-            <!-- TARJETAS PRINCIPALES REACTIVAS (RECUADROS LED EN FONDO BLANCO) -->
+            <!-- TARJETAS PRINCIPALES REACTIVAS (LIMPIAS SIN RECUADROS VERDES) -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <!-- 1. PERSONAS -->
-              <div @click="navigateTo('personas')" class="bg-white rounded-2xl border-2 border-emerald-400 p-4.5 cursor-pointer group relative overflow-hidden shadow-[0_4px_20px_-2px_rgba(16,185,129,0.2),0_0_12px_rgba(16,185,129,0.18)] hover:shadow-[0_8px_25px_-2px_rgba(16,185,129,0.32),0_0_18px_rgba(16,185,129,0.25)] hover:-translate-y-1 transition-all">
-                <div class="flex items-center justify-between mb-3">
-                  <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-700 flex items-center justify-center font-bold shadow-[0_0_8px_rgba(16,185,129,0.2)]">
+              <div @click="navigateTo('personas')" class="bg-white rounded-2xl p-5 cursor-pointer group shadow-xs hover:shadow-md transition-all">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base">
                       👥
                     </div>
                     <div>
                       <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Personas</span>
-                      <span class="text-[9px] text-emerald-600 font-mono font-bold tracking-widest">NÓMINA ACTIVA</span>
+                      <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Nómina Activa</span>
                     </div>
                   </div>
-                  <span class="text-2xl font-black font-mono text-slate-900 tracking-tight">{{ currentStats.people.total }}</span>
+                  <span class="text-3xl font-black font-mono text-slate-900 tracking-tight">{{ currentStats.people.total }}</span>
                 </div>
-                <div class="grid grid-cols-3 gap-1.5 pt-3 border-t border-slate-100 text-center text-xs">
-                  <div class="p-1 rounded-lg bg-emerald-50 border border-emerald-200">
-                    <span class="text-[9px] text-emerald-700 block font-mono uppercase font-bold">Habilitadas</span>
-                    <span class="font-black text-emerald-700 font-mono text-sm">{{ currentStats.people.enabled }}</span>
+                <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 text-center">
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Habilitadas</span>
+                    <span class="font-black text-emerald-600 font-mono text-base">{{ currentStats.people.enabled }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-amber-50 border border-amber-200">
-                    <span class="text-[9px] text-amber-700 block font-mono uppercase font-bold">Observadas</span>
-                    <span class="font-black text-amber-700 font-mono text-sm">{{ currentStats.people.observed }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Observadas</span>
+                    <span class="font-black text-amber-500 font-mono text-base">{{ currentStats.people.observed }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-rose-50 border border-rose-200">
-                    <span class="text-[9px] text-rose-700 block font-mono uppercase font-bold">Bloqueadas</span>
-                    <span class="font-black text-rose-700 font-mono text-sm">{{ currentStats.people.blocked }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Bloqueadas</span>
+                    <span class="font-black text-rose-500 font-mono text-base">{{ currentStats.people.blocked }}</span>
                   </div>
                 </div>
               </div>
 
               <!-- 2. VEHÍCULOS -->
-              <div @click="navigateTo('vehiculos')" class="bg-white rounded-2xl border-2 border-emerald-400 p-4.5 cursor-pointer group relative overflow-hidden shadow-[0_4px_20px_-2px_rgba(16,185,129,0.2),0_0_12px_rgba(16,185,129,0.18)] hover:shadow-[0_8px_25px_-2px_rgba(16,185,129,0.32),0_0_18px_rgba(16,185,129,0.25)] hover:-translate-y-1 transition-all">
-                <div class="flex items-center justify-between mb-3">
-                  <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-700 flex items-center justify-center font-bold shadow-[0_0_8px_rgba(16,185,129,0.2)]">
+              <div @click="navigateTo('vehiculos')" class="bg-white rounded-2xl p-5 cursor-pointer group shadow-xs hover:shadow-md transition-all">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base">
                       🛻
                     </div>
                     <div>
                       <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Vehículos</span>
-                      <span class="text-[9px] text-emerald-600 font-mono font-bold tracking-widest">FLOTA EN FAENA</span>
+                      <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Flota en Faena</span>
                     </div>
                   </div>
-                  <span class="text-2xl font-black font-mono text-slate-900 tracking-tight">{{ currentStats.vehicles.total }}</span>
+                  <span class="text-3xl font-black font-mono text-slate-900 tracking-tight">{{ currentStats.vehicles.total }}</span>
                 </div>
-                <div class="grid grid-cols-3 gap-1.5 pt-3 border-t border-slate-100 text-center text-xs">
-                  <div class="p-1 rounded-lg bg-emerald-50 border border-emerald-200">
-                    <span class="text-[9px] text-emerald-700 block font-mono uppercase font-bold">Habilitados</span>
-                    <span class="font-black text-emerald-700 font-mono text-sm">{{ currentStats.vehicles.enabled }}</span>
+                <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 text-center">
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Habilitados</span>
+                    <span class="font-black text-emerald-600 font-mono text-base">{{ currentStats.vehicles.enabled }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-amber-50 border border-amber-200">
-                    <span class="text-[9px] text-amber-700 block font-mono uppercase font-bold">Observados</span>
-                    <span class="font-black text-amber-700 font-mono text-sm">{{ currentStats.vehicles.observed }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Observados</span>
+                    <span class="font-black text-amber-500 font-mono text-base">{{ currentStats.vehicles.observed }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-rose-50 border border-rose-200">
-                    <span class="text-[9px] text-rose-700 block font-mono uppercase font-bold">Bloqueados</span>
-                    <span class="font-black text-rose-700 font-mono text-sm">{{ currentStats.vehicles.blocked }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Bloqueados</span>
+                    <span class="font-black text-rose-500 font-mono text-base">{{ currentStats.vehicles.blocked }}</span>
                   </div>
                 </div>
               </div>
 
               <!-- 3. EQUIPOS -->
-              <div @click="navigateTo('equipos')" class="bg-white rounded-2xl border-2 border-emerald-400 p-4.5 cursor-pointer group relative overflow-hidden shadow-[0_4px_20px_-2px_rgba(16,185,129,0.2),0_0_12px_rgba(16,185,129,0.18)] hover:shadow-[0_8px_25px_-2px_rgba(16,185,129,0.32),0_0_18px_rgba(16,185,129,0.25)] hover:-translate-y-1 transition-all">
-                <div class="flex items-center justify-between mb-3">
-                  <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-700 flex items-center justify-center font-bold shadow-[0_0_8px_rgba(16,185,129,0.2)]">
+              <div @click="navigateTo('equipos')" class="bg-white rounded-2xl p-5 cursor-pointer group shadow-xs hover:shadow-md transition-all">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base">
                       ⚙️
                     </div>
                     <div>
                       <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Equipos</span>
-                      <span class="text-[9px] text-emerald-600 font-mono font-bold tracking-widest">MAQUINARIA PESADA</span>
+                      <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Maquinaria Pesada</span>
                     </div>
                   </div>
-                  <span class="text-2xl font-black font-mono text-slate-900 tracking-tight">{{ currentStats.equipment.total }}</span>
+                  <span class="text-3xl font-black font-mono text-slate-900 tracking-tight">{{ currentStats.equipment.total }}</span>
                 </div>
-                <div class="grid grid-cols-3 gap-1.5 pt-3 border-t border-slate-100 text-center text-xs">
-                  <div class="p-1 rounded-lg bg-emerald-50 border border-emerald-200">
-                    <span class="text-[9px] text-emerald-700 block font-mono uppercase font-bold">Habilitados</span>
-                    <span class="font-black text-emerald-700 font-mono text-sm">{{ currentStats.equipment.enabled }}</span>
+                <div class="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 text-center">
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Habilitados</span>
+                    <span class="font-black text-emerald-600 font-mono text-base">{{ currentStats.equipment.enabled }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-amber-50 border border-amber-200">
-                    <span class="text-[9px] text-amber-700 block font-mono uppercase font-bold">P/Vencer</span>
-                    <span class="font-black text-amber-700 font-mono text-sm">{{ currentStats.equipment.expiring }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">P/Vencer</span>
+                    <span class="font-black text-amber-500 font-mono text-base">{{ currentStats.equipment.expiring }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-rose-50 border border-rose-200">
-                    <span class="text-[9px] text-rose-700 block font-mono uppercase font-bold">Bloqueados</span>
-                    <span class="font-black text-rose-700 font-mono text-sm">{{ currentStats.equipment.blocked }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Bloqueados</span>
+                    <span class="font-black text-rose-500 font-mono text-base">{{ currentStats.equipment.blocked }}</span>
                   </div>
                 </div>
               </div>
 
               <!-- 4. EMPRESA -->
-              <div @click="navigateTo('documentos')" class="bg-white rounded-2xl border-2 border-emerald-400 p-4.5 cursor-pointer group relative overflow-hidden shadow-[0_4px_20px_-2px_rgba(16,185,129,0.2),0_0_12px_rgba(16,185,129,0.18)] hover:shadow-[0_8px_25px_-2px_rgba(16,185,129,0.32),0_0_18px_rgba(16,185,129,0.25)] hover:-translate-y-1 transition-all">
-                <div class="flex items-center justify-between mb-3">
-                  <div class="flex items-center gap-2.5">
-                    <div class="w-9 h-9 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-700 flex items-center justify-center font-bold shadow-[0_0_8px_rgba(16,185,129,0.2)]">
+              <div @click="navigateTo('documentos')" class="bg-white rounded-2xl p-5 cursor-pointer group shadow-xs hover:shadow-md transition-all">
+                <div class="flex items-center justify-between mb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-base">
                       🏢
                     </div>
                     <div>
                       <span class="text-xs font-bold uppercase tracking-wider text-slate-800 block">Empresa</span>
-                      <span class="text-[9px] text-emerald-600 font-mono font-bold tracking-widest">LEGAJO FISCAL/HSE</span>
+                      <span class="text-[10px] text-slate-400 font-semibold uppercase tracking-wider">Legajo Fiscal/HSE</span>
                     </div>
                   </div>
-                  <span class="text-2xl font-black font-mono text-emerald-600 tracking-tight">{{ currentStats.companyDocs.compliance }}%</span>
+                  <span class="text-3xl font-black font-mono text-emerald-600 tracking-tight">{{ currentStats.companyDocs.compliance }}%</span>
                 </div>
-                <div class="grid grid-cols-4 gap-1 pt-3 border-t border-slate-100 text-center text-xs">
-                  <div class="p-1 rounded-lg bg-emerald-50 border border-emerald-200">
-                    <span class="text-[9px] text-emerald-700 block font-mono uppercase font-bold">Vigente</span>
-                    <span class="font-black text-emerald-700 font-mono text-sm">{{ currentStats.companyDocs.active }}</span>
+                <div class="grid grid-cols-4 gap-1 pt-3 border-t border-slate-100 text-center">
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Vigente</span>
+                    <span class="font-black text-emerald-600 font-mono text-base">{{ currentStats.companyDocs.active }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-amber-50 border border-amber-200">
-                    <span class="text-[9px] text-amber-700 block font-mono uppercase font-bold">P/Venc</span>
-                    <span class="font-black text-amber-700 font-mono text-sm">{{ currentStats.companyDocs.expiring }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">P/Venc</span>
+                    <span class="font-black text-amber-500 font-mono text-base">{{ currentStats.companyDocs.expiring }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-rose-50 border border-rose-200">
-                    <span class="text-[9px] text-rose-700 block font-mono uppercase font-bold">Vencida</span>
-                    <span class="font-black text-rose-700 font-mono text-sm">{{ currentStats.companyDocs.expired }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Vencida</span>
+                    <span class="font-black text-rose-500 font-mono text-base">{{ currentStats.companyDocs.expired }}</span>
                   </div>
-                  <div class="p-1 rounded-lg bg-slate-50 border border-slate-200">
-                    <span class="text-[9px] text-slate-600 block font-mono uppercase font-bold">Faltante</span>
-                    <span class="font-black text-slate-700 font-mono text-sm">{{ currentStats.companyDocs.missing }}</span>
+                  <div class="py-1">
+                    <span class="text-[10px] text-slate-400 block font-bold uppercase tracking-wider">Faltante</span>
+                    <span class="font-black text-slate-500 font-mono text-base">{{ currentStats.companyDocs.missing }}</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- ======================================================== -->
-            <!-- QUÉ REQUIERE ATENCIÓN HOY (EN BLANCO CON BORDES LED)    -->
+            <!-- QUÉ REQUIERE ATENCIÓN HOY                                -->
             <!-- ======================================================== -->
-            <div id="attention-section" class="bg-white rounded-3xl border-2 border-slate-200/90 p-5 md:p-6 shadow-sm relative overflow-hidden" :class="isTourActive && tourStep === 2 ? 'tour-highlight' : ''">
+            <div id="attention-section" class="bg-white rounded-3xl p-5 md:p-6 shadow-xs relative overflow-hidden" :class="isTourActive && tourStep === 2 ? 'tour-highlight' : ''">
               <div class="flex items-center justify-between mb-4">
                 <div class="flex items-center gap-2.5">
-                  <span class="w-3 h-3 rounded-full bg-rose-500 animate-pulse shadow-[0_0_8px_#f43f5e]"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
                   <h3 class="text-base font-bold text-slate-900 tracking-tight">Qué requiere atención hoy</h3>
-                  <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold border border-rose-300 font-mono uppercase">
+                  <span class="text-xs px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold font-mono uppercase">
                     Acciones Prioritarias
                   </span>
                 </div>
@@ -982,11 +977,11 @@ body {
                 <!-- 1. JUAN PÉREZ (DINÁMICO SEGÚN RESOLUCIÓN) -->
                 <div 
                   @click="openPersonDetail(people.find(p => p.id === 'PER-01'))"
-                  class="p-3.5 rounded-2xl border-2 transition cursor-pointer flex items-center justify-between gap-4 group"
-                  :class="workflowState.juanPerezFixed ? 'border-emerald-400 bg-emerald-50/60 shadow-[0_0_10px_rgba(16,185,129,0.18)]' : 'border-amber-400 bg-amber-50/50 hover:bg-amber-100/50 shadow-[0_0_10px_rgba(245,158,11,0.18)]'"
+                  class="p-3.5 rounded-2xl transition cursor-pointer flex items-center justify-between gap-4 group"
+                  :class="workflowState.juanPerezFixed ? 'bg-emerald-50/50 hover:bg-emerald-50' : 'bg-slate-50/80 hover:bg-slate-100/80'"
                 >
                   <div class="flex items-center gap-3 min-w-0">
-                    <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-xs" :class="workflowState.juanPerezFixed ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-amber-100 text-amber-800 border border-amber-300'">
+                    <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-xs" :class="workflowState.juanPerezFixed ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'">
                       {{ workflowState.juanPerezFixed ? '✓' : 'JP' }}
                     </div>
                     <div class="min-w-0">
@@ -994,8 +989,8 @@ body {
                         <span class="text-xs font-bold text-slate-900" :class="workflowState.juanPerezFixed ? 'line-through opacity-70' : 'group-hover:text-amber-900'">
                           Examen preocupacional de Juan Pérez: vence en 7 días
                         </span>
-                        <span v-if="!workflowState.juanPerezFixed" class="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-bold border border-amber-300 font-mono">⚠️ Requiere Atención</span>
-                        <span v-else class="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-bold border border-emerald-300 font-mono">✓ Resuelto / Aprobado</span>
+                        <span v-if="!workflowState.juanPerezFixed" class="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold font-mono">⚠️ Requiere Atención</span>
+                        <span v-else class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 font-bold font-mono">✓ Resuelto / Aprobado</span>
                       </div>
                       <p class="text-xs text-slate-600 truncate mt-0.5">
                         {{ workflowState.juanPerezFixed ? 'Examen renovado con vigencia hasta 02/10/2027. Juan Pérez se encuentra Habilitado en Proyecto Cumbre.' : 'Técnico mecánico. Si no se actualiza, quedará bloqueado su ingreso el 10/10/2026.' }}
@@ -1006,18 +1001,18 @@ body {
                     <span class="text-xs font-bold font-mono" :class="workflowState.juanPerezFixed ? 'text-emerald-700' : 'text-amber-700'">
                       {{ workflowState.juanPerezFixed ? 'Ver legajo' : 'Resolver ahora' }}
                     </span>
-                    <svg class="w-4 h-4 text-slate-500 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    <svg class="w-4 h-4 text-slate-400 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                   </div>
                 </div>
 
                 <!-- 2. VEHÍCULO AB 123 CD (DINÁMICO SEGÚN RESOLUCIÓN) -->
                 <div 
                   @click="openVehicleDetail(vehicles.find(v => v.plate === 'AB 123 CD'))"
-                  class="p-3.5 rounded-2xl border-2 transition cursor-pointer flex items-center justify-between gap-4 group"
-                  :class="workflowState.vehicleAbFixed ? 'border-emerald-400 bg-emerald-50/60 shadow-[0_0_10px_rgba(16,185,129,0.18)]' : 'border-rose-400 bg-rose-50/50 hover:bg-rose-100/50 shadow-[0_0_12px_rgba(244,63,94,0.2)]'"
+                  class="p-3.5 rounded-2xl transition cursor-pointer flex items-center justify-between gap-4 group"
+                  :class="workflowState.vehicleAbFixed ? 'bg-emerald-50/50 hover:bg-emerald-50' : 'bg-slate-50/80 hover:bg-slate-100/80'"
                 >
                   <div class="flex items-center gap-3 min-w-0">
-                    <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-xs" :class="workflowState.vehicleAbFixed ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300'">
+                    <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 font-bold text-xs" :class="workflowState.vehicleAbFixed ? 'bg-emerald-100 text-emerald-800' : 'bg-rose-100 text-rose-800'">
                       {{ workflowState.vehicleAbFixed ? '✓' : '4x4' }}
                     </div>
                     <div class="min-w-0">
@@ -1025,11 +1020,11 @@ body {
                         <span class="text-xs font-bold text-slate-900" :class="workflowState.vehicleAbFixed ? 'line-through opacity-70' : 'group-hover:text-rose-900'">
                           Seguro del vehículo AB 123 CD: vencido
                         </span>
-                        <span v-if="!workflowState.vehicleAbFixed" class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-bold border border-rose-300 font-mono">🚫 Bloqueado en Garita</span>
-                        <span v-else class="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-900 font-bold border border-emerald-300 font-mono">✓ Resuelto / Habilitado</span>
+                        <span v-if="!workflowState.vehicleAbFixed" class="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-900 font-bold font-mono">🚫 Bloqueado en Garita</span>
+                        <span v-else class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 font-bold font-mono">✓ Resuelto / Habilitado</span>
                       </div>
                       <p class="text-xs text-slate-600 truncate mt-0.5">
-                        {{ workflowState.vehicleAbFixed ? 'Póliza renovada con La Mercantil Andina hasta 02/10/2027. Bloqueo de garita levantado.' : 'Toyota Hilux SRX. La póliza caducó el 01/10/2026. Vehículo inhabilitado para operar.' }}
+                        {{ workflowState.vehicleAbFixed ? 'Póliza renovada con La Mercantil Andina hasta 02/10/2027. Bloqueo de garita levantado.' : 'Toyota Hilux延. La póliza caducó el 01/10/2026. Vehículo inhabilitado para operar.' }}
                       </p>
                     </div>
                   </div>
@@ -1037,23 +1032,23 @@ body {
                     <span class="text-xs font-bold font-mono" :class="workflowState.vehicleAbFixed ? 'text-emerald-700' : 'text-rose-700'">
                       {{ workflowState.vehicleAbFixed ? 'Ver ficha' : 'Renovar póliza' }}
                     </span>
-                    <svg class="w-4 h-4 text-slate-500 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    <svg class="w-4 h-4 text-slate-400 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                   </div>
                 </div>
 
                 <!-- 3. EQUIPO EQ-018 -->
                 <div 
                   @click="openEquipmentDetail(equipment.find(e => e.code === 'EQ-018'))"
-                  class="p-3.5 rounded-2xl border-2 border-rose-400 bg-rose-50/50 hover:bg-rose-100/50 shadow-[0_0_12px_rgba(244,63,94,0.2)] transition cursor-pointer flex items-center justify-between gap-4 group"
+                  class="p-3.5 rounded-2xl bg-slate-50/80 hover:bg-slate-100/80 transition cursor-pointer flex items-center justify-between gap-4 group"
                 >
                   <div class="flex items-center gap-3 min-w-0">
-                    <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-800 border border-rose-300 flex items-center justify-center flex-shrink-0 font-bold text-xs">
+                    <div class="w-9 h-9 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center flex-shrink-0 font-bold text-xs">
                       PEMP
                     </div>
                     <div class="min-w-0">
                       <div class="flex items-center gap-2 flex-wrap">
                         <span class="text-xs font-bold text-slate-900 group-hover:text-rose-900 transition">Certificación del equipo EQ-018: documento faltante</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-900 font-bold border border-rose-300 font-mono">🚫 Bloqueado</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-900 font-bold font-mono">🚫 Bloqueado</span>
                       </div>
                       <p class="text-xs text-slate-600 truncate mt-0.5">
                         Plataforma JLG 600AJ. Falta certificado de inspección de izaje y operatividad anual.
@@ -1069,16 +1064,16 @@ body {
                 <!-- 4. CONSTANCIA DE ART -->
                 <div 
                   @click="navigateTo('documentos'); documentFilter.entity = 'Empresa'"
-                  class="p-3.5 rounded-2xl border-2 border-amber-400 bg-amber-50/50 hover:bg-amber-100/50 shadow-[0_0_10px_rgba(245,158,11,0.18)] transition cursor-pointer flex items-center justify-between gap-4 group"
+                  class="p-3.5 rounded-2xl bg-slate-50/80 hover:bg-slate-100/80 transition cursor-pointer flex items-center justify-between gap-4 group"
                 >
                   <div class="flex items-center gap-3 min-w-0">
-                    <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 border border-amber-300 flex items-center justify-center flex-shrink-0 font-bold text-xs">
+                    <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center flex-shrink-0 font-bold text-xs">
                       ART
                     </div>
                     <div class="min-w-0">
                       <div class="flex items-center gap-2 flex-wrap">
                         <span class="text-xs font-bold text-slate-900 group-hover:text-amber-900 transition">Constancia de ART de la empresa: vence en 15 días</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-900 font-bold border border-amber-300 font-mono">⚠️ Afecta a 48 Empleados</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-bold font-mono">⚠️ Afecta a 48 Empleados</span>
                       </div>
                       <p class="text-xs text-slate-600 truncate mt-0.5">
                         Provincia ART. Vencimiento mensual con F.931 el 18/10. Requerido para los tres proyectos mineros.
@@ -1094,16 +1089,16 @@ body {
                 <!-- 5. BRECHA DE PROYECTO CUMBRE -->
                 <div 
                   @click="navigateTo('personas'); peopleFilter.project = 'cumbre'"
-                  class="p-3.5 rounded-2xl border-2 border-sky-400 bg-sky-50/50 hover:bg-sky-100/50 shadow-[0_0_10px_rgba(14,165,233,0.18)] transition cursor-pointer flex items-center justify-between gap-4 group"
+                  class="p-3.5 rounded-2xl bg-slate-50/80 hover:bg-slate-100/80 transition cursor-pointer flex items-center justify-between gap-4 group"
                 >
                   <div class="flex items-center gap-3 min-w-0">
-                    <div class="w-9 h-9 rounded-xl bg-sky-100 text-sky-800 border border-sky-300 flex items-center justify-center flex-shrink-0 font-bold text-xs">
+                    <div class="w-9 h-9 rounded-xl bg-sky-100 text-sky-800 flex items-center justify-center flex-shrink-0 font-bold text-xs">
                       HSE
                     </div>
                     <div class="min-w-0">
                       <div class="flex items-center gap-2 flex-wrap">
                         <span class="text-xs font-bold text-slate-900 group-hover:text-sky-900 transition">Cinco personas no cumplen todos los requisitos del Proyecto Cumbre</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded bg-sky-100 text-sky-900 font-bold border border-sky-300 font-mono">Brecha de Dotación</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-sky-100 text-sky-900 font-bold font-mono">Brecha de Dotación</span>
                       </div>
                       <p class="text-xs text-slate-600 truncate mt-0.5">
                         Revisar requisitos específicos de gran altitud, LNTI y certificados de capacitación para Proyecto Cumbre.
@@ -3646,7 +3641,7 @@ body {
       class="fixed bottom-6 right-6 z-40 px-4 py-2.5 rounded-2xl led-floating-assistant flex items-center gap-3.5 group cursor-pointer transition-all hover:scale-105"
       title="Abrir Asistente GaritaPass"
     >
-      <div class="w-10 h-10 rounded-xl bg-emerald-50 border-2 border-emerald-500 flex items-center justify-center text-emerald-600 shadow-[0_0_12px_rgba(16,185,129,0.25)] flex-shrink-0 group-hover:scale-105 transition-transform">
+      <div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0 group-hover:scale-105 transition-transform">
         <svg class="w-6 h-6 text-emerald-600" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M16 3.5L5.5 7.5v8c0 7.2 4.4 12.5 10.5 13.5 6.1-1 10.5-6.3 10.5-13.5v-8L16 3.5z" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="rgba(16,185,129,0.15)"/>
           <path d="M11 16l3.5 3.5 7.5-7.5" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
