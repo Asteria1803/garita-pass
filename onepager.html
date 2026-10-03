@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-slate-50 text-slate-800">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GaritaPass — Executive One-Pager & Infografía de Negocio</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            },
+            darknavy: '#0b1329',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media print {
+      body { background: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .no-print { display: none !important; }
+      .page-break { page-break-before: always; }
+      .print-shadow-none { box-shadow: none !important; }
+    }
+    @page {
+      size: A4 portrait;
+      margin: 12mm;
+    }
+  </style>
+</head>
+<body class="min-h-full font-sans antialiased selection:bg-teal-500 selection:text-white p-4 md:p-8 lg:p-12">
+
+  <!-- BARRA DE ACCIÓN SUPERIOR (NO PRINT) -->
+  <header class="no-print max-w-5xl mx-auto mb-8 bg-slate-900 text-white p-4 rounded-2xl flex flex-wrap items-center justify-between gap-4 shadow-xl border border-slate-800">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-teal-500 text-slate-950 font-bold flex items-center justify-center text-lg shadow-md shadow-teal-500/20">
+        GP
+      </div>
+      <div>
+        <h1 class="text-sm font-bold flex items-center gap-2">
+          <span>GaritaPass — Executive One-Pager & Infografía</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] bg-teal-500/20 text-teal-300 border border-teal-500/30 font-mono">B2B SaaS</span>
+        </h1>
+        <p class="text-xs text-slate-400">Material ejecutivo para inversores, contratistas y directores de operaciones</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-2.5">
+      <a href="https://asteria1803.github.io/garita-pass/" target="_blank" class="px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs transition flex items-center gap-1.5 shadow-sm">
+        <span>Abrir Prototipo en Vivo</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+      <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-semibold text-xs border border-slate-700 transition flex items-center gap-1.5 shadow-sm">
+        <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4H9v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        <span>Guardar en PDF / Imprimir</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL DEL ONE-PAGER (FORMATO EJECUTIVO) -->
+  <main class="max-w-5xl mx-auto bg-white border border-slate-200/90 rounded-3xl shadow-xl p-6 md:p-10 space-y-8 print-shadow-none">
+
+    <!-- 1. ENCABEZADO EJECUTIVO -->
+    <header class="border-b border-slate-200 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+      <div class="space-y-2">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-darknavy text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-teal-900/20 border border-slate-700">
+            <svg class="w-7 h-7 text-teal-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-3xl font-black tracking-tight text-slate-900">GaritaPass</span>
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-50 text-teal-700 border border-teal-200 uppercase tracking-wider">B2B SaaS</span>
+            </div>
+            <p class="text-sm font-semibold text-slate-500">Oficina Digital de Cumplimiento y Habilitaciones Operativas</p>
+          </div>
+        </div>
+        <p class="text-sm text-slate-700 max-w-2xl leading-relaxed">
+          Garantizamos que empresas contratistas tengan su personal, vehículos y maquinaria <strong>100% habilitados antes de subir a faena</strong>, eliminando paradas operativas, multas y rechazos en garita de acceso.
+        </p>
+      </div>
+
+      <!-- Ficha Rápida / Badges -->
+      <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col gap-2 min-w-[240px] text-xs">
+        <div class="flex justify-between items-center text-slate-600">
+          <span class="font-medium">Industrias:</span>
+          <span class="font-bold text-slate-900">Minería, O&G, Energía</span>
+        </div>
+        <div class="flex justify-between items-center text-slate-600">
+          <span class="font-medium">Modelo:</span>
+          <span class="font-bold text-teal-700">Suscripción B2B por dotación</span>
+        </div>
+        <div class="flex justify-between items-center text-slate-600">
+          <span class="font-medium">Estado:</span>
+          <span class="font-bold text-indigo-700">Prototipo validado en vivo</span>
+        </div>
+        <div class="flex justify-between items-center text-slate-600 pt-1 border-t border-slate-200">
+          <span class="font-medium">Demo Online:</span>
+          <a href="https://asteria1803.github.io/garita-pass/" target="_blank" class="font-mono text-teal-600 underline font-bold">asteria1803.github.io/garita-pass</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. INFOGRAFÍA: LA ANATOMÍA DEL PROBLEMA VS. LA SOLUCIÓN GARITAPASS -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <span>📊 Infografía: El Cuello de Botella Operativo en Faena</span>
+        </h2>
+        <span class="text-xs text-slate-600 font-medium">Comparativa de Flujo de Trabajo</span>
+      </div>
+
+      <!-- IMAGEN DE INFOGRAFÍA VISUAL -->
+      <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+        <img src="garitapass_infografia.jpg" alt="Infografía Visual GaritaPass - Acceso en Garita" class="w-full h-auto object-cover">
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        
+        <!-- FLUJO TRADICIONAL (EL PROBLEMA) -->
+        <div class="rounded-2xl p-5 bg-rose-50/70 border border-rose-200 space-y-3 relative overflow-hidden">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-bold flex items-center gap-1.5 border border-rose-200">
+              <span>❌</span> El Proceso Tradicional (Excel & Mensajes)
+            </span>
+            <span class="text-xs font-bold text-rose-700">Alto Riesgo de Parada</span>
+          </div>
+
+          <div class="space-y-2.5 text-xs text-slate-700 pt-1">
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center font-bold flex-shrink-0 text-[10px]">1</span>
+              <p><strong>Información dispersa:</strong> RRHH tiene los médicos, Flota los seguros y HSE las capacitaciones en planillas separadas.</p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center font-bold flex-shrink-0 text-[10px]">2</span>
+              <p><strong>Ceguera de requisitos:</strong> Creen estar habilitados porque "cumplen en Proyecto A", pero desconocen que Proyecto B exige pólizas especiales y test de altura.</p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center font-bold flex-shrink-0 text-[10px]">3</span>
+              <p><strong>El viaje a ciegas:</strong> Se despacha la camioneta y la cuadrilla a 400 km cordillera arriba.</p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-rose-200 text-rose-800 flex items-center justify-center font-bold flex-shrink-0 text-[10px]">4</span>
+              <p class="text-rose-900 font-semibold"><strong>Rebote en Garita:</strong> "Póliza expiró hace 48 hs. Chofer y vehículo no ingresan". Pérdida de USD $8.000 a $15.000 por día de parada.</p>
+            </div>
+          </div>
+
+          <div class="mt-3 p-2.5 rounded-xl bg-white/80 border border-rose-200 text-[11px] text-rose-800 font-medium">
+            ⚠️ <strong>Impacto:</strong> Desgaste con la operadora minera, penalizaciones contractuales y horas extras de urgencia en fin de semana.
+          </div>
+        </div>
+
+        <!-- FLUJO GARITAPASS (LA SOLUCIÓN) -->
+        <div class="rounded-2xl p-5 bg-teal-50/70 border border-teal-200 space-y-3 relative overflow-hidden">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full bg-teal-100 text-teal-800 text-xs font-bold flex items-center gap-1.5 border border-teal-200">
+              <span>✓</span> Con GaritaPass (Oficina Digital de Cumplimiento)
+            </span>
+            <span class="text-xs font-bold text-teal-700">100% Trazable & Seguro</span>
+          </div>
+
+          <div class="space-y-2.5 text-xs text-slate-700 pt-1">
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-teal-200 text-teal-900 flex items-center justify-center font-bold flex-shrink-0 text-[10px]">1</span>
+              <p><strong>Fuente Única de Verdad:</strong> Legajos completos de personal, vehículos y maquinaria consolidados en una sola plataforma.</p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-teal-200 text-teal-900 flex items-center justify-center font-bold flex-shrink-0 text-[10px]">2</span>
+              <p><strong>Matriz Multicontrato Dinámica:</strong> El sistema evalúa automáticamente cada recurso contra las exigencias del proyecto de destino.</p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-teal-200 text-teal-900 flex items-center justify-center font-bold flex-shrink-0 text-[10px]">3</span>
+              <p><strong>Alertas Preventivas (30/15/7 días):</strong> El motor avisa con anticipación a la persona responsable para renovar antes de caducar.</p>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="w-5 h-5 rounded-full bg-teal-200 text-teal-900 flex items-center justify-center font-bold flex-shrink-0 text-[10px]">4</span>
+              <p class="text-teal-950 font-semibold"><strong>Pase Inmediato en Garita:</strong> Credenciales QR individuales y carpeta digital foliada con firma y hash SHA-256 lista con 1 clic.</p>
+            </div>
+          </div>
+
+          <div class="mt-3 p-2.5 rounded-xl bg-white/80 border border-teal-200 text-[11px] text-teal-800 font-medium">
+            🎯 <strong>Impacto:</strong> 0% rebotes imprevistos, preparación documental de horas a minutos y auditorías impecables.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. LOS 4 PILARES TECNOLÓGICOS Y OPERATIVOS -->
+    <section class="space-y-4">
+      <h2 class="text-lg font-bold text-slate-900">
+        ⚙️ Los 4 Pilares de la Solución
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-teal-500/10 text-teal-700 flex items-center justify-center font-bold text-base">
+            📋
+          </div>
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">1. Matriz Multicontrato</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Contrasta requisitos específicos de cada operadora (ej. altura geográfica, kits 4x4, ensayos END) evitando asunciones entre contratos.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-700 flex items-center justify-center font-bold text-base">
+            🔔
+          </div>
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">2. Alertas Tempranas</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Semáforo operativo en tiempo real: clasifica brechas críticas, asigna responsables internos y evita caducidades imprevistas de pólizas y ART.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-indigo-500/10 text-indigo-700 flex items-center justify-center font-bold text-base">
+            🤖
+          </div>
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">3. OCR Asistido por IA</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Lectura inteligente de pólizas, licencias y certificados médicos para autocompletar fechas y números con validación humana en 2 clics.
+          </p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+          <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-700 flex items-center justify-center font-bold text-base">
+            📇
+          </div>
+          <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">4. Dossier Foliado & QR</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Exportación de carpetas de habilitación ordenadas con índice e integridad criptográfica SHA-256, más credenciales QR para garita.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. CASO DE NEGOCIO SIMULADO EN VIVO (PILOTO) -->
+    <section class="bg-gradient-to-br from-slate-900 via-darknavy to-slate-900 text-white rounded-3xl p-6 md:p-8 space-y-5">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <span class="text-xs font-bold text-teal-400 uppercase tracking-wider">Demostración en Vivo</span>
+          <h2 class="text-lg font-bold text-white">Caso Piloto: Andes Servicios Integrales SRL</h2>
+          <p class="text-xs text-slate-400">Contratista ficticia de servicios mineros (San Juan, Argentina) con 48 colaboradores, 14 móviles y 19 maquinarias.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="https://asteria1803.github.io/garita-pass/" target="_blank" class="px-4 py-2 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold text-xs transition flex items-center gap-1.5 shadow-md shadow-teal-500/20">
+            <span>Ver Caso en Vivo (5 min)</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-2xl">
+          <span class="text-2xl font-black font-mono text-teal-400 block">48</span>
+          <span class="text-[11px] text-slate-300 font-medium">Legajos de Personal</span>
+        </div>
+        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-2xl">
+          <span class="text-2xl font-black font-mono text-teal-400 block">14 / 19</span>
+          <span class="text-[11px] text-slate-300 font-medium">Vehículos y Equipos</span>
+        </div>
+        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-2xl">
+          <span class="text-2xl font-black font-mono text-rose-400 block">5 Brechas</span>
+          <span class="text-[11px] text-slate-300 font-medium">Detectadas Previas a Subir</span>
+        </div>
+        <div class="bg-slate-800/80 border border-slate-700 p-3.5 rounded-2xl">
+          <span class="text-2xl font-black font-mono text-emerald-400 block">76% ➔ 91%</span>
+          <span class="text-[11px] text-slate-300 font-medium">Habilitación Lograda</span>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate-300 leading-relaxed italic bg-slate-950/40 p-3.5 rounded-xl border border-slate-800">
+        "En la demo interactiva, el usuario resuelve en tiempo real el examen preocupacional de Juan Pérez y la póliza de la camioneta Toyota Hilux AB 123 CD, observando cómo el índice de preparación sube automáticamente y habilita la carpeta para presentar a la minera."
+      </p>
+    </section>
+
+    <!-- 5. MODELO DE NEGOCIO Y MERCADO OBJETIVO -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- MERCADO & CLIENTES -->
+      <div class="border border-slate-200 rounded-2xl p-5 space-y-3">
+        <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+          <span>🎯</span> Mercado & Clientes Target
+        </h3>
+        <ul class="space-y-2 text-xs text-slate-700">
+          <li class="flex items-start gap-2">
+            <span class="text-teal-600 font-bold">✓</span>
+            <span><strong>Contratistas medianas y grandes:</strong> Empresas de 20 a 500 empleados que operan en faenas de minería metalífera, litio, petróleo y gas no convencional (Vaca Muerta).</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-teal-600 font-bold">✓</span>
+            <span><strong>Proveedores de servicios críticos:</strong> Transporte de personal, izaje y grúas, catering industrial, montaje electromecánico y perforación.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-teal-600 font-bold">✓</span>
+            <span><strong>Compradores clave:</strong> Gerentes de Operaciones, Jefes de RRHH, Responsables de Seguridad e Higiene (HSE) y Dueños de contratistas.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- MODELO DE MONETIZACIÓN -->
+      <div class="border border-slate-200 rounded-2xl p-5 space-y-3 bg-slate-50/50">
+        <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+          <span>💰</span> Modelo de Negocio (B2B SaaS)
+        </h3>
+        <div class="space-y-2.5 text-xs text-slate-700">
+          <div class="p-2.5 rounded-xl bg-white border border-slate-200 flex justify-between items-center">
+            <div>
+              <span class="font-bold text-slate-900 block">Suscripción Mensual / Anual</span>
+              <span class="text-[11px] text-slate-500">Tarifa escalonada según dotación activa</span>
+            </div>
+            <span class="font-bold text-teal-700 font-mono">Tiered SaaS</span>
+          </div>
+          <div class="p-2.5 rounded-xl bg-white border border-slate-200 flex justify-between items-center">
+            <div>
+              <span class="font-bold text-slate-900 block">ROI Inmediato para la Empresa</span>
+              <span class="text-[11px] text-slate-500">Evitar 1 solo día de cuadrilla parada paga el año</span>
+            </div>
+            <span class="font-bold text-emerald-700 font-mono">&gt; 10x ROI</span>
+          </div>
+          <p class="text-[11px] text-slate-500 italic">
+            Sin costos por usuario individual: fomenta que RRHH, Flota y HSE colaboren en la misma plataforma sin fricción.
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 6. FOOTER EJECUTIVO CON CONTACTO Y ENLACE -->
+    <footer class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div class="flex items-center gap-2">
+        <span class="font-bold text-slate-800">GaritaPass</span>
+        <span>•</span>
+        <span>Entorno demostrativo con datos ficticios para validación comercial</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://asteria1803.github.io/garita-pass/" target="_blank" class="font-bold text-teal-600 hover:text-teal-700 underline">
+          Prototipo Online: asteria1803.github.io/garita-pass
+        </a>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
