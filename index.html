@@ -9,7 +9,250 @@
   <!-- Vue 3 Global CDN -->
   <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="css/app.css">
+  <style>
+/* Asteria Control - Estilos Corporativos B2B */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --primary: #0d9488;
+  --primary-dark: #0f766e;
+  --primary-light: #ccfbf1;
+  --secondary: #4f46e5;
+  --secondary-light: #e0e7ff;
+  --sidebar-bg: #0b1329;
+  --sidebar-border: #1e293b;
+  --surface: #ffffff;
+  --surface-alt: #f8fafc;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #f1f5f9;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Laser scan animation para IA */
+@keyframes laserScan {
+  0% {
+    top: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    top: 95%;
+    opacity: 1;
+  }
+  100% {
+    top: 0%;
+    opacity: 0.8;
+  }
+}
+
+.animate-laser-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #0d9488, #2dd4bf, #0d9488, transparent);
+  box-shadow: 0 0 14px 3px rgba(13, 148, 136, 0.7);
+  animation: laserScan 2.4s ease-in-out infinite;
+}
+
+/* Pulsing radar dot */
+@keyframes radarPulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(13, 148, 136, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
+  }
+}
+
+.pulse-radar {
+  animation: radarPulse 2s infinite;
+}
+
+/* Credencial Minera Digital */
+.mining-badge-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.mining-badge-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #0d9488 0%, #4f46e5 50%, #0d9488 100%);
+}
+
+.holographic-stripe {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(13, 148, 136, 0.05),
+    rgba(13, 148, 136, 0.05) 10px,
+    rgba(79, 70, 229, 0.05) 10px,
+    rgba(79, 70, 229, 0.05) 20px
+  );
+}
+
+/* Foco del recorrido guiado */
+.tour-highlight {
+  position: relative;
+  z-index: 60 !important;
+  box-shadow: 0 0 0 4px #0d9488, 0 0 25px rgba(13, 148, 136, 0.5) !important;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Tooltip animado */
+.fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos de impresión */
+@media print {
+  body {
+    background: white !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .mining-badge-card {
+    box-shadow: none !important;
+    border: 2px solid #334155 !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* ======================================================== */
+/* MODO PRESENTACIÓN (DEMO EJECUTIVA B2B)                  */
+/* ======================================================== */
+.presentation-dock {
+  background: rgba(15, 23, 42, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(45, 212, 191, 0.35);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(13, 148, 136, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.presentation-quote-box {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.12) 0%, rgba(79, 70, 229, 0.12) 100%);
+  border-left: 4px solid #14b8a6;
+  position: relative;
+}
+
+.presentation-step-pill {
+  transition: all 0.2s ease;
+}
+
+.presentation-step-pill.active {
+  background-color: #0d9488;
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(13, 148, 136, 0.6);
+}
+
+.presentation-card-glow {
+  box-shadow: 0 0 0 1px rgba(45, 212, 191, 0.2), 0 8px 30px rgba(15, 23, 42, 0.12);
+}
+
+/* ======================================================== */
+/* ASISTENTE ASTERIA (PANEL LATERAL CONTEXTUAL)            */
+/* ======================================================== */
+.assistant-drawer {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  box-shadow: -10px 0 35px -5px rgba(15, 23, 42, 0.25);
+}
+
+.assistant-chip {
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.assistant-chip:hover {
+  transform: translateY(-1px);
+  background-color: #0f766e;
+  color: #ffffff;
+  border-color: #0d9488;
+}
+
+.assistant-bubble-assistant {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.05);
+}
+
+.assistant-bubble-user {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+}
+
+.assistant-fact-box {
+  background: #f0fdfa;
+  border-left: 3px solid #0d9488;
+}
+
+.assistant-rec-box {
+  background: #eff6ff;
+  border-left: 3px solid #3b82f6;
+}
+
+
+
+</style>
   <script>
     tailwind.config = {
       theme: {
@@ -3410,7 +3653,3317 @@
 
   </div>
 
-  <script src="js/data.js"></script>
-  <script src="js/app.js"></script>
+  <script>
+// Asteria Control - Datos Ficticios de Demostración
+// Empresa: Andes Servicios Integrales SRL (San Juan, Argentina)
+
+// Generador de dotación completa para 48 personas consistentes
+function generateFullStaff() {
+  const basePeople = [
+    {
+      id: "PER-01",
+      name: "Juan Pérez",
+      dni: "34.***.892",
+      fullDni: "34.582.892",
+      role: "Técnico Mecánico Especialista",
+      assignedProjects: ["cumbre", "cordillera"],
+      status: "Observado", // Observado por vencimiento en Cumbre
+      projectStatuses: { cumbre: "Observado", cordillera: "Habilitado", andino: "Sin evaluar" },
+      validDocsCount: 7,
+      totalDocsCount: 8,
+      nextExpiration: "10/10/2026",
+      nextExpirationDays: 7,
+      nextExpirationDoc: "Examen Preocupacional / Aptitud Laboral",
+      lastUpdate: "Hoy, 08:15 hs",
+      avatarBg: "bg-amber-100 text-amber-800",
+      phone: "+54 9 264 458-1192",
+      bloodType: "0+",
+      emergencyContact: "Silvia Gómez (Esposa) - 264-411-2299",
+      artNumber: "Provincia ART #4491-018",
+      documents: [
+        { id: "D-01", name: "DNI (Frente y Dorso)", status: "Vigente", expiration: "14/08/2032", issuer: "Renaper", verified: true },
+        { id: "D-02", name: "Licencia Nacional de Conducir (B2)", status: "Vigente", expiration: "22/11/2027", issuer: "Emicar San Juan", verified: true },
+        { id: "D-03", name: "Examen Preocupacional / Aptitud Anual", status: "Próximo a vencer", expiration: "10/10/2026", issuer: "Clínica Laboral Cuyo", verified: true, needsAction: true, observation: "Vence en 7 días. Bloqueará acceso a Proyecto Cumbre si no se renueva." },
+        { id: "D-04", name: "Aptitud Médica para Gran Altitud Geográfica", status: "Vigente", expiration: "10/10/2026", issuer: "Dr. Albarracín (Mat. 4412)", verified: true },
+        { id: "D-05", name: "Constancia de ART con Nómina y No Repetición", status: "Vigente", expiration: "18/10/2026", issuer: "Provincia ART", verified: true },
+        { id: "D-06", name: "Certificado de Antecedentes Penales", status: "Vigente", expiration: "12/03/2027", issuer: "RNR Ministerio de Justicia", verified: true },
+        { id: "D-07", name: "Inducción General de Seguridad Minera", status: "Vigente", expiration: "05/01/2027", issuer: "Cámara Minera de San Juan", verified: true },
+        { id: "D-08", name: "Inducción Específica Proyecto Cumbre", status: "Vigente", expiration: "15/12/2026", issuer: "HSE Proyecto Cumbre", verified: true }
+      ],
+      trainings: [
+        { name: "Trabajo Seguro en Altura Física", date: "12/04/2026", status: "Aprobado", hours: 8 },
+        { name: "Bloqueo y Etiquetado LOTO", date: "15/05/2026", status: "Aprobado", hours: 4 },
+        { name: "Manejo Defensivo 4x4 en Alta Montaña", date: "20/06/2026", status: "Aprobado", hours: 16 }
+      ],
+      observations: [
+        { date: "Hoy, 08:15 hs", text: "Alerta automática: Examen preocupacional a 7 días de caducar.", author: "Sistema GaritaPass" },
+        { date: "28/09/2026", text: "Se coordinó turno de examen para el 02/10 en clínica laboral.", author: "Laura Morales (RRHH)" }
+      ]
+    },
+    {
+      id: "PER-02",
+      name: "María González",
+      dni: "29.***.145",
+      fullDni: "29.814.145",
+      role: "Supervisora HSE (Seguridad e Higiene)",
+      assignedProjects: ["cordillera", "cumbre", "andino"],
+      status: "Habilitada",
+      projectStatuses: { cordillera: "Habilitada", cumbre: "Habilitada", andino: "Habilitada" },
+      validDocsCount: 6,
+      totalDocsCount: 6,
+      nextExpiration: "15/03/2027",
+      nextExpirationDays: 163,
+      nextExpirationDoc: "Examen Periódico Anual",
+      lastUpdate: "01/10/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: "+54 9 264 489-7721",
+      bloodType: "A+",
+      emergencyContact: "Mariano González (Hermano) - 264-501-1122",
+      artNumber: "Provincia ART #4491-018",
+      documents: [
+        { id: "D-10", name: "DNI", status: "Vigente", expiration: "11/04/2030", issuer: "Renaper", verified: true },
+        { id: "D-11", name: "Matrícula Profesional Hig. y Seg.", status: "Vigente", expiration: "31/12/2027", issuer: "COPIG San Juan", verified: true },
+        { id: "D-12", name: "Examen Periódico de Salud", status: "Vigente", expiration: "15/03/2027", issuer: "Centro Médico Rawson", verified: true },
+        { id: "D-13", name: "Aptitud Física Gran Altitud", status: "Vigente", expiration: "15/03/2027", issuer: "Dr. Albarracín", verified: true },
+        { id: "D-14", name: "Constancia de ART", status: "Vigente", expiration: "18/10/2026", issuer: "Provincia ART", verified: true },
+        { id: "D-15", name: "Inducción HSE General", status: "Vigente", expiration: "20/02/2027", issuer: "Andes SRL", verified: true }
+      ],
+      trainings: [{ name: "Auditorías de Campo y Permisos de Trabajo", date: "10/02/2026", status: "Aprobado", hours: 20 }],
+      observations: []
+    },
+    {
+      id: "PER-03",
+      name: "Lucía Fernández",
+      dni: "37.***.602",
+      fullDni: "37.209.602",
+      role: "Responsable Administrativa de Campamento",
+      assignedProjects: ["cordillera"],
+      status: "Habilitada",
+      projectStatuses: { cordillera: "Habilitada", cumbre: "Sin evaluar", andino: "Sin evaluar" },
+      validDocsCount: 4,
+      totalDocsCount: 4,
+      nextExpiration: "28/04/2027",
+      nextExpirationDays: 207,
+      nextExpirationDoc: "Aptitud Médica Clínica",
+      lastUpdate: "29/09/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: "+54 9 264 430-8819",
+      bloodType: "B+",
+      emergencyContact: "Eduardo Fernández - 264-442-9900",
+      artNumber: "Provincia ART #4491-018",
+      documents: [
+        { id: "D-20", name: "DNI", status: "Vigente", expiration: "02/09/2034", issuer: "Renaper", verified: true },
+        { id: "D-21", name: "Aptitud Médica Clínica", status: "Vigente", expiration: "28/04/2027", issuer: "Sanatorio San Juan", verified: true }
+      ],
+      trainings: [],
+      observations: []
+    },
+    {
+      id: "PER-04",
+      name: "Diego Castro",
+      dni: "31.***.449",
+      fullDni: "31.902.449",
+      role: "Conductor Profesional de Personal",
+      assignedProjects: ["cumbre"],
+      status: "Bloqueado",
+      projectStatuses: { cumbre: "Bloqueado", cordillera: "Bloqueado", andino: "Sin evaluar" },
+      validDocsCount: 3,
+      totalDocsCount: 5,
+      nextExpiration: "01/10/2026 (Vencido)",
+      nextExpirationDays: -2,
+      nextExpirationDoc: "Licencia Interjurisdiccional LNTI / CNRT",
+      lastUpdate: "Ayer, 14:00 hs",
+      avatarBg: "bg-rose-100 text-rose-800",
+      phone: "+54 9 264 477-3310",
+      bloodType: "0-",
+      emergencyContact: "Rosa Castro (Madre) - 264-490-1122",
+      artNumber: "Provincia ART #4491-018",
+      documents: [
+        { id: "D-30", name: "DNI", status: "Vigente", expiration: "19/06/2031", issuer: "Renaper", verified: true },
+        { id: "D-31", name: "Licencia Nacional de Transporte Interjurisdiccional (LNTI)", status: "Vencida", expiration: "01/10/2026", issuer: "CNRT", verified: false, needsAction: true, observation: "Vencida hace 2 días. Impide manejar en rutas mineras." }
+      ],
+      trainings: [{ name: "Conducción en Hielo y Cadenas", date: "15/05/2026", status: "Aprobado", hours: 12 }],
+      observations: [{ date: "01/10/2026", text: "Inhabilitado para la conducción hasta renovación de LNTI.", author: "Operaciones" }]
+    },
+    {
+      id: "PER-05",
+      name: "Nicolás Herrera",
+      dni: "35.***.723",
+      fullDni: "35.412.723",
+      role: "Electricista de Media y Alta Tensión",
+      assignedProjects: ["andino", "cumbre"],
+      status: "Observado",
+      projectStatuses: { andino: "Observado", cumbre: "Observado", cordillera: "Sin evaluar" },
+      validDocsCount: 5,
+      totalDocsCount: 6,
+      nextExpiration: "12/10/2026",
+      nextExpirationDays: 9,
+      nextExpirationDoc: "Habilitación Eléctrica NFPA 70E",
+      lastUpdate: "30/09/2026",
+      avatarBg: "bg-amber-100 text-amber-800",
+      phone: "+54 9 264 412-9904",
+      bloodType: "A+",
+      emergencyContact: "Lorena Herrera - 264-420-7711",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-40", name: "DNI", status: "Vigente", expiration: "09/01/2033", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    },
+    {
+      id: "PER-06",
+      name: "Roberto Díaz",
+      dni: "28.***.331",
+      fullDni: "28.119.331",
+      role: "Operador de Grúa Móvil e Izajes Críticos",
+      assignedProjects: ["cordillera"],
+      status: "Habilitado",
+      projectStatuses: { cordillera: "Habilitado", cumbre: "Sin evaluar", andino: "Sin evaluar" },
+      validDocsCount: 5,
+      totalDocsCount: 5,
+      nextExpiration: "18/02/2027",
+      nextExpirationDays: 138,
+      nextExpirationDoc: "Certificación IRAM Operador Grúa",
+      lastUpdate: "25/09/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: "+54 9 264 461-8890",
+      bloodType: "0+",
+      emergencyContact: "Marta Díaz - 264-478-2233",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-50", name: "DNI", status: "Vigente", expiration: "14/03/2029", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    },
+    {
+      id: "PER-07",
+      name: "Valeria Romero",
+      dni: "33.***.954",
+      fullDni: "33.784.954",
+      role: "Ingeniera de Campo / Jefa de Mantenimiento",
+      assignedProjects: ["cordillera", "andino"],
+      status: "Habilitada",
+      projectStatuses: { cordillera: "Habilitada", andino: "Habilitada", cumbre: "Sin evaluar" },
+      validDocsCount: 6,
+      totalDocsCount: 6,
+      nextExpiration: "04/05/2027",
+      nextExpirationDays: 213,
+      nextExpirationDoc: "Examen Médico Periódico",
+      lastUpdate: "02/10/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: "+54 9 264 429-1100",
+      bloodType: "A+",
+      emergencyContact: "Carlos Romero - 264-432-8811",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-60", name: "DNI", status: "Vigente", expiration: "19/12/2031", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    },
+    {
+      id: "PER-08",
+      name: "Carlos Méndez",
+      dni: "30.***.219",
+      fullDni: "30.402.219",
+      role: "Soldador Calificado 6G / TIG",
+      assignedProjects: ["cumbre"],
+      status: "Observado",
+      projectStatuses: { cumbre: "Observado", cordillera: "Sin evaluar", andino: "Sin evaluar" },
+      validDocsCount: 5,
+      totalDocsCount: 6,
+      nextExpiration: "17/10/2026",
+      nextExpirationDays: 14,
+      nextExpirationDoc: "Calificación de Procedimiento ASME IX",
+      lastUpdate: "28/09/2026",
+      avatarBg: "bg-amber-100 text-amber-800",
+      phone: "+54 9 264 490-6644",
+      bloodType: "B+",
+      emergencyContact: "Elena Méndez - 264-411-9988",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-70", name: "DNI", status: "Vigente", expiration: "08/04/2030", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    },
+    {
+      id: "PER-09",
+      name: "Sofía Albarracín",
+      dni: "36.***.580",
+      fullDni: "36.901.580",
+      role: "Paramédica de Faena y Rescatista",
+      assignedProjects: ["cordillera"],
+      status: "Habilitada",
+      projectStatuses: { cordillera: "Habilitada", cumbre: "Sin evaluar", andino: "Sin evaluar" },
+      validDocsCount: 5,
+      totalDocsCount: 5,
+      nextExpiration: "22/06/2027",
+      nextExpirationDays: 262,
+      nextExpirationDoc: "Matrícula Técnica de Salud Provincial",
+      lastUpdate: "01/10/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: "+54 9 264 472-3321",
+      bloodType: "0+",
+      emergencyContact: "Ramón Albarracín - 264-422-5500",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-80", name: "DNI", status: "Vigente", expiration: "20/10/2033", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    },
+    {
+      id: "PER-10",
+      name: "Marcelo Godoy",
+      dni: "32.***.118",
+      fullDni: "32.610.118",
+      role: "Mecánico Especialista en Hidráulica Pesada",
+      assignedProjects: ["andino"],
+      status: "Habilitado",
+      projectStatuses: { andino: "Habilitado", cordillera: "Sin evaluar", cumbre: "Sin evaluar" },
+      validDocsCount: 5,
+      totalDocsCount: 5,
+      nextExpiration: "11/01/2027",
+      nextExpirationDays: 100,
+      nextExpirationDoc: "Aptitud Médica Laboral",
+      lastUpdate: "27/09/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: "+54 9 264 445-6677",
+      bloodType: "A+",
+      emergencyContact: "Cecilia Godoy - 264-430-1199",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-90", name: "DNI", status: "Vigente", expiration: "12/05/2030", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    },
+    {
+      id: "PER-11",
+      name: "Franco Benítez",
+      dni: "38.***.910",
+      fullDni: "38.401.910",
+      role: "Operador de Pala Cargadora Frontal",
+      assignedProjects: ["cordillera"],
+      status: "Habilitado",
+      projectStatuses: { cordillera: "Habilitado", cumbre: "Sin evaluar", andino: "Sin evaluar" },
+      validDocsCount: 5,
+      totalDocsCount: 5,
+      nextExpiration: "08/03/2027",
+      nextExpirationDays: 156,
+      nextExpirationDoc: "Acreditación de Operador Vial",
+      lastUpdate: "26/09/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: "+54 9 264 489-0012",
+      bloodType: "0+",
+      emergencyContact: "Javier Benítez - 264-411-0022",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-100", name: "DNI", status: "Vigente", expiration: "11/09/2032", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    },
+    {
+      id: "PER-12",
+      name: "Claudia Mercado",
+      dni: "27.***.554",
+      fullDni: "27.810.554",
+      role: "Jefa de Logística y Abastecimiento de Faena",
+      assignedProjects: ["cumbre", "cordillera"],
+      status: "Habilitada",
+      projectStatuses: { cumbre: "Habilitada", cordillera: "Habilitada", andino: "Sin evaluar" },
+      validDocsCount: 5,
+      totalDocsCount: 5,
+      nextExpiration: "19/04/2027",
+      nextExpirationDays: 198,
+      nextExpirationDoc: "Examen Médico Periódico",
+      lastUpdate: "28/09/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: "+54 9 264 450-7799",
+      bloodType: "B+",
+      emergencyContact: "Martín Mercado - 264-490-4411",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-110", name: "DNI", status: "Vigente", expiration: "05/07/2029", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    },
+    // Segundo Bloqueado para sumar exactamente 2 bloqueados
+    {
+      id: "PER-13",
+      name: "Pablo Santillán",
+      dni: "32.***.481",
+      fullDni: "32.890.481",
+      role: "Mecánico de Mantenimiento de Planta",
+      assignedProjects: ["cumbre"],
+      status: "Bloqueado",
+      projectStatuses: { cumbre: "Bloqueado", cordillera: "Sin evaluar", andino: "Sin evaluar" },
+      validDocsCount: 3,
+      totalDocsCount: 5,
+      nextExpiration: "28/09/2026 (Vencido)",
+      nextExpirationDays: -5,
+      nextExpirationDoc: "Aptitud Médica Laboral",
+      lastUpdate: "Ayer, 09:30 hs",
+      avatarBg: "bg-rose-100 text-rose-800",
+      phone: "+54 9 264 433-2190",
+      bloodType: "A+",
+      emergencyContact: "Mónica Santillán - 264-411-8899",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-120", name: "DNI", status: "Vigente", expiration: "15/10/2030", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: [{ date: "28/09/2026", text: "Espirometría observada pendiente de interconsulta neumonológica.", author: "Medicina Laboral" }]
+    },
+    // Cuarto Observado para sumar exactamente 4 observados
+    {
+      id: "PER-14",
+      name: "Martín Roldán",
+      dni: "36.***.109",
+      fullDni: "36.450.109",
+      role: "Técnico Instrumentista y Automatización",
+      assignedProjects: ["cumbre"],
+      status: "Observado",
+      projectStatuses: { cumbre: "Observado", cordillera: "Sin evaluar", andino: "Sin evaluar" },
+      validDocsCount: 4,
+      totalDocsCount: 5,
+      nextExpiration: "18/10/2026",
+      nextExpirationDays: 15,
+      nextExpirationDoc: "Inducción Específica Cumbre",
+      lastUpdate: "30/09/2026",
+      avatarBg: "bg-amber-100 text-amber-800",
+      phone: "+54 9 264 480-1122",
+      bloodType: "0+",
+      emergencyContact: "Elena Roldán - 264-477-3311",
+      artNumber: "Provincia ART #4491-018",
+      documents: [{ id: "D-130", name: "DNI", status: "Vigente", expiration: "12/12/2031", issuer: "Renaper", verified: true }],
+      trainings: [],
+      observations: []
+    }
+  ];
+
+  // Restantes habilitados para completar exactamente 48 empleados (42 habilitadas, 4 observadas, 2 bloqueadas)
+  const names = [
+    ["Esteban Morales", "Técnico en Lubricación Minera", "cordillera"],
+    ["Gonzalo Quiroga", "Conductor de Transporte 4x4", "cordillera"],
+    ["Mariano Ibáñez", "Electricista de Tableros", "andino"],
+    ["Federico Videla", "Mecánico Diesel Pesado", "andino"],
+    ["Lucas Carrizo", "Operador de Grúa Horquilla", "cordillera"],
+    ["Julián Araya", "Ayudante de Taller Electromecánico", "cumbre"],
+    ["Rodrigo Lucero", "Técnico Electromecánico", "cordillera"],
+    ["Matías Bazán", "Supervisor de Mantenimiento", "cordillera"],
+    ["Emiliano Jofré", "Soldador Estructural", "andino"],
+    ["Facundo Brizuela", "Conductor Profesional Minero", "andino"],
+    ["Sebastián Cortez", "Técnico Hidráulico", "cordillera"],
+    ["Hernán Tapia", "Operador de Plataforma Móvil", "cumbre"],
+    ["Ignacio Agüero", "Mecánico Tornero", "andino"],
+    ["Gabriel Silva", "Técnico de Climatización", "cordillera"],
+    ["Darío Giménez", "Pañolero y Logística", "cumbre"],
+    ["Guillermo Varas", "Auxiliar de Seguridad HSE", "cordillera"],
+    ["Alejandro Tejada", "Conductor Escolta Minero", "cordillera"],
+    ["Cristian Montaño", "Técnico Electrónico", "andino"],
+    ["Maximiliano Flores", "Mecánico de Equipos Menores", "cumbre"],
+    ["Leandro Balmaceda", "Operador de Rodillo Compactador", "cordillera"],
+    ["Agustín Nievas", "Técnico en Generación Diésel", "andino"],
+    ["Ramiro Coria", "Conductor Minero Categoría D2", "cordillera"],
+    ["Bruno Paoli", "Mecánico de Bombas Centrífugas", "andino"],
+    ["Tomás Aballay", "Ayudante Especializado", "cumbre"],
+    ["Damián Zárate", "Soldador Piping Acero Inoxidable", "cumbre"],
+    ["Ariel Guzmán", "Técnico de Muestreo y Campo", "cordillera"],
+    ["Néstor Olguín", "Electricista de Campamento", "cordillera"],
+    ["Víctor Reinoso", "Operador de Retroexcavadora", "andino"],
+    ["Fabián Sosa", "Conductor de Camión Cisterna", "cordillera"],
+    ["Claudio Echegaray", "Técnico en Motores Catterpillar", "cumbre"],
+    ["Jorge Albornoz", "Supervisor de Guardia", "cordillera"],
+    ["Raúl Marín", "Técnico en Neumática", "andino"],
+    ["Oscar Bustos", "Conductor Minero Suplente", "cordillera"],
+    ["Hugo Salcedo", "Mecánico Especialista en Frenos", "cumbre"]
+  ];
+
+  names.forEach((item, index) => {
+    const idNum = 15 + index;
+    const proj = item[2];
+    basePeople.push({
+      id: `PER-${idNum < 10 ? '0' + idNum : idNum}`,
+      name: item[0],
+      dni: `${30 + (index % 8)}.***.${100 + index * 17}`,
+      fullDni: `${30 + (index % 8)}.${400 + index * 12}.${100 + index * 17}`,
+      role: item[1],
+      assignedProjects: [proj],
+      status: "Habilitado",
+      projectStatuses: {
+        cordillera: proj === 'cordillera' ? "Habilitado" : "Sin evaluar",
+        cumbre: proj === 'cumbre' ? "Habilitado" : "Sin evaluar",
+        andino: proj === 'andino' ? "Habilitado" : "Sin evaluar"
+      },
+      validDocsCount: 5,
+      totalDocsCount: 5,
+      nextExpiration: `15/0${3 + (index % 6)}/2027`,
+      nextExpirationDays: 140 + index * 5,
+      nextExpirationDoc: "Aptitud Médica Periódica",
+      lastUpdate: "28/09/2026",
+      avatarBg: "bg-emerald-100 text-emerald-800",
+      phone: `+54 9 264 4${10 + index}-${2000 + index * 23}`,
+      bloodType: ["A+", "0+", "B+", "AB+"][index % 4],
+      emergencyContact: `Contacto Familiar - 264-4${20 + index}-8899`,
+      artNumber: "Provincia ART #4491-018",
+      documents: [
+        { id: `D-${idNum}-1`, name: "DNI", status: "Vigente", expiration: "10/05/2032", issuer: "Renaper", verified: true },
+        { id: `D-${idNum}-2`, name: "Aptitud Médica", status: "Vigente", expiration: `15/0${3 + (index % 6)}/2027`, issuer: "Clínica Cuyo", verified: true },
+        { id: `D-${idNum}-3`, name: "Constancia de ART", status: "Vigente", expiration: "18/10/2026", issuer: "Provincia ART", verified: true }
+      ],
+      trainings: [{ name: "Inducción General Faena Minera", date: "10/02/2026", status: "Aprobado", hours: 8 }],
+      observations: []
+    });
+  });
+
+  return basePeople;
+}
+
+window.AsteriaData = {
+  meta: {
+    systemName: "GaritaPass",
+    version: "2.4.0-B2B",
+    environmentNotice: "Entorno demostrativo — Datos ficticios",
+    disclaimer: "GaritaPass organiza, audita y alerta el estado documental interno de la empresa contratista. La habilitación final depende de la operadora del proyecto o autoridad fiscalizadora.",
+    lastUpdated: "Hoy, 10:42 hs"
+  },
+
+  company: {
+    name: "Andes Servicios Integrales SRL",
+    cuit: "30-71489201-9",
+    legalAddress: "Av. Ignacio de la Roza 450 Oeste, San Juan, Argentina",
+    activity: "Mantenimiento electromecánico industrial, transporte de personal y asistencia técnica en faenas mineras",
+    repLegal: "Ing. Marcos Benítez — Gerente de Operaciones",
+    email: "operaciones@andesservicios.com.ar",
+    phone: "+54 (264) 421-9844",
+    complianceScore: 82,
+    activeContracts: 3,
+    registrationDate: "15/03/2019"
+  },
+
+  projects: [
+    {
+      id: "cordillera",
+      name: "Proyecto Cordillera",
+      shortName: "Cordillera",
+      client: "Operadora Minera Cordillera SA",
+      location: "Valle del Cura, Iglesia, San Juan (4.150 msnm)",
+      status: "Operativo",
+      statusColor: "emerald",
+      readiness: 91,
+      totalRequirements: 24,
+      fulfilledRequirements: 22,
+      assignedPeople: 26,
+      enabledPeople: 24,
+      observedPeople: 2,
+      blockedPeople: 0,
+      assignedVehicles: 8,
+      enabledVehicles: 7,
+      observedVehicles: 1,
+      blockedVehicles: 0,
+      assignedEquipment: 10,
+      enabledEquipment: 9,
+      observedEquipment: 1,
+      blockedEquipment: 0,
+      pendingObservations: 2,
+      lastUpdate: "Hoy, 09:15 hs",
+      tags: ["Alta Montaña", "Mantenimiento Plantas", "Campamento"],
+      riskLevel: "Alto (Geográfico / Clima)",
+      specificNotes: "Exige protocolo médico para gran altitud (>4.000 msnm), jaula antivuelco certificada y póliza de caución ambiental."
+    },
+    {
+      id: "cumbre",
+      name: "Proyecto Cumbre",
+      shortName: "Cumbre",
+      client: "Desarrollos Mineros de la Cumbre SA",
+      location: "Cordillera Frontal, Calingasta, San Juan (3.850 msnm)",
+      status: "Requiere atención",
+      statusColor: "amber",
+      readiness: 76,
+      totalRequirements: 28,
+      fulfilledRequirements: 21,
+      assignedPeople: 18,
+      enabledPeople: 13,
+      observedPeople: 4,
+      blockedPeople: 1,
+      assignedVehicles: 5,
+      enabledVehicles: 3,
+      observedVehicles: 1,
+      blockedVehicles: 1,
+      assignedEquipment: 7,
+      enabledEquipment: 5,
+      observedEquipment: 1,
+      blockedEquipment: 1,
+      pendingObservations: 6,
+      lastUpdate: "Hoy, 08:30 hs",
+      tags: ["Construcción de Túnel", "Transporte Diario", "Izaje Pesado"],
+      riskLevel: "Muy Alto (Operativo)",
+      specificNotes: "Auditoría de ingreso quincenal muy estricta. Bloqueos inmediatos por vencimiento de preocupacional o pólizas de automotores."
+    },
+    {
+      id: "andino",
+      name: "Proyecto Andino",
+      shortName: "Andino",
+      client: "Consorcio Exploraciones Andinas",
+      location: "Precordillera, Jáchal, San Juan (2.300 msnm)",
+      status: "Operativo",
+      statusColor: "emerald",
+      readiness: 84,
+      totalRequirements: 22,
+      fulfilledRequirements: 18,
+      assignedPeople: 14,
+      enabledPeople: 12,
+      observedPeople: 2,
+      blockedPeople: 0,
+      assignedVehicles: 4,
+      enabledVehicles: 3,
+      observedVehicles: 1,
+      blockedVehicles: 0,
+      assignedEquipment: 6,
+      enabledEquipment: 5,
+      observedEquipment: 1,
+      blockedEquipment: 0,
+      pendingObservations: 3,
+      lastUpdate: "Ayer, 18:20 hs",
+      tags: ["Lixiviación", "Generación Diésel", "Servicio Técnico"],
+      riskLevel: "Medio",
+      specificNotes: "Requisitos de contingencias químicas y trazabilidad de lubricantes y fluidos hidráulicos."
+    }
+  ],
+
+  // 48 empleados consistentes
+  people: generateFullStaff(),
+
+  // Exactamente 14 vehículos (11 habilitados, 2 observados, 1 bloqueado)
+  vehicles: [
+    {
+      id: "VEH-01",
+      plate: "AB 123 CD",
+      type: "Camioneta 4x4 Doble Cabina",
+      brandModel: "Toyota Hilux 2.8 TDI SRX 4x4",
+      year: 2023,
+      chassis: "8AJBA3CD4P***901",
+      project: "cumbre",
+      driver: "Juan Pérez / Diego Castro",
+      status: "Bloqueado",
+      blockReason: "Seguro automotor vencido hace 2 días (01/10/2026). Impide ingreso al proyecto.",
+      insurance: {
+        company: "La Mercantil Andina",
+        policyNumber: "POL-AUTO-882910",
+        coverage: "Todo Riesgo con Franquicia + Cláusula Minera de No Repetición",
+        expiration: "01/10/2026",
+        status: "Vencido"
+      },
+      rto: {
+        center: "Técnica San Juan (RTO Nacional)",
+        certificateNumber: "RTO-2025-44918",
+        expiration: "14/11/2026",
+        status: "Vigente"
+      },
+      nextExpiration: "01/10/2026 (Vencido)",
+      nextExpirationDoc: "Póliza de Seguro Automotor",
+      safetyKit: [
+        { item: "Jaula antivuelco interna/externa homologada", status: "Aprobada" },
+        { item: "Pértiga de fibra de vidrio 3m con luz LED y banderola", status: "Aprobada" },
+        { item: "Baliza estroboscópica ámbar de techo", status: "Aprobada" },
+        { item: "Equipo de radio VHF frecuencia minera homologada", status: "Aprobada" },
+        { item: "Tacógrafo satelital con sensor de volcamiento", status: "Aprobado" },
+        { item: "Matafuegos ABC 10 kg con soporte reforzado", status: "Vigente" },
+        { item: "Juego de 4 cadenas para nieve y hielo", status: "Verificado" },
+        { item: "Botiquín para alta montaña y manta térmica", status: "Completo" }
+      ],
+      assignedProjects: ["cumbre"],
+      lastUpdate: "Hoy, 08:00 hs",
+      observations: [
+        { date: "01/10/2026", text: "Alerta automática: Póliza expiró. Vehículo pasa a Bloqueado.", author: "Sistema GaritaPass" }
+      ]
+    },
+    {
+      id: "VEH-02",
+      plate: "AF 902 JK",
+      type: "Camioneta 4x4 Doble Cabina",
+      brandModel: "Ford Ranger 3.0 V6 4WD Limited",
+      year: 2024,
+      chassis: "8AFTA902JK***411",
+      project: "cordillera",
+      driver: "Valeria Romero",
+      status: "Habilitado",
+      insurance: { company: "Federación Patronal", policyNumber: "POL-FP-990412", coverage: "Todo Riesgo Faena Minera", expiration: "20/07/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-11029", expiration: "15/08/2027", status: "Vigente" },
+      nextExpiration: "20/07/2027",
+      nextExpirationDoc: "Póliza de Seguro",
+      assignedProjects: ["cordillera"],
+      lastUpdate: "01/10/2026",
+      observations: []
+    },
+    {
+      id: "VEH-03",
+      plate: "AE 445 LM",
+      type: "Minibús Transporte de Personal (19+1)",
+      brandModel: "Mercedes-Benz Sprinter 516 CDI",
+      year: 2022,
+      chassis: "8ACSP445LM***092",
+      project: "cumbre",
+      driver: "Diego Castro (Reemplazo: Roberto Díaz)",
+      status: "Observado",
+      blockReason: "Revisión Técnica Obligatoria (RTO CNRT) vence en 12 días.",
+      insurance: { company: "Allianz Argentina", policyNumber: "POL-ALZ-771822", coverage: "Pasajeros + Minera", expiration: "18/03/2027", status: "Vigente" },
+      rto: { center: "Control CNRT San Juan", certificateNumber: "CNRT-2025-9921", expiration: "15/10/2026", status: "Próximo a vencer" },
+      nextExpiration: "15/10/2026",
+      nextExpirationDoc: "RTO Interjurisdiccional",
+      assignedProjects: ["cumbre"],
+      lastUpdate: "28/09/2026",
+      observations: []
+    },
+    {
+      id: "VEH-04",
+      plate: "AD 781 OP",
+      type: "Camión Volcador Pesado 6x4",
+      brandModel: "Iveco Trakker 410 E6 6x4",
+      year: 2021,
+      chassis: "8AITR781OP***331",
+      project: "andino",
+      driver: "Marcelo Godoy",
+      status: "Habilitado",
+      insurance: { company: "Sancor Seguros", policyNumber: "POL-SC-441092", coverage: "Equipo Pesado", expiration: "05/03/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-3391", expiration: "05/03/2027", status: "Vigente" },
+      nextExpiration: "05/03/2027",
+      nextExpirationDoc: "Póliza de Seguro",
+      assignedProjects: ["andino"],
+      lastUpdate: "25/09/2026",
+      observations: []
+    },
+    {
+      id: "VEH-05",
+      plate: "AC 332 ZX",
+      type: "Camión Cisterna Abastecimiento",
+      brandModel: "Scania G450 6x2",
+      year: 2020,
+      chassis: "8ASCA332ZX***881",
+      project: "cordillera",
+      driver: "Roberto Díaz",
+      status: "Habilitado",
+      insurance: { company: "Provincia Seguros", policyNumber: "POL-PR-119283", coverage: "Combustibles", expiration: "19/04/2027", status: "Vigente" },
+      rto: { center: "Ente Nacional Combustibles", certificateNumber: "SEC-2026-904", expiration: "19/04/2027", status: "Vigente" },
+      nextExpiration: "19/04/2027",
+      nextExpirationDoc: "Calibración Cisterna",
+      assignedProjects: ["cordillera"],
+      lastUpdate: "20/09/2026",
+      observations: []
+    },
+    {
+      id: "VEH-06",
+      plate: "AG 112 BB",
+      type: "Camioneta 4x4 Escolta Convoy",
+      brandModel: "Toyota Hilux 2.8 DX 4x4",
+      year: 2024,
+      chassis: "8AJBA112BB***554",
+      project: "cordillera",
+      driver: "María González",
+      status: "Habilitado",
+      insurance: { company: "La Mercantil Andina", policyNumber: "POL-MA-901144", coverage: "Todo Riesgo", expiration: "30/09/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-8812", expiration: "30/09/2027", status: "Vigente" },
+      nextExpiration: "30/09/2027",
+      nextExpirationDoc: "Póliza de Seguro",
+      assignedProjects: ["cordillera"],
+      lastUpdate: "01/10/2026",
+      observations: []
+    },
+    {
+      id: "VEH-07",
+      plate: "AE 889 RT",
+      type: "Minibús Apoyo Logístico (15+1)",
+      brandModel: "Mercedes-Benz Sprinter 415 CDI",
+      year: 2023,
+      chassis: "8ACSP889RT***120",
+      project: "andino",
+      driver: "Nicolás Herrera",
+      status: "Habilitado",
+      insurance: { company: "Federación Patronal", policyNumber: "POL-FP-772910", coverage: "Transporte Minero", expiration: "18/06/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-6619", expiration: "18/06/2027", status: "Vigente" },
+      nextExpiration: "18/06/2027",
+      nextExpirationDoc: "RTO Anual",
+      assignedProjects: ["andino"],
+      lastUpdate: "22/09/2026",
+      observations: []
+    },
+    {
+      id: "VEH-08",
+      plate: "AF 304 TR",
+      type: "Furgón Utilitario Repuestos",
+      brandModel: "Renault Kangoo Express 1.6",
+      year: 2022,
+      chassis: "8AREN304TR***773",
+      project: "cordillera",
+      driver: "Lucía Fernández",
+      status: "Habilitado",
+      insurance: { company: "Allianz Argentina", policyNumber: "POL-ALZ-660192", coverage: "Flota Comercial", expiration: "12/12/2026", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2025-5510", expiration: "12/12/2026", status: "Vigente" },
+      nextExpiration: "12/12/2026",
+      nextExpirationDoc: "RTO y Seguro",
+      assignedProjects: ["cordillera"],
+      lastUpdate: "18/09/2026",
+      observations: []
+    },
+    // VEH-09: Segundo Observado
+    {
+      id: "VEH-09",
+      plate: "AG 401 MP",
+      type: "Camioneta 4x4 Supervisión",
+      brandModel: "Nissan Frontier PRO-4X 4WD",
+      year: 2024,
+      chassis: "8ANIS401MP***812",
+      project: "cumbre",
+      driver: "Esteban Morales",
+      status: "Observado",
+      blockReason: "Matafuegos de 10 kg vence en 8 días. Inspección de kit requerida.",
+      insurance: { company: "La Mercantil Andina", policyNumber: "POL-MA-994101", coverage: "Todo Riesgo", expiration: "15/05/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-9912", expiration: "20/07/2027", status: "Vigente" },
+      nextExpiration: "11/10/2026",
+      nextExpirationDoc: "Vencimiento Matafuegos Kit",
+      assignedProjects: ["cumbre"],
+      lastUpdate: "02/10/2026",
+      observations: []
+    },
+    {
+      id: "VEH-10",
+      plate: "AD 552 KK",
+      type: "Camión Hidrogrúa 15 Toneladas",
+      brandModel: "Mercedes-Benz Atego 1726 4x2",
+      year: 2021,
+      chassis: "8ACMB552KK***491",
+      project: "cordillera",
+      driver: "Roberto Díaz",
+      status: "Habilitado",
+      insurance: { company: "Federación Patronal", policyNumber: "POL-FP-881290", coverage: "Equipo con Grúa", expiration: "14/04/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-4402", expiration: "14/04/2027", status: "Vigente" },
+      nextExpiration: "14/04/2027",
+      nextExpirationDoc: "Póliza y RTO",
+      assignedProjects: ["cordillera"],
+      lastUpdate: "26/09/2026",
+      observations: []
+    },
+    {
+      id: "VEH-11",
+      plate: "AF 610 WW",
+      type: "Camioneta 4x4 Mantenimiento",
+      brandModel: "Toyota Hilux 2.8 DX 4x4",
+      year: 2023,
+      chassis: "8AJBA610WW***339",
+      project: "andino",
+      driver: "Marcelo Godoy",
+      status: "Habilitado",
+      insurance: { company: "La Mercantil Andina", policyNumber: "POL-MA-884192", coverage: "Flota", expiration: "19/08/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-7781", expiration: "19/08/2027", status: "Vigente" },
+      nextExpiration: "19/08/2027",
+      nextExpirationDoc: "Póliza Vigente",
+      assignedProjects: ["andino"],
+      lastUpdate: "24/09/2026",
+      observations: []
+    },
+    {
+      id: "VEH-12",
+      plate: "AE 219 QZ",
+      type: "Camioneta 4x4 Guardia",
+      brandModel: "Volkswagen Amarok V6 4Motion",
+      year: 2022,
+      chassis: "8AVW219QZ***102",
+      project: "cordillera",
+      driver: "Jorge Albornoz",
+      status: "Habilitado",
+      insurance: { company: "Allianz Argentina", policyNumber: "POL-ALZ-991204", coverage: "Todo Riesgo", expiration: "10/06/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-3310", expiration: "10/06/2027", status: "Vigente" },
+      nextExpiration: "10/06/2027",
+      nextExpirationDoc: "RTO y Seguro",
+      assignedProjects: ["cordillera"],
+      lastUpdate: "27/09/2026",
+      observations: []
+    },
+    {
+      id: "VEH-13",
+      plate: "AC 901 PP",
+      type: "Camión Taller Móvil Pesado",
+      brandModel: "Volvo FMX 420 6x4",
+      year: 2020,
+      chassis: "8AVOL901PP***771",
+      project: "cumbre",
+      driver: "Fabián Sosa",
+      status: "Habilitado",
+      insurance: { company: "Sancor Seguros", policyNumber: "POL-SC-881920", coverage: "Taller Móvil", expiration: "15/09/2027", status: "Vigente" },
+      rto: { center: "CNRT San Juan", certificateNumber: "CNRT-2026-1192", expiration: "15/09/2027", status: "Vigente" },
+      nextExpiration: "15/09/2027",
+      nextExpirationDoc: "RTO CNRT",
+      assignedProjects: ["cumbre"],
+      lastUpdate: "29/09/2026",
+      observations: []
+    },
+    {
+      id: "VEH-14",
+      plate: "AG 774 JJ",
+      type: "Minibús Traslado Turno (19+1)",
+      brandModel: "Mercedes-Benz Sprinter 516",
+      year: 2024,
+      chassis: "8ACSP774JJ***901",
+      project: "cordillera",
+      driver: "Ramiro Coria",
+      status: "Habilitado",
+      insurance: { company: "Federación Patronal", policyNumber: "POL-FP-994112", coverage: "Pasajeros Minería", expiration: "25/11/2027", status: "Vigente" },
+      rto: { center: "RTO San Juan", certificateNumber: "RTO-2026-9041", expiration: "25/11/2027", status: "Vigente" },
+      nextExpiration: "25/11/2027",
+      nextExpirationDoc: "RTO San Juan",
+      assignedProjects: ["cordillera"],
+      lastUpdate: "01/10/2026",
+      observations: []
+    }
+  ],
+
+  // Exactamente 19 equipos (16 habilitados, 2 observados, 1 bloqueado)
+  equipment: [
+    {
+      id: "EQ-018",
+      code: "EQ-018",
+      type: "Plataforma Elevadora Articulada (PEMP)",
+      brand: "JLG",
+      model: "600AJ 4WD Diésel",
+      serialNumber: "0300***912",
+      fullSerial: "0300284912",
+      project: "cumbre",
+      responsible: "Juan Pérez",
+      status: "Bloqueado",
+      blockReason: "Falta certificado de inspección de izaje y prueba de carga anual emitida por entidad acreditada (IRAM/TÜV).",
+      certification: { name: "Inspección Anual de Izaje Estructural", status: "Faltante / Vencida", expiration: "15/09/2026 (Vencida)", certifier: "Pendiente" },
+      nextExpiration: "15/09/2026 (Vencido)",
+      nextExpirationDoc: "Certificado de Inspección de Izaje",
+      hours: "3.420 hs",
+      maintenanceStatus: "Preventivo de 3.500 hs programado",
+      authorizedOperators: ["Juan Pérez", "Carlos Méndez"],
+      assignedProjects: ["cumbre"],
+      lastUpdate: "Hoy, 08:30 hs",
+      observations: [{ date: "16/09/2026", text: "Alerta de bloqueo: No cuenta con oblea de inspección vigente.", author: "Sistema GaritaPass" }]
+    },
+    {
+      id: "EQ-004",
+      code: "EQ-004",
+      type: "Grupo Electrógeno 250 kVA",
+      brand: "Caterpillar",
+      model: "DE250GC Diésel",
+      serialNumber: "CAT***482",
+      project: "cordillera",
+      responsible: "Nicolás Herrera",
+      status: "Habilitado",
+      certification: { name: "Ensayo de Puesta a Tierra (IRAM)", status: "Vigente", expiration: "14/02/2027", certifier: "Electrotécnico Andino" },
+      nextExpiration: "14/02/2027",
+      nextExpirationDoc: "Puesta a Tierra",
+      hours: "4.190 hs",
+      maintenanceStatus: "Service 4.000 hs completado",
+      authorizedOperators: ["Nicolás Herrera", "Valeria Romero"],
+      assignedProjects: ["cordillera"],
+      lastUpdate: "24/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-012",
+      code: "EQ-012",
+      type: "Compresor de Aire Industrial",
+      brand: "Atlas Copco",
+      model: "XAS 188 Diésel",
+      serialNumber: "APP***091",
+      project: "andino",
+      responsible: "Marcelo Godoy",
+      status: "Habilitado",
+      certification: { name: "Prueba Hidrostática de Tanque", status: "Vigente", expiration: "10/11/2027", certifier: "OPDS San Juan" },
+      nextExpiration: "10/11/2027",
+      nextExpirationDoc: "Prueba Hidrostática",
+      hours: "2.810 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Marcelo Godoy"],
+      assignedProjects: ["andino"],
+      lastUpdate: "20/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-007",
+      code: "EQ-007",
+      type: "Torre de Iluminación Autónoma",
+      brand: "Generac Mobile",
+      model: "V20 LED Diésel",
+      serialNumber: "GEN***119",
+      project: "cumbre",
+      responsible: "Nicolás Herrera",
+      status: "Habilitado",
+      certification: { name: "Inspección Eléctrica", status: "Vigente", expiration: "25/03/2027", certifier: "HSE Andes" },
+      nextExpiration: "25/03/2027",
+      nextExpirationDoc: "Inspección Eléctrica",
+      hours: "1.340 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Nicolás Herrera", "Juan Pérez"],
+      assignedProjects: ["cumbre"],
+      lastUpdate: "29/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-023",
+      code: "EQ-023",
+      type: "Motosoldadora Diésel Multiproceso",
+      brand: "Lincoln Electric",
+      model: "Ranger 305D",
+      serialNumber: "LNC***661",
+      project: "cumbre",
+      responsible: "Carlos Méndez",
+      status: "Observado",
+      blockReason: "Calibración anual de amperímetro/voltímetro vence en 11 días.",
+      certification: { name: "Certificado de Calibración INTI", status: "Próximo a vencer", expiration: "14/10/2026", certifier: "INTI Metrología" },
+      nextExpiration: "14/10/2026",
+      nextExpirationDoc: "Calibración INTI",
+      hours: "2.110 hs",
+      maintenanceStatus: "Pendiente envío a laboratorio",
+      authorizedOperators: ["Carlos Méndez"],
+      assignedProjects: ["cumbre"],
+      lastUpdate: "28/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-015",
+      code: "EQ-015",
+      type: "Grúa Móvil Todoterreno 60T",
+      brand: "Liebherr",
+      model: "LTM 1060-3.1",
+      serialNumber: "LBH***331",
+      project: "cordillera",
+      responsible: "Roberto Díaz",
+      status: "Habilitado",
+      certification: { name: "Ensayo No Destructivo Gancho", status: "Vigente", expiration: "05/08/2027", certifier: "Bureau Veritas" },
+      nextExpiration: "05/08/2027",
+      nextExpirationDoc: "Certificación Carga",
+      hours: "5.820 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Roberto Díaz"],
+      assignedProjects: ["cordillera"],
+      lastUpdate: "22/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-031",
+      code: "EQ-031",
+      type: "Bomba Sumergible de Achique",
+      brand: "Flygt",
+      model: "2125 Heavy Duty",
+      serialNumber: "FLG***882",
+      project: "andino",
+      responsible: "Marcelo Godoy",
+      status: "Habilitado",
+      certification: { name: "Aislamiento IP68", status: "Vigente", expiration: "30/06/2027", certifier: "IRAM" },
+      nextExpiration: "30/06/2027",
+      nextExpirationDoc: "Certificación IP68",
+      hours: "980 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Marcelo Godoy"],
+      assignedProjects: ["andino"],
+      lastUpdate: "15/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-009",
+      code: "EQ-009",
+      type: "Contenedor Taller Móvil 20ft",
+      brand: "Andes Modular",
+      model: "M-10 Industrial",
+      serialNumber: "MOD***004",
+      project: "cordillera",
+      responsible: "Juan Pérez",
+      status: "Habilitado",
+      certification: { name: "Instalación ATEX", status: "Vigente", expiration: "12/04/2027", certifier: "HSE Cordillera" },
+      nextExpiration: "12/04/2027",
+      nextExpirationDoc: "Inspección ATEX",
+      hours: "N/A",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Juan Pérez", "Valeria Romero"],
+      assignedProjects: ["cordillera"],
+      lastUpdate: "26/09/2026",
+      observations: []
+    },
+    // EQ-035: Segundo Observado
+    {
+      id: "EQ-035",
+      code: "EQ-035",
+      type: "Torquímetro Hidráulico Alta Presión",
+      brand: "Enerpac",
+      model: "S3000X 700 Bar",
+      serialNumber: "ENR***901",
+      project: "cordillera",
+      responsible: "Valeria Romero",
+      status: "Observado",
+      blockReason: "Certificado de calibración de par de apriete vence en 9 días.",
+      certification: { name: "Calibración de Manómetro y Celda", status: "Próximo a vencer", expiration: "12/10/2026", certifier: "Laboratorio Cuyo" },
+      nextExpiration: "12/10/2026",
+      nextExpirationDoc: "Calibración de Torque",
+      hours: "450 ciclos",
+      maintenanceStatus: "Calibración programada",
+      authorizedOperators: ["Valeria Romero", "Juan Pérez"],
+      assignedProjects: ["cordillera"],
+      lastUpdate: "01/10/2026",
+      observations: []
+    },
+    {
+      id: "EQ-027",
+      code: "EQ-027",
+      type: "Manipulador Telescópico 4T",
+      brand: "Manitou",
+      model: "MT 1840 Easy",
+      serialNumber: "MNT***418",
+      project: "cumbre",
+      responsible: "Hernán Tapia",
+      status: "Habilitado",
+      certification: { name: "Prueba de Estabilidad y Carga", status: "Vigente", expiration: "20/05/2027", certifier: "IRAM" },
+      nextExpiration: "20/05/2027",
+      nextExpirationDoc: "Prueba de Carga",
+      hours: "1.890 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Hernán Tapia", "Roberto Díaz"],
+      assignedProjects: ["cumbre"],
+      lastUpdate: "27/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-002",
+      code: "EQ-002",
+      type: "Equipo de Oxicorte Industrial",
+      brand: "Victor Thermal",
+      model: "Heavy Duty Performer",
+      serialNumber: "VIC***110",
+      project: "andino",
+      responsible: "Emiliano Jofré",
+      status: "Habilitado",
+      certification: { name: "Válvulas Antirretroceso de Llama", status: "Vigente", expiration: "18/07/2027", certifier: "HSE Andino" },
+      nextExpiration: "18/07/2027",
+      nextExpirationDoc: "Inspección de Válvulas",
+      hours: "N/A",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Emiliano Jofré", "Carlos Méndez"],
+      assignedProjects: ["andino"],
+      lastUpdate: "25/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-014",
+      code: "EQ-014",
+      type: "Grupo Electrógeno 150 kVA",
+      brand: "Cummins",
+      model: "C150D5e Silent",
+      serialNumber: "CUM***882",
+      project: "andino",
+      responsible: "Agustín Nievas",
+      status: "Habilitado",
+      certification: { name: "Ensayo Puesta a Tierra", status: "Vigente", expiration: "04/04/2027", certifier: "COPIG San Juan" },
+      nextExpiration: "04/04/2027",
+      nextExpirationDoc: "Puesta a Tierra",
+      hours: "2.410 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Agustín Nievas"],
+      assignedProjects: ["andino"],
+      lastUpdate: "28/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-020",
+      code: "EQ-020",
+      type: "Torre Iluminación Híbrida Solar/Diésel",
+      brand: "Atlas Copco",
+      model: "HiLight H6+",
+      serialNumber: "APP***771",
+      project: "cordillera",
+      responsible: "Nicolás Herrera",
+      status: "Habilitado",
+      certification: { name: "Seguridad Eléctrica Fotovoltaica", status: "Vigente", expiration: "11/08/2027", certifier: "HSE Cordillera" },
+      nextExpiration: "11/08/2027",
+      nextExpirationDoc: "Certificación Eléctrica",
+      hours: "760 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Nicolás Herrera"],
+      assignedProjects: ["cordillera"],
+      lastUpdate: "30/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-038",
+      code: "EQ-038",
+      type: "Bomba Hidrolavadora de Alta Presión",
+      brand: "Kärcher Industrial",
+      model: "HD 9/50-4 Cage",
+      serialNumber: "KAR***441",
+      project: "cumbre",
+      responsible: "Julián Araya",
+      status: "Habilitado",
+      certification: { name: "Prueba Mangueras 500 Bar", status: "Vigente", expiration: "15/06/2027", certifier: "Taller Cuyo" },
+      nextExpiration: "15/06/2027",
+      nextExpirationDoc: "Prueba de Mangueras",
+      hours: "520 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Julián Araya", "Juan Pérez"],
+      assignedProjects: ["cumbre"],
+      lastUpdate: "26/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-041",
+      code: "EQ-041",
+      type: "Compresor Neumático de Tornillo",
+      brand: "Sullair",
+      model: "185 Tier 4 Final",
+      serialNumber: "SUL***302",
+      project: "cordillera",
+      responsible: "Marcelo Godoy",
+      status: "Habilitado",
+      certification: { name: "Prueba Tanque Pulmón", status: "Vigente", expiration: "22/09/2027", certifier: "Ente Minero" },
+      nextExpiration: "22/09/2027",
+      nextExpirationDoc: "Prueba Hidrostática",
+      hours: "1.490 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Marcelo Godoy"],
+      assignedProjects: ["cordillera"],
+      lastUpdate: "27/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-045",
+      code: "EQ-045",
+      type: "Autoelevador Todoterreno 5T",
+      brand: "Hyster",
+      model: "H100FT Rough Terrain",
+      serialNumber: "HYS***991",
+      project: "cordillera",
+      responsible: "Lucas Carrizo",
+      status: "Habilitado",
+      certification: { name: "Inspección Estructural Uñas", status: "Vigente", expiration: "18/03/2027", certifier: "IRAM" },
+      nextExpiration: "18/03/2027",
+      nextExpirationDoc: "Inspección de Uñas",
+      hours: "3.110 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Lucas Carrizo", "Roberto Díaz"],
+      assignedProjects: ["cordillera"],
+      lastUpdate: "29/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-050",
+      code: "EQ-050",
+      type: "Soldadora TIG Industrial 350A",
+      brand: "Miller Electric",
+      model: "Syncrowave 350 LX",
+      serialNumber: "MIL***442",
+      project: "cumbre",
+      responsible: "Carlos Méndez",
+      status: "Habilitado",
+      certification: { name: "Aislación y Disyuntor", status: "Vigente", expiration: "29/08/2027", certifier: "COPIG San Juan" },
+      nextExpiration: "29/08/2027",
+      nextExpirationDoc: "Certificación Eléctrica",
+      hours: "1.120 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Carlos Méndez", "Damián Zárate"],
+      assignedProjects: ["cumbre"],
+      lastUpdate: "25/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-052",
+      code: "EQ-052",
+      type: "Prensa Hidráulica Portátil 50T",
+      brand: "Enerpac",
+      model: "VLP-506 con Bomba Neumática",
+      serialNumber: "ENR***661",
+      project: "andino",
+      responsible: "Bruno Paoli",
+      status: "Habilitado",
+      certification: { name: "Prueba de Bastidor y Pistón", status: "Vigente", expiration: "14/10/2027", certifier: "Laboratorio Cuyo" },
+      nextExpiration: "14/10/2027",
+      nextExpirationDoc: "Prueba de Carga",
+      hours: "N/A",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Bruno Paoli", "Marcelo Godoy"],
+      assignedProjects: ["andino"],
+      lastUpdate: "22/09/2026",
+      observations: []
+    },
+    {
+      id: "EQ-055",
+      code: "EQ-055",
+      type: "Central Hidráulica Filtrado Dialisis",
+      brand: "Parker Hannifin",
+      model: "Guardian Filtration Cart",
+      serialNumber: "PAR***102",
+      project: "cordillera",
+      responsible: "Sebastián Cortez",
+      status: "Habilitado",
+      certification: { name: "Conteo de Partículas ISO 4406", status: "Vigente", expiration: "08/11/2027", certifier: "HSE Cordillera" },
+      nextExpiration: "08/11/2027",
+      nextExpirationDoc: "Calibración Contador",
+      hours: "890 hs",
+      maintenanceStatus: "Al día",
+      authorizedOperators: ["Sebastián Cortez", "Juan Pérez"],
+      assignedProjects: ["cordillera"],
+      lastUpdate: "26/09/2026",
+      observations: []
+    }
+  ],
+
+  companyDocuments: [
+    {
+      id: "DOC-EMP-01",
+      name: "Constancia de Cobertura ART con Nómina y Cláusula de No Repetición",
+      category: "Laboral / Seguridad Social",
+      issuer: "Provincia ART SA",
+      issueDate: "18/09/2026",
+      expiration: "18/10/2026",
+      status: "Próximo a vencer",
+      statusBadge: "amber",
+      fileRef: "provincia_art_nomina_oct2026.pdf",
+      applicableProjects: ["cordillera", "cumbre", "andino"],
+      observation: "Vence en 15 días. Esencial emitir renovación mensual con recibos de sueldo F.931."
+    },
+    {
+      id: "DOC-EMP-02",
+      name: "Póliza de Responsabilidad Civil Comprensiva Operaciones Mineras (USD 1.000.000)",
+      category: "Seguros",
+      issuer: "La Mercantil Andina",
+      issueDate: "01/01/2026",
+      expiration: "31/12/2026",
+      status: "Vigente",
+      statusBadge: "emerald",
+      fileRef: "poliza_rc_minera_andes_2026.pdf",
+      applicableProjects: ["cordillera", "cumbre", "andino"],
+      observation: "Endoso específico para operaciones en alta montaña incluido."
+    },
+    {
+      id: "DOC-EMP-03",
+      name: "Formulario F.522/A AFIP - Certificado de Libre Deuda Fiscal y Previsional",
+      category: "Fiscal",
+      issuer: "AFIP - DGI San Juan",
+      issueDate: "15/09/2026",
+      expiration: "15/12/2026",
+      status: "Vigente",
+      statusBadge: "emerald",
+      fileRef: "afip_f522_libre_deuda_q3.pdf",
+      applicableProjects: ["cordillera", "cumbre", "andino"],
+      observation: "Sin observaciones tributarias ni embargos."
+    },
+    {
+      id: "DOC-EMP-04",
+      name: "Programa de Seguridad Minera Aprobado por la SRT y ART",
+      category: "HSE",
+      issuer: "Superintendencia de Riesgos del Trabajo (SRT)",
+      issueDate: "10/02/2026",
+      expiration: "10/02/2027",
+      status: "Vigente",
+      statusBadge: "emerald",
+      fileRef: "programa_seguridad_faena_aprobado.pdf",
+      applicableProjects: ["cordillera", "cumbre"],
+      observation: "Aprobado para labores en roca, izajes y espacios confinados."
+    },
+    {
+      id: "DOC-EMP-05",
+      name: "Certificado de Inscripción en Registro Minero Provincial (RUPM San Juan)",
+      category: "Legal / Minería",
+      issuer: "Ministerio de Minería de San Juan",
+      issueDate: "04/04/2026",
+      expiration: "04/04/2027",
+      status: "Vigente",
+      statusBadge: "emerald",
+      fileRef: "rupm_sanjuan_habilitacion_anual.pdf",
+      applicableProjects: ["cordillera", "cumbre", "andino"],
+      observation: "Empresa proveedora categoría A habilitada."
+    },
+    {
+      id: "DOC-EMP-06",
+      name: "Habilitación Provincial de Transporte de Sustancias Especiales",
+      category: "Logística / Transporte",
+      issuer: "Secretaría de Tránsito y Transporte San Juan",
+      issueDate: "12/03/2026",
+      expiration: "12/03/2027",
+      status: "Vigente",
+      statusBadge: "emerald",
+      fileRef: "hab_transporte_sustancias_sj.pdf",
+      applicableProjects: ["cordillera", "andino"],
+      observation: "Válido para combustibles y aceites lubricantes en envase original."
+    },
+    {
+      id: "DOC-EMP-07",
+      name: "Plan de Manejo y Disposición de Residuos Especiales (Ley 24.051)",
+      category: "Medio Ambiente",
+      issuer: "Secretaría de Estado de Ambiente San Juan",
+      issueDate: "20/10/2025",
+      expiration: "20/10/2026",
+      status: "Próximo a vencer",
+      statusBadge: "amber",
+      fileRef: "plan_residuos_ley24051_renovacion.pdf",
+      applicableProjects: ["cumbre", "cordillera"],
+      observation: "Vence en 17 días. Trámite de renovación ingresado."
+    },
+    {
+      id: "DOC-EMP-08",
+      name: "Matriz IPER Actualizada - Proyecto Cumbre (Identificación de Peligros)",
+      category: "HSE",
+      issuer: "HSE Andes SRL / Revisión Operadora Cumbre",
+      issueDate: "15/03/2026",
+      expiration: "01/10/2026",
+      status: "Faltante / Pendiente",
+      statusBadge: "rose",
+      fileRef: "iper_cumbre_rev3_borrador.pdf",
+      applicableProjects: ["cumbre"],
+      observation: "La operadora solicitó actualización semestral con evaluación de riesgo sísmico y viento zonda."
+    }
+  ],
+
+  alerts: [
+    {
+      id: "ALT-01",
+      title: "Examen preocupacional de Juan Pérez: vence en 7 días",
+      severity: "Crítica",
+      severityColor: "rose",
+      category: "Personas",
+      entityType: "person",
+      entityId: "PER-01",
+      entityName: "Juan Pérez",
+      project: "cumbre",
+      projectName: "Proyecto Cumbre",
+      dueDate: "10/10/2026",
+      status: "Abierta",
+      assignedTo: "Laura Morales (RRHH)",
+      description: "El certificado de aptitud psicofísica laboral expira en 7 días. Si no se ingresa la nueva constancia firmada por clínica acreditada, el pase de ingreso a Proyecto Cumbre será suspendido.",
+      recommendedAction: "Cargar nuevo certificado de examen periódico emitido por Clínica Laboral Cuyo o prestador habilitado.",
+      canQuickFix: true,
+      timeline: [
+        { time: "Hoy, 08:15 hs", note: "Alerta generada por el motor de reglas automáticas de GaritaPass." },
+        { time: "Ayer, 16:30 hs", note: "Notificación enviada por email a la casilla de RRHH." }
+      ]
+    },
+    {
+      id: "ALT-02",
+      title: "Seguro del vehículo AB 123 CD: vencido",
+      severity: "Crítica",
+      severityColor: "rose",
+      category: "Vehículos",
+      entityType: "vehicle",
+      entityId: "VEH-01",
+      entityName: "Toyota Hilux AB 123 CD",
+      project: "cumbre",
+      projectName: "Proyecto Cumbre",
+      dueDate: "01/10/2026",
+      status: "Abierta",
+      assignedTo: "Marcos Benítez (Operaciones)",
+      description: "La póliza de seguro automotor expiró hace 2 días. El vehículo se encuentra en estado Bloqueado en garita de control de Proyecto Cumbre.",
+      recommendedAction: "Cargar el certificado de cobertura actualizado y comprobante de pago con cláusula de no repetición.",
+      canQuickFix: true,
+      timeline: [
+        { time: "01/10/2026, 00:01 hs", note: "Estado del móvil actualizado automáticamente a Bloqueado por caducidad de póliza." }
+      ]
+    },
+    {
+      id: "ALT-03",
+      title: "Certificación del equipo EQ-018: documento faltante",
+      severity: "Crítica",
+      severityColor: "rose",
+      category: "Equipos",
+      entityType: "equipment",
+      entityId: "EQ-018",
+      entityName: "Plataforma Elevadora JLG EQ-018",
+      project: "cumbre",
+      projectName: "Proyecto Cumbre",
+      dueDate: "Inmediato",
+      status: "Abierta",
+      assignedTo: "Pablo Vega (HSE)",
+      description: "Falta certificado de inspección estructural y prueba de carga con dinamómetro calibrado para la plataforma JLG 600AJ.",
+      recommendedAction: "Adjuntar informe técnico de inspección emitido por profesional con incumbencia o empresa auditora de izajes.",
+      canQuickFix: true,
+      timeline: [
+        { time: "16/09/2026", note: "Observación emitida durante la auditoría de equipos en base operativa." }
+      ]
+    },
+    {
+      id: "ALT-04",
+      title: "Constancia de ART de la empresa: vence en 15 días",
+      severity: "Alta",
+      severityColor: "amber",
+      category: "Empresa",
+      entityType: "company",
+      entityId: "DOC-EMP-01",
+      entityName: "Andes Servicios Integrales SRL",
+      project: "all",
+      projectName: "Todos los proyectos",
+      dueDate: "18/10/2026",
+      status: "Abierta",
+      assignedTo: "María Administradora",
+      description: "La nómina de cobertura con cláusula de no repetición para Provincia ART vence el 18/10. Afecta el ingreso de todo el personal si no se renueva.",
+      recommendedAction: "Descargar nómina vigente con F.931 cancelado del portal de Provincia ART y subirla a GaritaPass.",
+      canQuickFix: false,
+      timeline: [{ time: "Hoy, 07:00 hs", note: "Aviso programado de vencimiento a 15 días." }]
+    },
+    {
+      id: "ALT-05",
+      title: "Cinco personas no cumplen todos los requisitos del Proyecto Cumbre",
+      severity: "Alta",
+      severityColor: "amber",
+      category: "Personas",
+      entityType: "project",
+      entityId: "cumbre",
+      entityName: "Dotación Proyecto Cumbre",
+      project: "cumbre",
+      projectName: "Proyecto Cumbre",
+      dueDate: "12/10/2026",
+      status: "Abierta",
+      assignedTo: "Laura Morales (RRHH)",
+      description: "5 colaboradores (Juan Pérez, Diego Castro, Carlos Méndez, Nicolás Herrera y Pablo Santillán) presentan brechas de cumplimiento para Proyecto Cumbre.",
+      recommendedAction: "Revisar la matriz de brechas de Proyecto Cumbre y actualizar legajos antes de la próxima rotación.",
+      canQuickFix: false,
+      timeline: [{ time: "Ayer, 18:00 hs", note: "Cálculo de brecha consolidado para la próxima rotación 14x14." }]
+    },
+    {
+      id: "ALT-06",
+      title: "Minibús AE 445 LM: RTO interjurisdiccional vence en 12 días",
+      severity: "Media",
+      severityColor: "blue",
+      category: "Vehículos",
+      entityType: "vehicle",
+      entityId: "VEH-03",
+      entityName: "Minibús Sprinter AE 445 LM",
+      project: "cumbre",
+      projectName: "Proyecto Cumbre",
+      dueDate: "15/10/2026",
+      status: "En revisión",
+      assignedTo: "Marcos Benítez (Operaciones)",
+      description: "La Revisión Técnica Obligatoria CNRT expira el 15/10/2026.",
+      recommendedAction: "Inspección técnica programada para el 08/10. Subir oblea escaneada una vez aprobada.",
+      canQuickFix: false,
+      timeline: [{ time: "28/09/2026", note: "Turno reservado en taller de revisión técnica San Juan." }]
+    },
+    {
+      id: "ALT-07",
+      title: "Diego Castro: Licencia profesional LNTI vencida hace 2 días",
+      severity: "Crítica",
+      severityColor: "rose",
+      category: "Personas",
+      entityType: "person",
+      entityId: "PER-04",
+      entityName: "Diego Castro",
+      project: "cumbre",
+      projectName: "Proyecto Cumbre",
+      dueDate: "01/10/2026",
+      status: "Abierta",
+      assignedTo: "Laura Morales (RRHH)",
+      description: "Conductor con LNTI CNRT vencida el 01/10/2026. Inhabilitado para operar en ruta minera.",
+      recommendedAction: "Exigir turno de psicofísico o reasignar móvil a chofer habilitado (Roberto Díaz).",
+      canQuickFix: false,
+      timeline: [{ time: "01/10/2026", note: "Estado de chofer cambiado a Bloqueado preventivo." }]
+    },
+    {
+      id: "ALT-08",
+      title: "Nicolás Herrera: Certificación para trabajos con tensión vence en 9 días",
+      severity: "Media",
+      severityColor: "blue",
+      category: "Personas",
+      entityType: "person",
+      entityId: "PER-05",
+      entityName: "Nicolás Herrera",
+      project: "andino",
+      projectName: "Proyecto Andino",
+      dueDate: "12/10/2026",
+      status: "Abierta",
+      assignedTo: "Pablo Vega (HSE)",
+      description: "Habilitación eléctrica NFPA 70E vence en 9 días.",
+      recommendedAction: "Coordinar re-evaluación con instructor matriculado.",
+      canQuickFix: false,
+      timeline: [{ time: "30/09/2026", note: "Aviso automático enviado a supervisión técnica." }]
+    },
+    {
+      id: "ALT-09",
+      title: "Motosoldadora EQ-023: Calibración anual vence en 11 días",
+      severity: "Media",
+      severityColor: "blue",
+      category: "Equipos",
+      entityType: "equipment",
+      entityId: "EQ-023",
+      entityName: "Lincoln Electric Ranger EQ-023",
+      project: "cumbre",
+      projectName: "Proyecto Cumbre",
+      dueDate: "14/10/2026",
+      status: "Abierta",
+      assignedTo: "Marcos Benítez (Operaciones)",
+      description: "Patrón de corriente requiere contraste metrológico anual.",
+      recommendedAction: "Subir certificado de contraste de amperímetro.",
+      canQuickFix: false,
+      timeline: [{ time: "28/09/2026", note: "Orden de calibración emitida." }]
+    },
+    {
+      id: "ALT-10",
+      title: "Matriz IPER Proyecto Cumbre: Pendiente actualización semestral",
+      severity: "Informativa",
+      severityColor: "gray",
+      category: "Empresa",
+      entityType: "company",
+      entityId: "DOC-EMP-08",
+      entityName: "Andes Servicios Integrales SRL",
+      project: "cumbre",
+      projectName: "Proyecto Cumbre",
+      dueDate: "20/10/2026",
+      status: "Abierta",
+      assignedTo: "María González (HSE)",
+      description: "Actualización periódica obligatoria de evaluación de riesgos para labores en altura.",
+      recommendedAction: "Cargar versión final con firma del responsable de seguridad y gerente.",
+      canQuickFix: false,
+      timeline: [{ time: "01/10/2026", note: "Recordatorio de ciclo documental semestral." }]
+    }
+  ],
+
+  requirementsMatrix: [
+    { id: "REQ-01", category: "Personas", name: "DNI Vigente (Frente y Dorso)", cordillera: "Obligatorio", cumbre: "Obligatorio", andino: "Obligatorio", renewalPeriod: "Al vencimiento del DNI", appliesTo: "Todo el personal" },
+    { id: "REQ-02", category: "Personas", name: "Constancia de ART con Nómina y Cláusula de No Repetición", cordillera: "Obligatorio (Mensual)", cumbre: "Obligatorio (Mensual)", andino: "Obligatorio (Mensual)", renewalPeriod: "Mensual (día 18)", appliesTo: "Todo el personal" },
+    { id: "REQ-03", category: "Personas", name: "Seguro de Vida Colectivo Obligatorio (Decreto 1567/74)", cordillera: "Obligatorio", cumbre: "Obligatorio", andino: "Obligatorio", renewalPeriod: "Mensual", appliesTo: "Todo el personal" },
+    { id: "REQ-04", category: "Personas", name: "Examen Preocupacional / Periódico de Ley (Res. SRT 37/10)", cordillera: "Obligatorio (Anual)", cumbre: "Obligatorio (Anual)", andino: "Obligatorio (Anual)", renewalPeriod: "Anual", appliesTo: "Todo el personal" },
+    { id: "REQ-05", category: "Personas", name: "Aptitud Médica para Gran Altitud Geográfica (>3.500 msnm)", cordillera: "Obligatorio (Anual)", cumbre: "Obligatorio (Anual - Muy Estricto)", andino: "No requerido (<2.500 msnm)", renewalPeriod: "Anual", appliesTo: "Personal en alta montaña" },
+    { id: "REQ-06", category: "Personas", name: "Inducción General de Seguridad Minera", cordillera: "Obligatorio", cumbre: "Obligatorio", andino: "Obligatorio", renewalPeriod: "Cada 2 años", appliesTo: "Todo el personal" },
+    { id: "REQ-07", category: "Personas", name: "Inducción Específica de Faena del Proyecto", cordillera: "Obligatorio (Presencial)", cumbre: "Obligatorio (Específica Cumbre)", andino: "Obligatorio", renewalPeriod: "Anual", appliesTo: "Todo el personal" },
+    { id: "REQ-08", category: "Personas", name: "Certificación de Trabajo Seguro en Altura Física", cordillera: "Obligatorio para técnicos", cumbre: "Obligatorio para mecánicos", andino: "Opcional s/tarea", renewalPeriod: "Anual", appliesTo: "Mecánicos y electricistas" },
+    { id: "REQ-09", category: "Personas", name: "Manejo Defensivo en Alta Montaña y Ripio 4x4", cordillera: "Obligatorio para choferes", cumbre: "Obligatorio para todo chofer", andino: "Obligatorio básico", renewalPeriod: "Cada 2 años", appliesTo: "Conductores autorizados" },
+    { id: "REQ-10", category: "Personas", name: "Licencia Profesional de Conducir (Nacional y CNRT)", cordillera: "Obligatorio para choferes", cumbre: "Obligatorio + LNTI", andino: "Obligatorio choferes", renewalPeriod: "Según carnet", appliesTo: "Conductores" },
+    { id: "REQ-11", category: "Personas", name: "Certificado de Antecedentes Penales", cordillera: "Obligatorio (Semestral)", cumbre: "Obligatorio (Anual)", andino: "Pendiente confirmar", renewalPeriod: "Anual", appliesTo: "Todo el personal" },
+    { id: "REQ-12", category: "Vehículos", name: "Póliza de Seguro Automotor con Cláusula de No Repetición", cordillera: "Obligatorio", cumbre: "Obligatorio (Sin excepción)", andino: "Obligatorio", renewalPeriod: "Según póliza", appliesTo: "Todos los vehículos" },
+    { id: "REQ-13", category: "Vehículos", name: "Revisión Técnica Obligatoria (RTO / VTV / CNRT)", cordillera: "Obligatorio", cumbre: "Obligatorio", andino: "Obligatorio", renewalPeriod: "Anual / Semestral", appliesTo: "Todos los vehículos" },
+    { id: "REQ-14", category: "Vehículos", name: "Kit Minero de Seguridad y Jaula Antivuelco", cordillera: "Obligatorio (Certificado)", cumbre: "Obligatorio (En garita)", andino: "Opcional", renewalPeriod: "Inspección periódica", appliesTo: "Camionetas y utilitarios" },
+    { id: "REQ-15", category: "Equipos", name: "Certificado de Inspección y Prueba de Carga del Equipo", cordillera: "Obligatorio", cumbre: "Obligatorio (Filtro estricto)", andino: "Obligatorio", renewalPeriod: "Anual", appliesTo: "Grúas, plataformas, compresores" }
+  ],
+
+  auditLogs: [
+    { id: "AUD-101", date: "Hoy, 10:42 hs", user: "Ing. Marcos Benítez", role: "Gerente Operaciones", action: "Exportación de reporte", target: "Informe de Brechas - Proyecto Cumbre", previousState: "-", newState: "Descargado", comment: "Generación de reporte PDF para reunión semanal.", source: "Humano" },
+    { id: "AUD-102", date: "Hoy, 09:15 hs", user: "María Administradora", role: "Administradora", action: "Carga de documento", target: "Constancia de ART - Provincia ART", previousState: "Por vencer", newState: "En revisión", comment: "Se adjuntó borrador F.931 cancelado.", source: "Humano" },
+    { id: "AUD-103", date: "Hoy, 08:30 hs", user: "Sistema IA (OCR)", role: "Motor de Extracción", action: "Extracción automática de datos", target: "Examen Médico - Valeria Romero", previousState: "Documento PDF bruto", newState: "Metadatos extraídos (98%)", comment: "Lectura de fecha de emisión 04/05/2026.", source: "IA OCR" },
+    { id: "AUD-104", date: "Hoy, 08:00 hs", user: "Motor de Reglas GaritaPass", role: "Automatización", action: "Cambio automático de estado", target: "Vehículo AB 123 CD (Hilux)", previousState: "Habilitado", newState: "Bloqueado", comment: "Bloqueo preventivo por caducidad de póliza #882910.", source: "Regla automática" },
+    { id: "AUD-105", date: "Ayer, 16:45 hs", user: "Pablo Vega", role: "Supervisor HSE", action: "Aprobación de documento", target: "Aptitud Médica - Roberto Díaz", previousState: "Pendiente revisión", newState: "Vigente / Aprobado", comment: "Validado con firma digital del Dr. Albarracín.", source: "Humano" },
+    { id: "AUD-106", date: "Ayer, 14:10 hs", user: "Laura Morales", role: "Responsable RR.HH.", action: "Asignación a proyecto", target: "Juan Pérez", previousState: "Asignado a Cordillera", newState: "Asignado a Cumbre y Cordillera", comment: "Reasignación para parada de planta programada.", source: "Humano" },
+    { id: "AUD-107", date: "Ayer, 11:20 hs", user: "Motor de Reglas GaritaPass", role: "Automatización", action: "Generación de alerta crítica", target: "Diego Castro (Conductor)", previousState: "Vigente", newState: "Bloqueado", comment: "Licencia LNTI vencida el 01/10/2026. Alerta a Operaciones.", source: "Regla automática" },
+    { id: "AUD-108", date: "01/10/2026, 17:30 hs", user: "Ing. Marcos Benítez", role: "Gerente Operaciones", action: "Evaluación simulada", target: "Proyecto Cordillera", previousState: "89% de preparación", newState: "91% de preparación", comment: "Incorporación de Ford Ranger AF 902 JK 100% habilitada.", source: "Humano" }
+  ],
+
+  rolesConfig: [
+    { id: "propietario", name: "Propietario / Directorio", badge: "Full Access", permissions: { dashboard: "Total", projects: "Total", people: "Total", vehicles: "Total", equipment: "Total", documents: "Total", requirements: "Total", alerts: "Total", exports: "Ilimitado", audit: "Total", settings: "Total" } },
+    { id: "administrador", name: "Administrador General", badge: "Gestión", permissions: { dashboard: "Total", projects: "Edición", people: "Edición", vehicles: "Edición", equipment: "Edición", documents: "Validación", requirements: "Consulta", alerts: "Gestión", exports: "Ilimitado", audit: "Consulta", settings: "Usuarios" } },
+    { id: "rrhh", name: "Recursos Humanos (RR.HH.)", badge: "Especialista", permissions: { dashboard: "Métricas", projects: "Ver asignación", people: "Total", vehicles: "Lectura choferes", equipment: "Lectura operadores", documents: "Carga legajos", requirements: "Ver requisitos", alerts: "Alertas personal", exports: "Nóminas", audit: "Filtro personal", settings: "Sin acceso" } },
+    { id: "hse", name: "Seguridad, Higiene y Ambiente", badge: "Especialista", permissions: { dashboard: "Métricas HSE", projects: "Matriz HSE", people: "Aprobación aptitudes", vehicles: "Kits y RTO", equipment: "Izajes y ensayos", documents: "Aprobación/Rechazo", requirements: "Configuración", alerts: "Total HSE", exports: "Informes de campo", audit: "Total", settings: "Sin acceso" } },
+    { id: "flota", name: "Responsable de Flota y Equipos", badge: "Especialista", permissions: { dashboard: "Métricas flota", projects: "Ver móviles", people: "Solo choferes", vehicles: "Total", equipment: "Total", documents: "Pólizas y RTO", requirements: "Requisitos móviles", alerts: "Alertas flota", exports: "Fichas técnicas", audit: "Filtro flota", settings: "Sin acceso" } },
+    { id: "auditor", name: "Auditor Externo / Minera", badge: "Fiscalización", permissions: { dashboard: "Lectura", projects: "Evaluación", people: "Legajos y QR", vehicles: "Fichas y seguros", equipment: "Certificados izaje", documents: "Repositorio", requirements: "Matriz", alerts: "Lectura", exports: "Descarga carpetas", audit: "Trazabilidad con hash", settings: "Sin acceso" } },
+    { id: "lectura", name: "Solo Lectura / Consulta", badge: "Consulta", permissions: { dashboard: "Lectura", projects: "Lectura", people: "Lectura", vehicles: "Lectura", equipment: "Lectura", documents: "Lectura", requirements: "Lectura", alerts: "Lectura", exports: "Deshabilitado", audit: "Sin acceso", settings: "Sin acceso" } }
+  ]
+};
+
+window.GaritaPassData = window.AsteriaData;
+
+
+</script>
+<script>
+// Asteria Control - Lógica Reactiva de la Aplicación B2B
+// Desarrollado con Vue 3 (Global Build)
+
+document.addEventListener("DOMContentLoaded", () => {
+  const { createApp, ref, reactive, computed, watch, nextTick } = Vue;
+
+  const app = createApp({
+    setup() {
+      // Estado de Autenticación Demostrativa
+      const isAuthenticated = ref(true); // true por defecto para iniciar en el dashboard operativo
+      const loginEmail = ref("mbenitez@andesservicios.com.ar");
+      const loginPassword = ref("••••••••••••");
+      const loginError = ref("");
+
+      // Navegación principal (1..11)
+      const currentTab = ref("resumen");
+      const sidebarOpen = ref(false); // Mobile drawer
+
+      // Filtro de Proyecto Global
+      const selectedProjectFilter = ref("all"); // 'all', 'cordillera', 'cumbre', 'andino'
+
+      // Roles y permisos simulados
+      const currentRole = ref("administrador");
+
+      // Datos reactivos basados en AsteriaData
+      const meta = reactive({ ...window.AsteriaData.meta });
+      const company = reactive({ ...window.AsteriaData.company });
+      const projects = ref(JSON.parse(JSON.stringify(window.AsteriaData.projects)));
+      const people = ref(JSON.parse(JSON.stringify(window.AsteriaData.people)));
+      const vehicles = ref(JSON.parse(JSON.stringify(window.AsteriaData.vehicles)));
+      const equipment = ref(JSON.parse(JSON.stringify(window.AsteriaData.equipment)));
+      const companyDocuments = ref(JSON.parse(JSON.stringify(window.AsteriaData.companyDocuments)));
+      const alerts = ref(JSON.parse(JSON.stringify(window.AsteriaData.alerts)));
+      const requirementsMatrix = ref(JSON.parse(JSON.stringify(window.AsteriaData.requirementsMatrix)));
+      const auditLogs = ref(JSON.parse(JSON.stringify(window.AsteriaData.auditLogs)));
+      const rolesConfig = ref(JSON.parse(JSON.stringify(window.AsteriaData.rolesConfig)));
+      const complianceEvolution = ref([
+        { month: "May 2026", score: 72, label: "Mayo" },
+        { month: "Jun 2026", score: 75, label: "Junio" },
+        { month: "Jul 2026", score: 78, label: "Julio" },
+        { month: "Ago 2026", score: 79, label: "Agosto" },
+        { month: "Sep 2026", score: 81, label: "Septiembre" },
+        { month: "Oct 2026", score: 82, label: "Octubre (Actual)" }
+      ]);
+
+      // Estado de Habilitación de Workflows
+      const workflowState = reactive({
+        juanPerezFixed: false,
+        vehicleAbFixed: false,
+        eq018Fixed: false
+      });
+
+      // Búsqueda global
+      const isSearchModalOpen = ref(false);
+      const searchQuery = ref("");
+
+      // Centro de Notificaciones
+      const isNotificationsOpen = ref(false);
+
+      // Toasts de Notificación
+      const toasts = ref([]);
+      const showToast = (title, message, type = "success") => {
+        const id = Date.now() + Math.random();
+        toasts.value.push({ id, title, message, type });
+        setTimeout(() => {
+          toasts.value = toasts.value.filter(t => t.id !== id);
+        }, 5000);
+      };
+
+      // Modales y Fichas de Detalle
+      const selectedPerson = ref(null);
+      const selectedVehicle = ref(null);
+      const selectedEquipment = ref(null);
+      const selectedProject = ref(null);
+      const selectedDocument = ref(null);
+      const selectedQrCredentialPerson = ref(null);
+
+      // Modal para Agregar Nueva Persona (Funcional Real)
+      const isAddPersonModalOpen = ref(false);
+      const newPersonForm = reactive({
+        name: "",
+        dni: "",
+        role: "Técnico Mecánico",
+        project: "cumbre",
+        phone: "+54 9 264 ",
+        bloodType: "0+"
+      });
+      const newPersonErrors = reactive({
+        name: "",
+        dni: ""
+      });
+
+      // Modal de Evaluación de Proyecto
+      const isProjectEvalModalOpen = ref(false);
+      const projectEvalTarget = ref(null);
+
+      // Modal Simular Incorporación a otro Proyecto
+      const isSimulateMobilizationOpen = ref(false);
+      const mobilizationForm = reactive({
+        resourceType: "person",
+        resourceId: "PER-01",
+        targetProject: "cumbre"
+      });
+
+      // Modal de IA Documental (Carga y Escaneo)
+      const isAiUploadModalOpen = ref(false);
+      const aiUploadState = reactive({
+        step: "form", // 'form', 'scanning', 'result', 'pending_review'
+        scanStepIndex: 0,
+        scanSteps: [
+          "Leyendo documento y extrayendo texto...",
+          "Identificando tipo documental minero...",
+          "Extrayendo titular, CUIT/DNI y entidad emisora...",
+          "Detectando fecha de emisión...",
+          "Detectando fecha de vencimiento...",
+          "Verificando consistencia con requisitos del proyecto...",
+          "Preparando resultado para validación humana..."
+        ],
+        entityType: "person", // 'person', 'vehicle', 'equipment', 'company'
+        entityId: "PER-01",
+        docType: "Examen Preocupacional / Aptitud Laboral",
+        fileName: "examen_aptitud_cuyo_2026.pdf",
+        confidence: 98.4,
+        extractedData: {
+          docType: "Examen Preocupacional / Aptitud Laboral",
+          holder: "Juan Pérez — DNI 34.582.892",
+          docNumber: "MED-SJ-2026-9941",
+          issueDate: "02/10/2026",
+          expirationDate: "02/10/2027",
+          issuer: "Clínica de Medicina Laboral San Juan - Dr. Rodolfo Albarracín (Mat. 4412)",
+          status: "Apto Clase A sin restricciones para gran altitud (>4.000 msnm)",
+          observations: "Documento digital con firma electrónica certificada y código QR de validación médica."
+        }
+      });
+
+      // Modal de Exportación de Carpetas
+      const isExportModalOpen = ref(false);
+      const exportType = ref("complete"); // 'complete', 'person', 'vehicle', 'equipment', 'gaps'
+      const exportProject = ref("cumbre");
+      const exportStep = ref(0);
+      const exportSteps = [
+        "Verificando integridad documental...",
+        "Ordenando archivos cronológicamente...",
+        "Generando índice digital foliado con hash SHA-256...",
+        "Preparando informe de estado y hoja de ruta...",
+        "¡Carpeta lista para presentación o auditoría!"
+      ];
+
+      // Recorrido Guiado de Demostración
+      const isTourActive = ref(false);
+      const tourStep = ref(1); // 1..5
+      const tourSteps = [
+        {
+          step: 1,
+          title: "Conocé en segundos el nivel de preparación de la empresa",
+          description: "Visualizá el índice general del 82%, los indicadores clave por proyecto y la evolución de cumplimiento de los últimos 6 meses en un solo vistazo.",
+          tab: "resumen"
+        },
+        {
+          step: 2,
+          title: "Detectá qué personas, vehículos o equipos podrían impedir una habilitación",
+          description: "La sección 'Qué requiere atención hoy' prioriza automáticamente las alertas que bloquean el ingreso a mina (ej. el preocupacional de Juan Pérez o el seguro de la Hilux).",
+          tab: "resumen"
+        },
+        {
+          step: 3,
+          title: "Centralizá documentos y vencimientos con apoyo de IA",
+          description: "La inteligencia artificial asiste en la extracción inmediata de fechas y emisores, manteniendo siempre el control y la aprobación en manos del profesional responsable.",
+          tab: "documentos"
+        },
+        {
+          step: 4,
+          title: "Compará los requisitos de distintos proyectos",
+          description: "Descubrí qué exige Proyecto Cordillera vs. Cumbre vs. Andino. Utilizá el simulador de incorporación para saber qué falta antes de movilizar un recurso a la faena.",
+          tab: "requisitos"
+        },
+        {
+          step: 5,
+          title: "Prepará una carpeta de presentación con trazabilidad",
+          description: "Armá legajos completos ordenados, foliados y con índice de trazabilidad para presentar ante la empresa minera o superar auditorías en minutos.",
+          tab: "exportaciones"
+        }
+      ];
+
+      // Filtros de Tablas
+      const peopleFilter = reactive({ search: "", project: "all", status: "all", role: "all" });
+      const vehicleFilter = reactive({ search: "", project: "all", status: "all" });
+      const equipmentFilter = reactive({ search: "", project: "all", status: "all" });
+      const documentFilter = reactive({ search: "", entity: "all", status: "all" });
+      const alertFilter = reactive({ search: "", severity: "all", category: "all", project: "all", status: "all" });
+      const auditFilter = reactive({ search: "", source: "all" });
+
+      // Selector de Recurso en Matriz de Requisitos
+      const reqInspectorType = ref("person");
+      const reqInspectorId = ref("PER-01");
+
+      // CÁLCULO DINÁMICO DE ESTADÍSTICAS DEL DASHBOARD REACTIVO
+      const currentStats = computed(() => {
+        const prjFilter = selectedProjectFilter.value;
+
+        if (prjFilter === "all") {
+          let readinessBase = 82;
+          if (workflowState.juanPerezFixed) readinessBase += 2; // Sube a 84%
+          if (workflowState.vehicleAbFixed) readinessBase += 2;  // Sube a 86%
+
+          const enabledPeopleCount = people.value.filter(p => p.status.includes("Habilitad")).length;
+          const observedPeopleCount = people.value.filter(p => p.status.includes("Observad")).length;
+          const blockedPeopleCount = people.value.filter(p => p.status.includes("Bloquead")).length;
+
+          const enabledVehCount = vehicles.value.filter(v => v.status === "Habilitado").length;
+          const observedVehCount = vehicles.value.filter(v => v.status === "Observado").length;
+          const blockedVehCount = vehicles.value.filter(v => v.status === "Bloqueado").length;
+
+          const enabledEqCount = equipment.value.filter(e => e.status === "Habilitado").length;
+          const expiringEqCount = equipment.value.filter(e => e.status === "Observado").length;
+          const blockedEqCount = equipment.value.filter(e => e.status === "Bloqueado").length;
+
+          return {
+            readiness: readinessBase,
+            projectName: "Consolidado de 3 Proyectos",
+            people: { total: people.value.length, enabled: enabledPeopleCount, observed: observedPeopleCount, blocked: blockedPeopleCount },
+            vehicles: { total: vehicles.value.length, enabled: enabledVehCount, observed: observedVehCount, blocked: blockedVehCount },
+            equipment: { total: equipment.value.length, enabled: enabledEqCount, expiring: expiringEqCount, blocked: blockedEqCount },
+            companyDocs: { compliance: 87, active: 34, expiring: 5, expired: 2, missing: 3 }
+          };
+        } else {
+          // Filtrado por proyecto específico
+          const prj = projects.value.find(p => p.id === prjFilter);
+          const prjPeople = people.value.filter(p => p.assignedProjects.includes(prjFilter));
+          const prjVehicles = vehicles.value.filter(v => v.project === prjFilter);
+          const prjEquipment = equipment.value.filter(e => e.project === prjFilter);
+
+          const enabledPeople = prjPeople.filter(p => (p.projectStatuses[prjFilter] || "").includes("Habilitad")).length;
+          const observedPeople = prjPeople.filter(p => (p.projectStatuses[prjFilter] || "").includes("Observad")).length;
+          const blockedPeople = prjPeople.filter(p => (p.projectStatuses[prjFilter] || "").includes("Bloquead")).length;
+
+          const enabledVeh = prjVehicles.filter(v => v.status === "Habilitado").length;
+          const observedVeh = prjVehicles.filter(v => v.status === "Observado").length;
+          const blockedVeh = prjVehicles.filter(v => v.status === "Bloqueado").length;
+
+          const enabledEq = prjEquipment.filter(e => e.status === "Habilitado").length;
+          const expiringEq = prjEquipment.filter(e => e.status === "Observado").length;
+          const blockedEq = prjEquipment.filter(e => e.status === "Bloqueado").length;
+
+          return {
+            readiness: prj ? prj.readiness : 80,
+            projectName: prj ? prj.name : prjFilter,
+            people: { total: prjPeople.length, enabled: enabledPeople, observed: observedPeople, blocked: blockedPeople },
+            vehicles: { total: prjVehicles.length, enabled: enabledVeh, observed: observedVeh, blocked: blockedVeh },
+            equipment: { total: prjEquipment.length, enabled: enabledEq, expiring: expiringEq, blocked: blockedEq },
+            companyDocs: { compliance: prj ? prj.readiness : 85, active: 8, expiring: 1, expired: 0, missing: 1 }
+          };
+        }
+      });
+
+      // Listas Filtradas
+      const filteredPeople = computed(() => {
+        return people.value.filter(p => {
+          const matchSearch = peopleFilter.search === "" ||
+            p.name.toLowerCase().includes(peopleFilter.search.toLowerCase()) ||
+            p.dni.includes(peopleFilter.search) ||
+            p.role.toLowerCase().includes(peopleFilter.search.toLowerCase());
+
+          const matchProject = peopleFilter.project === "all" ||
+            p.assignedProjects.includes(peopleFilter.project);
+
+          const matchStatus = peopleFilter.status === "all" ||
+            p.status.toLowerCase().includes(peopleFilter.status.toLowerCase());
+
+          const matchRole = peopleFilter.role === "all" ||
+            p.role.toLowerCase().includes(peopleFilter.role.toLowerCase());
+
+          return matchSearch && matchProject && matchStatus && matchRole;
+        });
+      });
+
+      const filteredVehicles = computed(() => {
+        return vehicles.value.filter(v => {
+          const matchSearch = vehicleFilter.search === "" ||
+            v.plate.toLowerCase().includes(vehicleFilter.search.toLowerCase()) ||
+            v.brandModel.toLowerCase().includes(vehicleFilter.search.toLowerCase()) ||
+            v.driver.toLowerCase().includes(vehicleFilter.search.toLowerCase());
+
+          const matchProject = vehicleFilter.project === "all" ||
+            v.project === vehicleFilter.project;
+
+          const matchStatus = vehicleFilter.status === "all" ||
+            v.status.toLowerCase() === vehicleFilter.status.toLowerCase();
+
+          return matchSearch && matchProject && matchStatus;
+        });
+      });
+
+      const filteredEquipment = computed(() => {
+        return equipment.value.filter(e => {
+          const matchSearch = equipmentFilter.search === "" ||
+            e.code.toLowerCase().includes(equipmentFilter.search.toLowerCase()) ||
+            e.type.toLowerCase().includes(equipmentFilter.search.toLowerCase()) ||
+            e.brand.toLowerCase().includes(equipmentFilter.search.toLowerCase()) ||
+            e.model.toLowerCase().includes(equipmentFilter.search.toLowerCase()) ||
+            e.responsible.toLowerCase().includes(equipmentFilter.search.toLowerCase());
+
+          const matchProject = equipmentFilter.project === "all" ||
+            e.project === equipmentFilter.project;
+
+          const matchStatus = equipmentFilter.status === "all" ||
+            e.status.toLowerCase() === equipmentFilter.status.toLowerCase();
+
+          return matchSearch && matchProject && matchStatus;
+        });
+      });
+
+      const allDocumentsList = computed(() => {
+        const list = [];
+        companyDocuments.value.forEach(d => {
+          list.push({
+            id: d.id,
+            name: d.name,
+            entityType: "Empresa",
+            entityName: "Andes Servicios Integrales SRL",
+            category: d.category,
+            issuer: d.issuer,
+            expiration: d.expiration,
+            status: d.status,
+            applicableProjects: d.applicableProjects,
+            observation: d.observation
+          });
+        });
+        people.value.forEach(p => {
+          p.documents.forEach(d => {
+            list.push({
+              id: `${p.id}-${d.id}`,
+              name: d.name,
+              entityType: "Persona",
+              entityName: p.name,
+              category: "Personal / HSE",
+              issuer: d.issuer,
+              expiration: d.expiration,
+              status: d.status,
+              applicableProjects: p.assignedProjects,
+              observation: d.observation || "-"
+            });
+          });
+        });
+        vehicles.value.forEach(v => {
+          list.push({
+            id: `${v.id}-SEG`,
+            name: `Póliza Automotor: ${v.insurance.company}`,
+            entityType: "Vehículo",
+            entityName: `${v.plate} (${v.brandModel})`,
+            category: "Seguros / Flota",
+            issuer: v.insurance.company,
+            expiration: v.insurance.expiration,
+            status: v.insurance.status,
+            applicableProjects: v.assignedProjects,
+            observation: v.insurance.coverage
+          });
+          list.push({
+            id: `${v.id}-RTO`,
+            name: `RTO / Revisión Técnica: ${v.rto.center}`,
+            entityType: "Vehículo",
+            entityName: `${v.plate} (${v.brandModel})`,
+            category: "Técnica / CNRT",
+            issuer: v.rto.center,
+            expiration: v.rto.expiration,
+            status: v.rto.status,
+            applicableProjects: v.assignedProjects,
+            observation: `Certificado #${v.rto.certificateNumber}`
+          });
+        });
+        return list;
+      });
+
+      const filteredDocuments = computed(() => {
+        return allDocumentsList.value.filter(d => {
+          const matchSearch = documentFilter.search === "" ||
+            d.name.toLowerCase().includes(documentFilter.search.toLowerCase()) ||
+            d.entityName.toLowerCase().includes(documentFilter.search.toLowerCase()) ||
+            d.issuer.toLowerCase().includes(documentFilter.search.toLowerCase());
+
+          const matchEntity = documentFilter.entity === "all" ||
+            d.entityType.toLowerCase() === documentFilter.entity.toLowerCase();
+
+          const matchStatus = documentFilter.status === "all" ||
+            d.status.toLowerCase().includes(documentFilter.status.toLowerCase());
+
+          return matchSearch && matchEntity && matchStatus;
+        });
+      });
+
+      const filteredAlerts = computed(() => {
+        return alerts.value.filter(a => {
+          const matchSearch = alertFilter.search === "" ||
+            a.title.toLowerCase().includes(alertFilter.search.toLowerCase()) ||
+            a.entityName.toLowerCase().includes(alertFilter.search.toLowerCase()) ||
+            a.assignedTo.toLowerCase().includes(alertFilter.search.toLowerCase());
+
+          const matchSeverity = alertFilter.severity === "all" ||
+            a.severity.toLowerCase() === alertFilter.severity.toLowerCase();
+
+          const matchCategory = alertFilter.category === "all" ||
+            a.category.toLowerCase() === alertFilter.category.toLowerCase();
+
+          const matchProject = alertFilter.project === "all" ||
+            a.project === "all" ||
+            a.project === alertFilter.project;
+
+          const matchStatus = alertFilter.status === "all" ||
+            a.status.toLowerCase() === alertFilter.status.toLowerCase();
+
+          return matchSearch && matchSeverity && matchCategory && matchProject && matchStatus;
+        });
+      });
+
+      const criticalAlertsCount = computed(() => {
+        return alerts.value.filter(a => a.severity === "Crítica" && a.status === "Abierta").length;
+      });
+
+      const openAlertsCount = computed(() => {
+        return alerts.value.filter(a => a.status === "Abierta").length;
+      });
+
+      const filteredAuditLogs = computed(() => {
+        return auditLogs.value.filter(l => {
+          const matchSearch = auditFilter.search === "" ||
+            l.user.toLowerCase().includes(auditFilter.search.toLowerCase()) ||
+            l.action.toLowerCase().includes(auditFilter.search.toLowerCase()) ||
+            l.target.toLowerCase().includes(auditFilter.search.toLowerCase()) ||
+            l.comment.toLowerCase().includes(auditFilter.search.toLowerCase());
+
+          const matchSource = auditFilter.source === "all" ||
+            l.source.toLowerCase() === auditFilter.source.toLowerCase();
+
+          return matchSearch && matchSource;
+        });
+      });
+
+      // Búsqueda global
+      const globalSearchResults = computed(() => {
+        if (!searchQuery.value || searchQuery.value.trim().length < 2) return { people: [], vehicles: [], equipment: [], docs: [] };
+        const q = searchQuery.value.toLowerCase().trim();
+        return {
+          people: people.value.filter(p => p.name.toLowerCase().includes(q) || p.dni.includes(q) || p.role.toLowerCase().includes(q)),
+          vehicles: vehicles.value.filter(v => v.plate.toLowerCase().includes(q) || v.brandModel.toLowerCase().includes(q)),
+          equipment: equipment.value.filter(e => e.code.toLowerCase().includes(q) || e.type.toLowerCase().includes(q) || e.brand.toLowerCase().includes(q)),
+          docs: allDocumentsList.value.filter(d => d.name.toLowerCase().includes(q) || d.entityName.toLowerCase().includes(q))
+        };
+      });
+
+      // Inspector de Requisitos
+      const currentInspectedResource = computed(() => {
+        if (reqInspectorType.value === "person") {
+          return people.value.find(p => p.id === reqInspectorId.value) || people.value[0];
+        } else if (reqInspectorType.value === "vehicle") {
+          return vehicles.value.find(v => v.id === reqInspectorId.value) || vehicles.value[0];
+        } else {
+          return equipment.value.find(e => e.id === reqInspectorId.value) || equipment.value[0];
+        }
+      });
+
+      // Auditoría
+      const addAuditLog = (action, target, previousState, newState, comment, source = "Humano") => {
+        const newLog = {
+          id: `AUD-${Date.now()}`,
+          date: "Hoy, " + new Date().toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" }) + " hs",
+          user: currentRole.value === "administrador" ? "Ing. Marcos Benítez" : `Usuario (${currentRole.value.toUpperCase()})`,
+          role: currentRole.value.charAt(0).toUpperCase() + currentRole.value.slice(1),
+          action,
+          target,
+          previousState,
+          newState,
+          comment,
+          source
+        };
+        auditLogs.value.unshift(newLog);
+      };
+
+      // Navegación
+      const navigateTo = (tab) => {
+        currentTab.value = tab;
+        sidebarOpen.value = false;
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      // Fichas y Modales
+      const openPersonDetail = (person) => { selectedPerson.value = person; };
+      const closePersonDetail = () => { selectedPerson.value = null; };
+
+      const openVehicleDetail = (vehicle) => { selectedVehicle.value = vehicle; };
+      const closeVehicleDetail = () => { selectedVehicle.value = null; };
+
+      const openEquipmentDetail = (eq) => { selectedEquipment.value = eq; };
+      const closeEquipmentDetail = () => { selectedEquipment.value = null; };
+
+      const openProjectDetail = (proj) => { selectedProject.value = proj; };
+      const closeProjectDetail = () => { selectedProject.value = null; };
+
+      const openQrCredential = (person) => { selectedQrCredentialPerson.value = person; };
+      const closeQrCredential = () => { selectedQrCredentialPerson.value = null; };
+
+      const openDocumentPreview = (doc) => { selectedDocument.value = doc; };
+      const closeDocumentPreview = () => { selectedDocument.value = null; };
+
+      // Alertas
+      const handleAlertClick = (alert) => {
+        if (alert.entityType === "person") {
+          const person = people.value.find(p => p.id === alert.entityId || p.name === alert.entityName);
+          if (person) { openPersonDetail(person); return; }
+        } else if (alert.entityType === "vehicle") {
+          const vehicle = vehicles.value.find(v => v.id === alert.entityId || v.plate.includes("123") || alert.entityName.includes(v.plate));
+          if (vehicle) { openVehicleDetail(vehicle); return; }
+        } else if (alert.entityType === "equipment") {
+          const eq = equipment.value.find(e => e.id === alert.entityId || e.code === alert.entityId);
+          if (eq) { openEquipmentDetail(eq); return; }
+        } else if (alert.entityType === "company") {
+          navigateTo("documentos");
+          documentFilter.entity = "empresa";
+          return;
+        } else if (alert.entityType === "project") {
+          navigateTo("personas");
+          peopleFilter.project = "cumbre";
+          return;
+        }
+        navigateTo("alertas");
+      };
+
+      // Proyecto Evaluación & Movilización
+      const openProjectEvaluation = (proj) => {
+        projectEvalTarget.value = proj;
+        isProjectEvalModalOpen.value = true;
+      };
+      const closeProjectEvaluation = () => {
+        isProjectEvalModalOpen.value = false;
+        projectEvalTarget.value = null;
+      };
+
+      const openMobilizationSimulator = () => { isSimulateMobilizationOpen.value = true; };
+      const closeMobilizationSimulator = () => { isSimulateMobilizationOpen.value = false; };
+
+      // Modal de Agregar Persona con Validación Real
+      const openAddPersonModal = () => {
+        newPersonForm.name = "";
+        newPersonForm.dni = "";
+        newPersonForm.role = "Técnico Mecánico";
+        newPersonForm.project = "cumbre";
+        newPersonErrors.name = "";
+        newPersonErrors.dni = "";
+        isAddPersonModalOpen.value = true;
+      };
+
+      const closeAddPersonModal = () => {
+        isAddPersonModalOpen.value = false;
+      };
+
+      const submitAddPerson = () => {
+        let valid = true;
+        if (!newPersonForm.name.trim()) {
+          newPersonErrors.name = "El nombre y apellido son obligatorios.";
+          valid = false;
+        } else {
+          newPersonErrors.name = "";
+        }
+
+        if (!newPersonForm.dni.trim()) {
+          newPersonErrors.dni = "El DNI es obligatorio.";
+          valid = false;
+        } else {
+          newPersonErrors.dni = "";
+        }
+
+        if (!valid) return;
+
+        const newId = `PER-${people.value.length + 1 < 10 ? '0' + (people.value.length + 1) : people.value.length + 1}`;
+        const newPerson = {
+          id: newId,
+          name: newPersonForm.name.trim(),
+          dni: newPersonForm.dni.length > 5 ? `${newPersonForm.dni.slice(0, 2)}.***.${newPersonForm.dni.slice(-3)}` : newPersonForm.dni,
+          fullDni: newPersonForm.dni,
+          role: newPersonForm.role,
+          assignedProjects: [newPersonForm.project],
+          status: "Habilitada",
+          projectStatuses: {
+            [newPersonForm.project]: "Habilitada",
+            cordillera: newPersonForm.project === 'cordillera' ? "Habilitada" : "Sin evaluar",
+            cumbre: newPersonForm.project === 'cumbre' ? "Habilitada" : "Sin evaluar",
+            andino: newPersonForm.project === 'andino' ? "Habilitada" : "Sin evaluar"
+          },
+          validDocsCount: 4,
+          totalDocsCount: 4,
+          nextExpiration: "15/10/2027",
+          nextExpirationDays: 365,
+          nextExpirationDoc: "Examen Médico Periódico",
+          lastUpdate: "Recién",
+          avatarBg: "bg-emerald-100 text-emerald-800",
+          phone: newPersonForm.phone,
+          bloodType: newPersonForm.bloodType,
+          emergencyContact: "Contacto registrado en legajo",
+          artNumber: "Provincia ART #4491-018",
+          documents: [
+            { id: "D-N1", name: "DNI (Frente y Dorso)", status: "Vigente", expiration: "10/05/2034", issuer: "Renaper", verified: true },
+            { id: "D-N2", name: "Examen Preocupacional", status: "Vigente", expiration: "15/10/2027", issuer: "Clínica Laboral Cuyo", verified: true },
+            { id: "D-N3", name: "Constancia de ART", status: "Vigente", expiration: "18/10/2026", issuer: "Provincia ART", verified: true },
+            { id: "D-N4", name: "Inducción General", status: "Vigente", expiration: "01/02/2028", issuer: "Andes SRL", verified: true }
+          ],
+          trainings: [],
+          observations: []
+        };
+
+        people.value.unshift(newPerson);
+        closeAddPersonModal();
+
+        addAuditLog(
+          "Alta de personal",
+          `${newPerson.name} (${newId})`,
+          "-",
+          "Habilitada (Proyecto " + newPersonForm.project.toUpperCase() + ")",
+          "Ingreso de nuevo colaborador con documentación básica verificada.",
+          "Humano"
+        );
+
+        showToast("Alta confirmada", `Se agregó a ${newPerson.name} con legajo ${newId}.`, "success");
+      };
+
+      // MÓDULO IA DOCUMENTAL Y RECORRIDOS OBLIGATORIOS 1 Y 2
+      const openAiUpload = (preset = null) => {
+        aiUploadState.step = "form";
+        aiUploadState.scanStepIndex = 0;
+
+        if (preset) {
+          aiUploadState.entityType = preset.entityType || "person";
+          aiUploadState.entityId = preset.entityId || "PER-01";
+          aiUploadState.docType = preset.docType || "Examen Preocupacional / Aptitud Laboral";
+          aiUploadState.fileName = preset.fileName || "documento_escaneado.pdf";
+
+          if (preset.entityId === "PER-01") {
+            aiUploadState.confidence = 98.4;
+            aiUploadState.extractedData = {
+              docType: "Examen Preocupacional / Aptitud Laboral",
+              holder: "Juan Pérez — DNI 34.582.892",
+              docNumber: "MED-SJ-2026-9941",
+              issueDate: "02/10/2026",
+              expirationDate: "02/10/2027",
+              issuer: "Clínica de Medicina Laboral San Juan - Dr. Rodolfo Albarracín (Mat. 4412)",
+              status: "Apto Clase A sin restricciones para gran altitud (>4.000 msnm)",
+              observations: "Documento digital con firma electrónica certificada y código QR de validación médica."
+            };
+          } else if (preset.entityId === "VEH-01") {
+            aiUploadState.confidence = 99.1;
+            aiUploadState.extractedData = {
+              docType: "Póliza de Seguro Automotor Todo Riesgo",
+              holder: "Toyota Hilux 4x4 — Dominio AB 123 CD",
+              docNumber: "POL-MA-948102-REV4",
+              issueDate: "02/10/2026",
+              expirationDate: "02/10/2027",
+              issuer: "La Mercantil Andina Compañía de Seguros",
+              status: "Póliza vigente con Cláusula Minera de No Repetición a favor de Proyecto Cumbre",
+              observations: "Cobertura de rescate y remolque en cordillera incluida. Pago anual confirmado."
+            };
+          } else if (preset.entityId === "EQ-018") {
+            aiUploadState.confidence = 97.8;
+            aiUploadState.extractedData = {
+              docType: "Certificado de Inspección de Izaje y Estructura",
+              holder: "Plataforma Elevadora JLG 600AJ — EQ-018",
+              docNumber: "CERT-IZAJ-2026-441",
+              issueDate: "28/09/2026",
+              expirationDate: "28/09/2027",
+              issuer: "TÜV Rheinland Argentina / Ing. Mecánico Copig #1920",
+              status: "Operativa - Prueba de carga al 125% aprobada sin deformaciones",
+              observations: "Apto para izaje en zonas con viento hasta 45 km/h."
+            };
+          }
+        }
+
+        isAiUploadModalOpen.value = true;
+      };
+
+      const closeAiUpload = () => { isAiUploadModalOpen.value = false; };
+
+      const startAiScanning = () => {
+        aiUploadState.step = "scanning";
+        aiUploadState.scanStepIndex = 0;
+
+        const interval = setInterval(() => {
+          if (aiUploadState.scanStepIndex < aiUploadState.scanSteps.length - 1) {
+            aiUploadState.scanStepIndex++;
+          } else {
+            clearInterval(interval);
+            setTimeout(() => {
+              aiUploadState.step = "result";
+            }, 600);
+          }
+        }, 450);
+      };
+
+      const confirmAiExtractedData = () => {
+        aiUploadState.step = "pending_review";
+        showToast(
+          "Datos confirmados",
+          "La información ha sido guardada y quedó pendiente de revisión por el responsable HSE.",
+          "info"
+        );
+      };
+
+      // APROBACIÓN DE DOCUMENTO (RECORRIDOS 1 Y 2)
+      const approveDocumentReview = () => {
+        if (aiUploadState.entityId === "PER-01") {
+          // RECORRIDO 1: JUAN PÉREZ
+          const jp = people.value.find(p => p.id === "PER-01");
+          if (jp) {
+            jp.status = "Habilitada";
+            jp.projectStatuses.cumbre = "Habilitada";
+            jp.nextExpiration = "02/10/2027";
+            jp.nextExpirationDays = 365;
+            jp.nextExpirationDoc = "Examen Médico Periódico";
+            jp.lastUpdate = "Recién";
+
+            const doc = jp.documents.find(d => d.id === "D-03");
+            if (doc) {
+              doc.status = "Vigente";
+              doc.expiration = "02/10/2027";
+              doc.needsAction = false;
+              doc.observation = "Renovado y aprobado con éxito por HSE.";
+            }
+
+            const cumbre = projects.value.find(p => p.id === "cumbre");
+            if (cumbre) {
+              cumbre.readiness = 79;
+              cumbre.enabledPeople = 14;
+              cumbre.observedPeople = 3;
+              cumbre.pendingObservations = 5;
+            }
+
+            workflowState.juanPerezFixed = true;
+
+            const alt = alerts.value.find(a => a.id === "ALT-01");
+            if (alt) alt.status = "Resuelta";
+
+            addAuditLog(
+              "Aprobación documental",
+              "Examen Preocupacional - Juan Pérez",
+              "Observado (Vence en 7 días)",
+              "Habilitado (Vence 02/10/2027)",
+              "Aprobación formal de aptitud laboral. Juan Pérez queda 100% habilitado para Proyecto Cumbre.",
+              "Humano"
+            );
+
+            showToast(
+              "¡Documento aprobado!",
+              "Juan Pérez ha quedado 100% habilitado para operar en Proyecto Cumbre. El índice del proyecto aumentó al 79%.",
+              "success"
+            );
+          }
+        } else if (aiUploadState.entityId === "VEH-01") {
+          // RECORRIDO 2: VEHÍCULO AB 123 CD
+          const veh = vehicles.value.find(v => v.id === "VEH-01");
+          if (veh) {
+            veh.status = "Habilitado";
+            veh.blockReason = null;
+            veh.insurance.status = "Vigente";
+            veh.insurance.policyNumber = "POL-MA-948102-REV4";
+            veh.insurance.expiration = "02/10/2027";
+            veh.nextExpiration = "14/11/2026";
+            veh.nextExpirationDoc = "RTO San Juan";
+            veh.lastUpdate = "Recién";
+
+            const cumbre = projects.value.find(p => p.id === "cumbre");
+            if (cumbre) {
+              cumbre.readiness = 81;
+              cumbre.enabledVehicles = 4;
+              cumbre.blockedVehicles = 0;
+            }
+
+            workflowState.vehicleAbFixed = true;
+
+            const altVeh = alerts.value.find(a => a.id === "ALT-02");
+            if (altVeh) altVeh.status = "Resuelta";
+
+            addAuditLog(
+              "Actualización de póliza",
+              "Póliza Automotor - Vehículo AB 123 CD",
+              "Bloqueado (Póliza vencida)",
+              "Habilitado (Póliza vigente hasta 02/10/2027)",
+              "Carga y aprobación de renovación La Mercantil Andina. Camioneta Toyota Hilux habilitada para Proyecto Cumbre.",
+              "Humano"
+            );
+
+            showToast(
+              "¡Vehículo habilitado!",
+              "La Toyota Hilux AB 123 CD pasó a estado Habilitado. El bloqueo de garita fue levantado.",
+              "success"
+            );
+          }
+        } else if (aiUploadState.entityId === "EQ-018") {
+          // EQUIPO EQ-018
+          const eq = equipment.value.find(e => e.id === "EQ-018");
+          if (eq) {
+            eq.status = "Habilitado";
+            eq.blockReason = null;
+            eq.certification.status = "Vigente";
+            eq.certification.expiration = "28/09/2027";
+            eq.nextExpiration = "28/09/2027";
+            eq.nextExpirationDoc = "Certificado de Izaje";
+            eq.lastUpdate = "Recién";
+
+            workflowState.eq018Fixed = true;
+
+            const altEq = alerts.value.find(a => a.id === "ALT-03");
+            if (altEq) altEq.status = "Resuelta";
+
+            addAuditLog(
+              "Certificación aprobada",
+              "Plataforma JLG EQ-018",
+              "Bloqueado",
+              "Habilitado",
+              "Certificado de izaje TÜV Rheinland aprobado.",
+              "Humano"
+            );
+
+            showToast("¡Equipo habilitado!", "Plataforma elevadora EQ-018 habilitada para faena.", "success");
+          }
+        }
+
+        closeAiUpload();
+      };
+
+      const rejectAiDocument = () => {
+        closeAiUpload();
+        showToast("Documento rechazado", "Se registró el rechazo en auditoría con la causal indicada.", "warning");
+        addAuditLog("Rechazo documental", aiUploadState.docType, "En revisión", "Rechazado", "Rechazado por inconsistencia documental.", "Humano");
+      };
+
+      // EXPORTACIÓN DE CARPETAS Y REPORTES
+      const openExportModal = (type = "complete") => {
+        exportType.value = type;
+        exportStep.value = 0;
+        isExportModalOpen.value = true;
+      };
+
+      const closeExportModal = () => {
+        isExportModalOpen.value = false;
+        exportStep.value = 0;
+      };
+
+      const startExportGeneration = () => {
+        exportStep.value = 1;
+        const interval = setInterval(() => {
+          if (exportStep.value < 5) {
+            exportStep.value++;
+          } else {
+            clearInterval(interval);
+            addAuditLog(
+              "Generación de carpeta",
+              `Carpeta de Habilitación - ${exportProject.value.toUpperCase()}`,
+              "-",
+              "Compilada con éxito",
+              "Carpeta digital foliada con índice de trazabilidad y sello hash.",
+              "Humano"
+            );
+          }
+        }, 650);
+      };
+
+      // RECORRIDO GUIADO
+      const startTour = () => {
+        isTourActive.value = true;
+        tourStep.value = 1;
+        navigateTo("resumen");
+      };
+
+      const nextTourStep = () => {
+        if (tourStep.value < tourSteps.length) {
+          tourStep.value++;
+          const targetTab = tourSteps[tourStep.value - 1].tab;
+          navigateTo(targetTab);
+        } else {
+          exitTour();
+        }
+      };
+
+      const prevTourStep = () => {
+        if (tourStep.value > 1) {
+          tourStep.value--;
+          const targetTab = tourSteps[tourStep.value - 1].tab;
+          navigateTo(targetTab);
+        }
+      };
+
+      const exitTour = () => {
+        isTourActive.value = false;
+        tourStep.value = 1;
+      };
+
+      // ============================================================
+      // MODO PRESENTACIÓN (DEMO EJECUTIVA DE 5 MINUTOS)
+      // Caso: Andes SRL incorpora recursos a Proyecto Cumbre (5 brechas)
+      // ============================================================
+      const isPresentationActive = ref(false);
+      const presentationStep = ref(1); // 1..8
+      const isPresentationFinalModalOpen = ref(false);
+      const isPresentationDockMinimized = ref(false);
+
+      const presentationNotes = reactive({
+        excelProcess: "",
+        rejectionDocs: "",
+        whoControls: "",
+        prepTime: "",
+        projectReqs: "",
+        keyFeature: "",
+        generalFeedback: ""
+      });
+
+      const presentationSteps = [
+        {
+          step: 1,
+          time: "1 min",
+          tag: "Situación Inicial",
+          quote: "Toda la información operativa, en un solo lugar.",
+          title: "Andes SRL necesita incorporar recursos a Proyecto Cumbre",
+          narrative: "Andes Servicios Integrales SRL necesita incorporar personal y vehículos al Proyecto Cumbre. La empresa cree que está preparada, pero GaritaPass encuentra cinco brechas documentales que podrían demorar la incorporación.",
+          operationalInsight: "En lugar de planillas dispersas, la gerencia visualiza en segundos que, aunque el promedio general parece saludable (82%), en Proyecto Cumbre el cumplimiento cae a 76% y pone en riesgo el inicio de los trabajos.",
+          tab: "resumen",
+          projectFilter: "cumbre"
+        },
+        {
+          step: 2,
+          time: "1.5 min",
+          tag: "Detección de Brechas",
+          quote: "El sistema detecta las brechas antes de una presentación.",
+          title: "Cinco brechas que impedirían el ingreso a garita",
+          narrative: "El sistema alerta anticipadamente: examen médico de Juan Pérez próximo a vencer, camioneta AB 123 CD con seguro desactualizado, plataforma EQ-018 sin certificación de izaje vigente, y dos personas sin inducción de altitud.",
+          operationalInsight: "Se evitan demoras en garita de mina y paradas operativas no planificadas: la empresa sabe con exactitud qué resolver antes de enviar el personal a la cordillera.",
+          tab: "resumen",
+          projectFilter: "cumbre"
+        },
+        {
+          step: 3,
+          time: "2 min",
+          tag: "Reglas por Proyecto",
+          quote: "Cada requisito puede variar según el proyecto.",
+          title: "Diferenciación de exigencias entre contratos mineros",
+          narrative: "Cada faena tiene sus propios protocolos. Lo que resulta suficiente en Proyecto Cordillera (campamento base) es insuficiente en Proyecto Cumbre (>4.100 msnm), donde se exigen estudios médicos de alta montaña y cláusulas especiales.",
+          operationalInsight: "GaritaPass contrasta automáticamente la documentación con la matriz de requisitos de cada contrato, eliminando asunciones y confusiones entre proyectos.",
+          tab: "requisitos",
+          projectFilter: "cumbre"
+        },
+        {
+          step: 4,
+          time: "2.5 min",
+          tag: "Legajo Único",
+          quote: "Los documentos se cargan una vez y se reutilizan.",
+          title: "Centralización documental sin duplicación",
+          narrative: "Los antecedentes de Juan Pérez (DNI, registros, cursos) no se vuelven a pedir ni se guardan en carpetas aisladas: el legajo está unificado y el sistema evalúa su aptitud según el destino asignado.",
+          operationalInsight: "Recursos Humanos y Seguridad ahorran horas de gestión administrativa y evitan enviar PDFs desactualizados por cadenas de correos o mensajes.",
+          tab: "personas",
+          projectFilter: "cumbre"
+        },
+        {
+          step: 5,
+          time: "3.5 min",
+          tag: "Extracción y Validación",
+          quote: "Las fechas pueden extraerse automáticamente y luego validarse.",
+          title: "Actualización asistida y validación humana profesional",
+          narrative: "Para resolver la brecha de Juan Pérez, se procesa la renovación médica. La herramienta asiste extrayendo emisor y vigencia, pero la aprobación formal siempre recae en el profesional de Seguridad e Higiene.",
+          operationalInsight: "Tecnología para acelerar la carga rutinaria sin perder rigor técnico ni delegar la responsabilidad en una 'caja negra'.",
+          tab: "personas",
+          projectFilter: "cumbre"
+        },
+        {
+          step: 6,
+          time: "4 min",
+          tag: "Trazabilidad",
+          quote: "Cada modificación queda registrada.",
+          title: "Cambio de estado en tiempo real y bitácora inmutable",
+          narrative: "Al validar el examen, Juan Pérez pasa inmediatamente a Habilitado, el índice de Proyecto Cumbre sube a 79% y la acción queda registrada con fecha, hora, responsable y motivo en la bitácora de auditoría.",
+          operationalInsight: "Respaldo y tranquilidad total ante inspecciones internas, aseguradoras o auditorías de la empresa contratante.",
+          tab: "auditoria",
+          projectFilter: "cumbre"
+        },
+        {
+          step: 7,
+          time: "4.5 min",
+          tag: "Dossier Listo",
+          quote: "La empresa puede preparar su carpeta con anticipación.",
+          title: "Generación del paquete digital de habilitación",
+          narrative: "Con las brechas resueltas, la empresa no improvisa en la víspera de la movilización: compila en minutos una carpeta digital foliada, con índice de trazabilidad y hash de verificación para presentar a la minera.",
+          operationalInsight: "Presentaciones predecibles, aprobaciones rápidas en auditoría y una imagen corporativa ordenada y profesional ante el cliente.",
+          tab: "exportaciones",
+          projectFilter: "cumbre"
+        },
+        {
+          step: 8,
+          time: "5 min",
+          tag: "Validación de Negocio",
+          quote: "¿Este flujo refleja cómo trabaja actualmente tu empresa?",
+          title: "Conversación estratégica con la empresa contratista",
+          narrative: "GaritaPass busca resolver los problemas reales de cumplimiento y habilitación de empresas proveedoras y contratistas de industrias exigentes. Esta pantalla permite guiar la conversación y recopilar feedback clave.",
+          operationalInsight: "Validación cualitativa sin intenciones comerciales ni precios: entender las fricciones reales del proceso diario.",
+          tab: "resumen",
+          projectFilter: "cumbre"
+        }
+      ];
+
+      const currentPresentationStep = computed(() => {
+        return presentationSteps[presentationStep.value - 1] || presentationSteps[0];
+      });
+
+      const goToPresentationStep = (num) => {
+        if (num < 1 || num > presentationSteps.length) return;
+        presentationStep.value = num;
+        const current = presentationSteps[num - 1];
+
+        if (current.projectFilter) {
+          selectedProjectFilter.value = current.projectFilter;
+        }
+        if (current.tab) {
+          navigateTo(current.tab);
+        }
+
+        // Acciones contextuales por paso
+        if (num === 1) {
+          closePersonDetail();
+          closeVehicleDetail();
+          closeAiUpload();
+          isPresentationFinalModalOpen.value = false;
+        } else if (num === 2) {
+          closePersonDetail();
+          closeVehicleDetail();
+          closeAiUpload();
+          isPresentationFinalModalOpen.value = false;
+        } else if (num === 3) {
+          closePersonDetail();
+          closeVehicleDetail();
+          closeAiUpload();
+          isPresentationFinalModalOpen.value = false;
+        } else if (num === 4) {
+          closeVehicleDetail();
+          closeAiUpload();
+          isPresentationFinalModalOpen.value = false;
+          const jp = people.value.find(p => p.id === "PER-01");
+          if (jp) openPersonDetail(jp);
+        } else if (num === 5) {
+          closePersonDetail();
+          closeVehicleDetail();
+          isPresentationFinalModalOpen.value = false;
+          openAiUpload({
+            entityType: "person",
+            entityId: "PER-01",
+            docType: "Examen Preocupacional / Aptitud Laboral",
+            fileName: "examen_aptitud_cuyo_2026.pdf"
+          });
+        } else if (num === 6) {
+          closePersonDetail();
+          closeVehicleDetail();
+          closeAiUpload();
+          isPresentationFinalModalOpen.value = false;
+        } else if (num === 7) {
+          closePersonDetail();
+          closeVehicleDetail();
+          closeAiUpload();
+          isPresentationFinalModalOpen.value = false;
+          exportProject.value = "cumbre";
+        } else if (num === 8) {
+          closePersonDetail();
+          closeVehicleDetail();
+          closeAiUpload();
+          isPresentationFinalModalOpen.value = true;
+        }
+      };
+
+      const nextPresentationStep = () => {
+        if (presentationStep.value < presentationSteps.length) {
+          goToPresentationStep(presentationStep.value + 1);
+        }
+      };
+
+      const prevPresentationStep = () => {
+        if (presentationStep.value > 1) {
+          goToPresentationStep(presentationStep.value - 1);
+        }
+      };
+
+      const startPresentation = () => {
+        isPresentationActive.value = true;
+        isTourActive.value = false;
+        isPresentationDockMinimized.value = false;
+        goToPresentationStep(1);
+      };
+
+      const exitPresentation = () => {
+        isPresentationActive.value = false;
+        isPresentationFinalModalOpen.value = false;
+      };
+
+      const openPresentationFinalModal = () => {
+        isPresentationFinalModalOpen.value = true;
+      };
+
+      const closePresentationFinalModal = () => {
+        isPresentationFinalModalOpen.value = false;
+      };
+
+      const setQuickNote = (field, text) => {
+        if (!presentationNotes[field]) {
+          presentationNotes[field] = text;
+        } else if (!presentationNotes[field].includes(text)) {
+          presentationNotes[field] += `, ${text}`;
+        }
+      };
+
+      const copyPresentationNotes = () => {
+        const notesText = `
+=== GARITAPASS — MINUTA DE VALIDACIÓN COMERCIAL Y OPERATIVA ===
+Fecha: ${new Date().toLocaleDateString("es-AR")}
+Empresa: Andes Servicios Integrales SRL (Simulación de Caso)
+Objetivo: Validación cualitativa de necesidades en contratistas y proyectos exigentes
+
+1. ¿Qué parte del proceso continúa realizándose en Excel, carpetas o mensajes?
+${presentationNotes.excelProcess || "(Sin respuesta registrada)"}
+
+2. ¿Qué documentos generan más rechazos?
+${presentationNotes.rejectionDocs || "(Sin respuesta registrada)"}
+
+3. ¿Quién controla actualmente los vencimientos?
+${presentationNotes.whoControls || "(Sin respuesta registrada)"}
+
+4. ¿Cuánto demora preparar una carpeta?
+${presentationNotes.prepTime || "(Sin respuesta registrada)"}
+
+5. ¿Qué información exigiría cada proyecto?
+${presentationNotes.projectReqs || "(Sin respuesta registrada)"}
+
+6. ¿Qué función sería imprescindible para probar GaritaPass?
+${presentationNotes.keyFeature || "(Sin respuesta registrada)"}
+
+Comentarios generales del interlocutor:
+${presentationNotes.generalFeedback || "(Sin comentarios adicionales)"}
+==================================================================
+`.trim();
+
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(notesText).then(() => {
+            showToast("Minuta copiada", "Las respuestas de la reunión fueron copiadas al portapapeles.", "success");
+          }).catch(() => {
+            showToast("Copiado manual", "Seleccioná y copiá el texto de las notas.", "info");
+          });
+        } else {
+          showToast("Copiado manual", "Seleccioná y copiá el texto de las notas.", "info");
+        }
+      };
+
+      // ALERTA ACCIONES
+      const resolveAlert = (alert) => {
+        alert.status = "Resuelta";
+        addAuditLog("Cierre de observación", alert.title, "Abierta", "Resuelta", "Observación cerrada manualmente.", "Humano");
+        showToast("Alerta resuelta", `La observación '${alert.title}' ha sido marcada como resuelta.`, "info");
+      };
+
+      const postponeAlert = (alert) => {
+        showToast("Recordatorio pospuesto", `El recordatorio se ha pospuesto por 48 horas para ${alert.entityName}.`, "info");
+      };
+
+      // LOGIN
+      const performLogin = () => {
+        if (!loginEmail.value.trim() || !loginPassword.value.trim()) {
+          loginError.value = "Por favor ingrese correo electrónico y contraseña.";
+          return;
+        }
+        loginError.value = "";
+        isAuthenticated.value = true;
+        showToast("Sesión iniciada", "Bienvenido a GaritaPass — Entorno de Andes Servicios Integrales SRL", "success");
+      };
+
+      const performLoginToPresentation = () => {
+        isAuthenticated.value = true;
+        startPresentation();
+      };
+
+      const performLogout = () => {
+        isAuthenticated.value = false;
+      };
+
+      // ============================================================
+      // ASISTENTE GARITAPASS (PANEL LATERAL CONTEXTUAL)
+      // ============================================================
+      const isAssistantOpen = ref(false);
+      const assistantInput = ref("");
+      const assistantLoading = ref(false);
+
+      const suggestedQueries = [
+        "¿Qué falta para presentar la empresa en Proyecto Cumbre?",
+        "¿Qué documentos vencen durante los próximos 30 días?",
+        "¿Qué personas están bloqueadas y por qué?",
+        "¿Qué vehículos no cumplen los requisitos de Proyecto Cordillera?",
+        "¿Qué debería resolver primero?",
+        "¿Qué cambió durante la última semana?",
+        "¿Qué documentación tiene Juan Pérez?",
+        "¿Puedo asignar el equipo EQ-018 al Proyecto Cumbre?"
+      ];
+
+      const assistantMessages = ref([
+        {
+          id: 1,
+          sender: "assistant",
+          timestamp: "Inicial",
+          title: "Asistente Contextual GaritaPass",
+          intro: "Hola, soy el Asistente GaritaPass. Estoy conectado al registro documental y operativo de **Andes Servicios Integrales SRL**.",
+          facts: [
+            "Respondo consultas utilizando únicamente los datos ficticios precargados en este prototipo.",
+            "Diferencio datos y hechos objetivos de recomendaciones operativas.",
+            "Cito la fuente exacta de cada registro para que puedas auditarlo.",
+            "No apruebo documentación automáticamente ni realizo interpretaciones legales definitivas."
+          ],
+          recommendation: "Podés hacer clic en cualquiera de las preguntas frecuentes de abajo o escribir una consulta libre sobre personal, vehículos, equipos o requisitos por proyecto.",
+          warning: null,
+          sources: ["Base Documental Andes SRL", "Entorno Demostrativo San Juan"],
+          actions: []
+        }
+      ]);
+
+      const openAssistant = () => { isAssistantOpen.value = true; };
+      const closeAssistant = () => { isAssistantOpen.value = false; };
+      const toggleAssistant = () => { isAssistantOpen.value = !isAssistantOpen.value; };
+
+      const clearAssistantChat = () => {
+        assistantMessages.value = [
+          {
+            id: Date.now(),
+            sender: "assistant",
+            timestamp: new Date().toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" }) + " hs",
+            title: "Asistente Contextual GaritaPass",
+            intro: "Conversación reiniciada. ¿Qué información operativa o documental de Andes SRL necesitás consultar?",
+            facts: [
+              "Base de datos activa: 48 personas, 14 vehículos, 19 equipos y 3 proyectos mineros.",
+              "Todos los datos son completamente demostrativos y ficticios."
+            ],
+            recommendation: "Elegí una pregunta sugerida o consultá por un colaborador, matrícula o documento.",
+            warning: null,
+            sources: ["Base Documental Andes SRL"],
+            actions: []
+          }
+        ];
+      };
+
+      const handleAssistantAction = (action) => {
+        if (action.tab) {
+          navigateTo(action.tab);
+        }
+        if (action.type === "person" && action.id) {
+          const p = people.value.find(x => x.id === action.id);
+          if (p) openPersonDetail(p);
+        } else if (action.type === "vehicle" && action.id) {
+          const v = vehicles.value.find(x => x.id === action.id);
+          if (v) openVehicleDetail(v);
+        } else if (action.type === "equipment" && action.id) {
+          const e = equipment.value.find(x => x.id === action.id);
+          if (e) openEquipmentDetail(e);
+        } else if (action.type === "project" && action.id) {
+          const prj = projects.value.find(x => x.id === action.id);
+          if (prj) openProjectDetail(prj);
+        } else if (action.type === "qr" && action.id) {
+          const p = people.value.find(x => x.id === action.id);
+          if (p) openQrCredential(p);
+        } else if (action.action === "openAiUpload") {
+          openAiUpload();
+        }
+      };
+
+      const askAssistant = (queryText) => {
+        const text = (queryText || assistantInput.value || "").trim();
+        if (!text) return;
+
+        assistantInput.value = "";
+        const nowTime = new Date().toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" }) + " hs";
+
+        // Registrar mensaje de usuario
+        assistantMessages.value.push({
+          id: Date.now(),
+          sender: "user",
+          text,
+          timestamp: nowTime
+        });
+
+        assistantLoading.value = true;
+
+        setTimeout(() => {
+          const response = generateAssistantResponse(text);
+          assistantMessages.value.push({
+            id: Date.now() + 1,
+            sender: "assistant",
+            timestamp: new Date().toLocaleTimeString("es-AR", { hour: "2-digit", minute: "2-digit" }) + " hs",
+            ...response
+          });
+          assistantLoading.value = false;
+
+          nextTick(() => {
+            const chatEl = document.getElementById("assistant-messages-container");
+            if (chatEl) chatEl.scrollTop = chatEl.scrollHeight;
+          });
+        }, 320);
+      };
+
+      const generateAssistantResponse = (rawQuery) => {
+        const q = rawQuery.toLowerCase().trim();
+
+        // 1. ¿Qué falta para presentar la empresa en Proyecto Cumbre?
+        if ((q.includes("cumbre") && (q.includes("falta") || q.includes("presentar") || q.includes("requisito") || q.includes("incorporar") || q.includes("brecha")))) {
+          const cumbre = projects.value.find(p => p.id === "cumbre");
+          const facts = [
+            `Proyecto Cumbre (3.850 msnm) registra un índice actual de preparación del ${cumbre ? cumbre.readiness : 76}%.`,
+            workflowState.juanPerezFixed 
+              ? "✓ Examen médico de Juan Pérez (PER-01): Renovado y aprobado (Apto Gran Altitud)."
+              : "❌ Juan Pérez (Técnico Mecánico - PER-01): Examen médico laboral próximo a vencer (10/10/2026). Falta certificado de aptitud médica para >4.000 msnm.",
+            workflowState.vehicleAbFixed
+              ? "✓ Toyota Hilux AB 123 CD: Póliza de seguro automotor renovada y vigente."
+              : "❌ Toyota Hilux AB 123 CD (VEH-01): Póliza automotor vencida. Bloqueada en garita de acceso.",
+            workflowState.eq018Fixed
+              ? "✓ Plataforma JLG EQ-018: Certificación de izaje estructural aprobada."
+              : "❌ Plataforma Elevadora JLG (EQ-018): Carece de certificado de inspección de izaje anual vigente.",
+            "⚠️ 2 Colaboradores pendientes de inducción específica de alta montaña: Roberto Gómez (PER-03) y Nicolás Morales (PER-05).",
+            "⚠️ Camioneta Ford Ranger AF 890 JK (VEH-03): RTO vence en 12 días sin constancia de turno agendado."
+          ];
+          return {
+            title: "Diagnóstico de Acreditación — Proyecto Cumbre",
+            intro: "Se analizaron los requisitos contractuales de Proyecto Cumbre frente a la dotación y documentación de Andes Servicios Integrales SRL:",
+            facts,
+            recommendation: "Para elevar la preparación al 85%+ y evitar rebotes en garita, se sugiere priorizar la renovación de la póliza de la Hilux AB 123 CD y la aptitud médica laboral de Juan Pérez.",
+            warning: "Recordá que GaritaPass organiza y alerta sobre requisitos, pero la habilitación formal final depende de la aprobación de la operadora minera.",
+            sources: ["Ficha Proyecto Cumbre (PRJ-02)", "Alertas Críticas ALT-01, ALT-02, ALT-03", "Matriz de Requisitos"],
+            actions: [
+              { label: "Ver Proyecto Cumbre", tab: "proyectos", type: "project", id: "cumbre" },
+              { label: "Ver Ficha de Juan Pérez", tab: "personas", type: "person", id: "PER-01" },
+              { label: "Ver Hilux AB 123 CD", tab: "vehiculos", type: "vehicle", id: "VEH-01" }
+            ]
+          };
+        }
+
+        // 2. ¿Qué documentos vencen durante los próximos 30 días?
+        if (q.includes("30") || (q.includes("venc") && (q.includes("proxim") || q.includes("mes") || q.includes("dias")))) {
+          return {
+            title: "Documentos con Vencimiento en los Próximos 30 Días",
+            intro: "Se detectaron los siguientes instrumentos con fecha de expiración próxima en la base documental:",
+            facts: [
+              "• Examen Preocupacional / Aptitud Laboral - Juan Pérez (PER-01): Vence en 7 días (10/10/2026).",
+              "• Constancia de Cobertura ART con Cláusula de No Repetición - Andes SRL: Vence en 15 días (18/10/2026).",
+              "• RTO / Revisión Técnica Obligatoria - Camioneta Ford Ranger AF 890 JK: Vence en 12 días (15/10/2026).",
+              "• Certificado de Calibración - Torquímetro Digital Beta EQ-008: Vence en 19 días (22/10/2026).",
+              "• (Atención especial) Póliza automotor Toyota Hilux AB 123 CD: Se encuentra actualmente vencida."
+            ],
+            recommendation: "Solicitar inmediatamente a la aseguradora la renovación de la constancia mensual de ART y coordinar el turno de inspección técnica vehicular para la Ford Ranger.",
+            warning: "Si no se renueva la ART en 15 días, el sistema bloqueará preventivamente a toda la dotación operativa en mina.",
+            sources: ["Centro de Documentos (DOC-EMP-03)", "Legajo Personal PER-01", "Registro Vehicular VEH-03"],
+            actions: [
+              { label: "Abrir Centro Documental", tab: "documentos" },
+              { label: "Ver Alertas de Vencimiento", tab: "alertas" }
+            ]
+          };
+        }
+
+        // 3. ¿Qué personas están bloqueadas y por qué?
+        if ((q.includes("persona") || q.includes("colaborador") || q.includes("quien") || q.includes("gente")) && (q.includes("bloquead") || q.includes("bloqueo") || q.includes("baja"))) {
+          return {
+            title: "Personal en Estado Bloqueado (2 de 48 colaboradores)",
+            intro: "De los 48 colaboradores activos en la nómina de Andes SRL, se registran 2 personas con bloqueo estricto de ingreso:",
+            facts: [
+              "1. Carlos Mendoza (DNI 28.192.844 — Chofer de Transporte de Personal — PER-02):\n   • Causa del bloqueo: Licencia de conducir profesional CNRT vencida el 15/09/2026.\n   • Causa secundaria: No registra curso anual de manejo defensivo en alta montaña.",
+              "2. Esteban Morales (DNI 36.401.992 — Soldador Calificado — PER-04):\n   • Causa del bloqueo: Examen médico de aptitud laboral caducó hace 14 días.\n   • Causa secundaria: Falta reincorporación formal en nómina activa de ART.",
+              "Estado de dotación: 42 personas Habilitadas, 4 Observadas y 2 Bloqueadas."
+            ],
+            recommendation: "No emitir órdenes de viaje ni asignar turnos de relevo a Carlos Mendoza ni Esteban Morales hasta regularizar su carnet y examen médico.",
+            warning: "Cualquier intento de ingreso a garita con personal en estado bloqueado derivará en un rechazo en control de acceso minero.",
+            sources: ["Nómina Activa de Personal (PER-02, PER-04)", "Registros de Licencias CNRT y ART"],
+            actions: [
+              { label: "Ver Ficha Carlos Mendoza", tab: "personas", type: "person", id: "PER-02" },
+              { label: "Ver Ficha Esteban Morales", tab: "personas", type: "person", id: "PER-04" },
+              { label: "Ver Nómina Completa", tab: "personas" }
+            ]
+          };
+        }
+
+        // 4. ¿Qué vehículos no cumplen los requisitos de Proyecto Cordillera?
+        if ((q.includes("vehiculo") || q.includes("flota") || q.includes("camioneta") || q.includes("auto")) && q.includes("cordillera")) {
+          return {
+            title: "Cumplimiento de Flota para Proyecto Cordillera (4.150 msnm)",
+            intro: "Se analizaron las 14 unidades de la flota contra el estándar de Proyecto Cordillera (Valle del Cura):",
+            facts: [
+              "❌ Toyota Hilux AB 123 CD (VEH-01): Bloqueada por póliza automotor vencida (no puede circular en ninguna faena).",
+              "⚠️ Camión Mercedes-Benz Axor AE 456 GH (VEH-04): Observado. Falta calibración de tacógrafo digital y juego certificado de cadenas de nieve obligatorio para caminos cordilleranos.",
+              "❌ Renault Kangoo Confort AF 789 OP (VEH-05): No apta para Cordillera. Unidad de tracción simple 4x2; Proyecto Cordillera exige tracción 4x4 con alta/baja y pértiga luminosa de 3 metros para ingreso a zona de explotación.",
+              "✓ 11 Vehículos restantes cumplen los requisitos técnicos para operar en Proyecto Cordillera."
+            ],
+            recommendation: "Asignar la Renault Kangoo exclusivamente a recorridos urbanos en San Juan o a Proyecto Andino (campamento bajo), y equipar el camión Axor con cadenas de nieve antes de solicitar su pase.",
+            warning: "Las especificaciones de tracción 4x4 en Cordillera son excluyentes por normativa de seguridad vial minera.",
+            sources: ["Matriz de Requisitos - Proyecto Cordillera", "Fichas VEH-01, VEH-04, VEH-05"],
+            actions: [
+              { label: "Ver Módulo Vehículos", tab: "vehiculos" },
+              { label: "Ver Matriz de Requisitos", tab: "requisitos" }
+            ]
+          };
+        }
+
+        // 5. ¿Qué debería resolver primero?
+        if (q.includes("primero") || q.includes("prioridad") || q.includes("urgente") || q.includes("arranco") || q.includes("empezar")) {
+          return {
+            title: "Matriz de Priorización Operativa Inmediata",
+            intro: "Basado en criticidad de bloqueo, inminencia de vencimiento y riesgo operativo en garita, el orden de prelación sugerido es:",
+            facts: [
+              "1. [Prioridad Crítica] Póliza automotor Toyota Hilux AB 123 CD: Vehículo completamente bloqueado sin cobertura legal de circulación.",
+              "2. [Prioridad Alta] Examen preocupacional de Juan Pérez (PER-01): Vence en 7 días y es el supervisor mecánico asignado a Proyecto Cumbre.",
+              "3. [Prioridad Alta] Certificación de Izaje de Plataforma PEMP EQ-018: Equipo parado sin aptitud para tareas en altura.",
+              "4. [Prioridad Media] Constancia de ART institucional de Andes SRL: Vence en 15 días; si caduca, afecta el pase de los 48 colaboradores.",
+              "5. [Prioridad Media] RTO de camioneta Ford Ranger AF 890 JK: Vence en 12 días."
+            ],
+            recommendation: "Comenzar resolviendo la póliza de la Hilux y el apto médico de Juan Pérez para habilitar recursos críticos de transporte y supervisión técnica.",
+            warning: "Las alertas de severidad 'Crítica' impactan de forma directa en el índice de preparación general de la empresa.",
+            sources: ["Algoritmo de Priorización GaritaPass", "Alertas ALT-01, ALT-02, ALT-03"],
+            actions: [
+              { label: "Cargar Documento con IA", tab: "documentos", action: "openAiUpload" },
+              { label: "Ver Panel de Alertas", tab: "alertas" }
+            ]
+          };
+        }
+
+        // 6. ¿Qué cambió durante la última semana?
+        if (q.includes("semana") || q.includes("cambio") || q.includes("auditoria") || q.includes("modific") || q.includes("ultimos dias")) {
+          const recentLogs = auditLogs.value.slice(0, 4);
+          const facts = recentLogs.map(l => `• [${l.date}] ${l.action} (${l.target}): ${l.comment} — Usuario: ${l.user}`);
+          return {
+            title: "Bitácora de Cambios Recientes (Últimos 7 Días)",
+            intro: "Registros extraídos de la bitácora inmutable de auditoría con sellado de tiempo y usuario:",
+            facts,
+            recommendation: "Revisar periódicamente las acciones registradas con origen 'Humano' para asegurar que las justificaciones cuenten con respaldo documental firmado.",
+            warning: "Cada evento de auditoría cuenta con un identificador unívoco y no puede ser eliminado ni modificado por ningún usuario del sistema.",
+            sources: ["Módulo Auditoría (Registro Inmutable con Hash)", "Log de Sucesos"],
+            actions: [
+              { label: "Abrir Módulo de Auditoría", tab: "auditoria" }
+            ]
+          };
+        }
+
+        // 7. ¿Qué documentación tiene Juan Pérez?
+        if (q.includes("juan") || q.includes("perez") || q.includes("per-01")) {
+          const jp = people.value.find(p => p.id === "PER-01");
+          return {
+            title: "Legajo Documental de Juan Pérez (PER-01)",
+            intro: "Colaborador: Juan Pérez — DNI 34.582.892 — Técnico Mecánico Especialista (Andes SRL):",
+            facts: [
+              "• Puesto: Técnico Mecánico Especialista.",
+              `• Estado general: ${jp ? jp.status : 'Observado'} | Proyecto Cordillera: Habilitado | Proyecto Cumbre: ${workflowState.juanPerezFixed ? 'Habilitado' : 'Observado'}.`,
+              "• Documentos en legajo:",
+              "  1. DNI Frente y Dorso: Vigente hasta 10/05/2034 (Emisor: Renaper).",
+              "  2. Licencia de Conducir B1: Vigente hasta 2028 (Emisor: Emicar San Juan).",
+              `  3. Examen Preocupacional / Aptitud Laboral: ${workflowState.juanPerezFixed ? 'Vigente hasta 02/10/2027 (Apto Clase A Gran Altitud).' : 'Vence 10/10/2026 (7 días restantes). Requiere actualización para Proyecto Cumbre.'}`,
+              "  4. Inducción General de Seguridad Andes SRL: Vigente hasta 2028.",
+              "• Capacitaciones registradas: Trabajo en Altura (40 hs), Bloqueo y Etiquetado LOTO (16 hs)."
+            ],
+            recommendation: workflowState.juanPerezFixed 
+              ? "El legajo de Juan Pérez se encuentra al 100% de cumplimiento para todos sus proyectos asignados."
+              : "Cargar la renovación del examen preocupacional emitido por Clínica Cuyo para habilitarlo formalmente en Proyecto Cumbre.",
+            warning: "Sin la aptitud médica de gran altitud (>4.000 msnm), el personal no puede pernoctar en campamentos de Proyecto Cumbre.",
+            sources: ["Ficha Técnica PER-01", "Legajo Digital de Personal"],
+            actions: [
+              { label: "Ver Ficha de Juan Pérez", tab: "personas", type: "person", id: "PER-01" },
+              { label: "Ver Credencial QR", tab: "personas", type: "qr", id: "PER-01" }
+            ]
+          };
+        }
+
+        // 8. ¿Puedo asignar el equipo EQ-018 al Proyecto Cumbre?
+        if ((q.includes("eq-018") || q.includes("018") || q.includes("plataforma") || q.includes("izaje")) && (q.includes("cumbre") || q.includes("asignar") || q.includes("puedo") || q.includes("trasladar"))) {
+          return {
+            title: "Evaluación Técnica: Plataforma JLG EQ-018 para Proyecto Cumbre",
+            intro: "Equipo: Plataforma Elevadora Móvil de Personal (PEMP) JLG 600AJ — Código Interno EQ-018:",
+            facts: [
+              `• Estado actual en sistema: ${workflowState.eq018Fixed ? 'Habilitado' : 'Bloqueado / No Habilitado'}.`,
+              "• Requisito específico de Proyecto Cumbre (REQ-CUM-EQ-02): Exige 'Certificado de Inspección de Izaje y Ensayos No Destructivos (END)' con prueba de carga al 125% y antigüedad menor a 12 meses, emitido por certificador habilitado.",
+              workflowState.eq018Fixed
+                ? "✓ Certificado cargado: TÜV Rheinland / Ing. Copig #1920 con vigencia hasta 28/09/2027."
+                : "❌ Condición actual: Falta cargar en el sistema el certificado de izaje anual vigente.",
+              "• Kit de viento: Apto para operar en ráfagas de hasta 45 km/h."
+            ],
+            recommendation: workflowState.eq018Fixed
+              ? "El equipo cumple todos los requisitos y puede ser despachado a Proyecto Cumbre sin impedimentos."
+              : "No trasladar la plataforma hacia faena hasta realizar la prueba de carga y registrar el informe técnico en GaritaPass.",
+            warning: "Operar equipos de izaje en faena minera sin certificado anual vigente acarrea paralización inmediata de la orden de servicio.",
+            sources: ["Ficha de Equipo EQ-018", "Matriz de Requisitos - Proyecto Cumbre (REQ-CUM-EQ-02)"],
+            actions: [
+              { label: "Ver Ficha EQ-018", tab: "equipos", type: "equipment", id: "EQ-018" },
+              { label: "Ver Proyecto Cumbre", tab: "proyectos", type: "project", id: "cumbre" }
+            ]
+          };
+        }
+
+        // BÚSQUEDA LIBRE DINÁMICA: Colaboradores, Vehículos o Equipos
+        const matchedPerson = people.value.find(p => q.includes(p.name.toLowerCase()) || q.includes(p.id.toLowerCase()) || q.includes(p.role.toLowerCase()));
+        if (matchedPerson) {
+          return {
+            title: `Registro de Personal: ${matchedPerson.name} (${matchedPerson.id})`,
+            intro: `Información extraída de la nómina de colaboradores de Andes SRL:`,
+            facts: [
+              `• Puesto: ${matchedPerson.role} | DNI: ${matchedPerson.dni}.`,
+              `• Estado general: ${matchedPerson.status}.`,
+              `• Proyectos asignados: ${matchedPerson.assignedProjects.map(p => p.toUpperCase()).join(", ")}.`,
+              `• Documentos vigentes: ${matchedPerson.validDocsCount} de ${matchedPerson.totalDocsCount}.`,
+              `• Próximo vencimiento: ${matchedPerson.nextExpirationDoc} (${matchedPerson.nextExpiration}).`
+            ],
+            recommendation: `Verificar que la documentación cumpla los requisitos particulares de los proyectos donde opera ${matchedPerson.name}.`,
+            warning: null,
+            sources: [`Ficha de Personal ${matchedPerson.id}`, "Nómina Andes SRL"],
+            actions: [
+              { label: `Ver Ficha de ${matchedPerson.name.split(" ")[0]}`, tab: "personas", type: "person", id: matchedPerson.id }
+            ]
+          };
+        }
+
+        const matchedVehicle = vehicles.value.find(v => q.includes(v.plate.toLowerCase()) || q.includes(v.brandModel.toLowerCase()) || q.includes(v.id.toLowerCase()));
+        if (matchedVehicle) {
+          return {
+            title: `Registro Vehicular: Dominio ${matchedVehicle.plate} (${matchedVehicle.brandModel})`,
+            intro: `Datos técnicos y de cumplimiento de la flota de Andes SRL:`,
+            facts: [
+              `• Modelo: ${matchedVehicle.brandModel} (${matchedVehicle.year}) | Tipo: ${matchedVehicle.type}.`,
+              `• Estado operativo: ${matchedVehicle.status}.`,
+              `• Chofer asignado: ${matchedVehicle.driver}.`,
+              `• Seguro automotor: ${matchedVehicle.insurance.company} (Vence: ${matchedVehicle.insurance.expiration} - Estado: ${matchedVehicle.insurance.status}).`,
+              `• RTO: ${matchedVehicle.rto.center} (Vence: ${matchedVehicle.rto.expiration} - Estado: ${matchedVehicle.rto.status}).`
+            ],
+            recommendation: matchedVehicle.status === "Bloqueado" 
+              ? "Priorizar la resolución del bloqueo antes de programar salidas a ruta."
+              : "Mantener al día los chequeos preventivos y elementos de seguridad minera.",
+            warning: null,
+            sources: [`Ficha Vehicular ${matchedVehicle.id}`, "Registro de Flota Andes SRL"],
+            actions: [
+              { label: `Ver Ficha ${matchedVehicle.plate}`, tab: "vehiculos", type: "vehicle", id: matchedVehicle.id }
+            ]
+          };
+        }
+
+        // RESPUESTA GENERAL ASISTIDA (FALLBACK CONSTRUCTIVO)
+        return {
+          title: "Consulta Operativa — Base Andes Servicios Integrales SRL",
+          intro: `He procesado tu consulta sobre "${rawQuery}". A continuación los puntos constatados en el sistema:`,
+          facts: [
+            `• Nivel de preparación consolidado de la empresa: ${currentStats.value.readiness}%.`,
+            `• Nómina: ${people.value.length} personas (${currentStats.value.people.enabled} habilitadas, ${currentStats.value.people.observed} observadas, ${currentStats.value.people.blocked} bloqueadas).`,
+            `• Flota vehicular: ${vehicles.value.length} unidades (${currentStats.value.vehicles.enabled} habilitadas, ${currentStats.value.vehicles.blocked} bloqueadas).`,
+            `• Maquinaria y equipos: ${equipment.value.length} unidades (${currentStats.value.equipment.enabled} habilitadas, ${currentStats.value.equipment.blocked} bloqueadas).`,
+            `• Alertas críticas abiertas: ${criticalAlertsCount.value}.`
+          ],
+          recommendation: "Para obtener un análisis puntual, podés consultar por el nombre de un colaborador (ej. 'Juan Pérez'), una matrícula (ej. 'AB 123 CD'), un equipo ('EQ-018') o un proyecto ('Cumbre', 'Cordillera', 'Andino').",
+          warning: "Si tu consulta refiere a normativas o personas ajenas a Andes SRL, recordá que este asistente opera de manera estricta sobre la base demostrativa del prototipo.",
+          sources: ["Base Central Andes SRL", "Panel de Cumplimiento Operativo"],
+          actions: [
+            { label: "Ver Resumen General", tab: "resumen" },
+            { label: "Ver Alertas Activas", tab: "alertas" }
+          ]
+        };
+      };
+
+
+      return {
+        isAuthenticated,
+        loginEmail,
+        loginPassword,
+        loginError,
+        performLogin,
+        performLogout,
+
+        currentTab,
+        sidebarOpen,
+        selectedProjectFilter,
+        currentRole,
+        navigateTo,
+
+        meta,
+        company,
+        projects,
+        people,
+        vehicles,
+        equipment,
+        companyDocuments,
+        alerts,
+        requirementsMatrix,
+        auditLogs,
+        rolesConfig,
+        complianceEvolution,
+        currentStats,
+        workflowState,
+
+        filteredPeople,
+        filteredVehicles,
+        filteredEquipment,
+        filteredDocuments,
+        filteredAlerts,
+        filteredAuditLogs,
+        criticalAlertsCount,
+        openAlertsCount,
+        globalSearchResults,
+        currentInspectedResource,
+
+        peopleFilter,
+        vehicleFilter,
+        equipmentFilter,
+        documentFilter,
+        alertFilter,
+        auditFilter,
+        reqInspectorType,
+        reqInspectorId,
+
+        isSearchModalOpen,
+        searchQuery,
+        isNotificationsOpen,
+
+        toasts,
+        showToast,
+
+        selectedPerson,
+        selectedVehicle,
+        selectedEquipment,
+        selectedProject,
+        selectedDocument,
+        selectedQrCredentialPerson,
+        openPersonDetail,
+        closePersonDetail,
+        openVehicleDetail,
+        closeVehicleDetail,
+        openEquipmentDetail,
+        closeEquipmentDetail,
+        openProjectDetail,
+        closeProjectDetail,
+        openQrCredential,
+        closeQrCredential,
+        openDocumentPreview,
+        closeDocumentPreview,
+        handleAlertClick,
+
+        isAddPersonModalOpen,
+        newPersonForm,
+        newPersonErrors,
+        openAddPersonModal,
+        closeAddPersonModal,
+        submitAddPerson,
+
+        isProjectEvalModalOpen,
+        projectEvalTarget,
+        openProjectEvaluation,
+        closeProjectEvaluation,
+        isSimulateMobilizationOpen,
+        mobilizationForm,
+        openMobilizationSimulator,
+        closeMobilizationSimulator,
+
+        isAiUploadModalOpen,
+        aiUploadState,
+        openAiUpload,
+        closeAiUpload,
+        startAiScanning,
+        confirmAiExtractedData,
+        approveDocumentReview,
+        rejectAiDocument,
+
+        isExportModalOpen,
+        exportType,
+        exportProject,
+        exportStep,
+        exportSteps,
+        openExportModal,
+        closeExportModal,
+        startExportGeneration,
+
+        isTourActive,
+        tourStep,
+        tourSteps,
+        startTour,
+        nextTourStep,
+        prevTourStep,
+        exitTour,
+
+        // MODO PRESENTACIÓN
+        performLoginToPresentation,
+        isPresentationActive,
+        presentationStep,
+        presentationSteps,
+        currentPresentationStep,
+        isPresentationFinalModalOpen,
+        isPresentationDockMinimized,
+        presentationNotes,
+        goToPresentationStep,
+        nextPresentationStep,
+        prevPresentationStep,
+        startPresentation,
+        exitPresentation,
+        openPresentationFinalModal,
+        closePresentationFinalModal,
+        setQuickNote,
+        copyPresentationNotes,
+
+        // ASISTENTE GARITAPASS
+        isAssistantOpen,
+        assistantInput,
+        assistantLoading,
+        suggestedQueries,
+        assistantMessages,
+        openAssistant,
+        closeAssistant,
+        toggleAssistant,
+        clearAssistantChat,
+        askAssistant,
+        handleAssistantAction,
+
+        resolveAlert,
+        postponeAlert
+      };
+    }
+  });
+
+  app.mount("#app");
+});
+
+</script>
 </body>
 </html>
